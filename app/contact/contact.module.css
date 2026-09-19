@@ -1,0 +1,772 @@
+/* Contact page. Handwritten (not part of the design export): hero, one contact + enquiry composition, closing band.
+   Entrance motion comes from the shared systems: .hero-* classes (globals.css) in the hero, data-reveal (lib/site.js)
+   below it. */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8c6a44;
+}
+.eyebrowRule {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #b59168;
+}
+.onDark {
+  color: #d3b995;
+}
+.onDark .eyebrowRule {
+  background: #d3b995;
+}
+
+/* Masked rise for section headings: the heading is the mask, the line inside it is what data-reveal moves. (The
+   shared "heading" reveal clips the observed element itself, which leaves nothing for the observer to see.) */
+h2.maskLine {
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.maskLine > span {
+  display: block;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  display: flex;
+  min-height: clamp(520px, 64vh, 720px);
+  overflow: hidden;
+  background: #19332f;
+  color: #fcfaf6;
+}
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  animation: heroSettle 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.heroImg {
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+.heroShade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(15, 28, 26, 0.62) 0%, rgba(15, 28, 26, 0.16) 34%, rgba(15, 28, 26, 0.8) 100%),
+    linear-gradient(90deg, rgba(15, 28, 26, 0.6) 0%, rgba(15, 28, 26, 0) 62%);
+}
+.heroInner {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 150px clamp(20px, 5vw, 80px) clamp(48px, 5vw, 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.heroTitle {
+  margin: 22px 0 0;
+  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.35);
+}
+.heroSecond {
+  margin: 18px 0 0;
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.2;
+  color: #d3b995;
+}
+.heroText {
+  margin: 20px 0 0;
+  max-width: 50ch;
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.65;
+  color: rgba(252, 250, 246, 0.86);
+}
+@keyframes heroSettle {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Contact + enquiry composition ────────────────────────────────────── */
+.main {
+  --pad: clamp(28px, 3.4vw, 56px);
+  background: #f7f4ed;
+  padding: clamp(72px, 8vw, 120px) 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(40px, 5vw, 88px);
+  align-items: stretch;
+}
+/* The column's top padding matches the form surface's, so the two headings share one line. */
+.info {
+  display: flex;
+  flex-direction: column;
+  padding-top: calc(var(--pad) + 1px); /* + the surface's border */
+}
+.heading {
+  margin: 18px 0 0;
+  font-size: clamp(2rem, 2.9vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.026em;
+  line-height: 1.08;
+  color: #20231f;
+  text-wrap: balance;
+}
+.details {
+  margin: clamp(28px, 3vw, 40px) 0 0;
+}
+.item {
+  position: relative;
+  padding: 20px 0 22px;
+}
+.item:last-child {
+  padding-bottom: 0;
+}
+.rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: rgba(32, 35, 31, 0.14);
+}
+.label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(32, 35, 31, 0.55);
+}
+.value {
+  margin: 8px 0 0;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: #20231f;
+}
+.value a,
+.socials a {
+  color: #20231f;
+  text-decoration: none;
+  background: linear-gradient(#26443f, #26443f) 0 100% / 0 1px no-repeat;
+  transition:
+    background-size 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s ease-out;
+}
+.email {
+  overflow-wrap: anywhere;
+}
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+}
+.socials a span {
+  font-size: 0.8em;
+  color: #8c6a44;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.handle {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: rgba(32, 35, 31, 0.55);
+}
+@media (hover: hover) {
+  .value a:hover,
+  .socials a:hover {
+    color: #26443f;
+    background-size: 100% 1px;
+  }
+  .socials a:hover span {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* The image takes whatever height is left, so its bottom edge meets the bottom of the form surface. */
+.figure {
+  flex: 1 1 auto;
+  display: flex;
+  margin: clamp(32px, 3.4vw, 48px) 0 0;
+}
+.frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #e9e3d6;
+}
+.frameImg {
+  object-fit: cover;
+  object-position: 42% 50%;
+}
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 56px 22px 18px;
+  background: linear-gradient(180deg, rgba(15, 28, 26, 0), rgba(15, 28, 26, 0.72));
+  color: #fcfaf6;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.caption strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.caption span {
+  color: rgba(252, 250, 246, 0.8);
+}
+
+.panel {
+  padding: var(--pad);
+  border-radius: 14px;
+  border: 1px solid rgba(32, 35, 31, 0.08);
+  background: #fcfaf6;
+}
+.lede {
+  margin: 14px 0 0;
+  max-width: 52ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(32, 35, 31, 0.68);
+}
+
+/* ── Form ─────────────────────────────────────────────────────────────── */
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+  margin-top: clamp(28px, 3vw, 40px);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.full {
+  grid-column: 1 / -1;
+}
+.fieldLabel {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #444640;
+}
+.optional {
+  font-weight: 400;
+  color: rgba(32, 35, 31, 0.5);
+}
+.control {
+  width: 100%;
+  min-width: 0;
+  height: 58px;
+  padding: 0 18px;
+  border: 1px solid rgba(60, 40, 15, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #20231f;
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  appearance: none;
+  scroll-margin-top: 140px; /* clear of the fixed header when focus jumps to an invalid field */
+  transition:
+    border-color 0.25s ease-out,
+    box-shadow 0.25s ease-out,
+    background 0.25s ease-out;
+}
+.control::placeholder {
+  color: rgba(32, 35, 31, 0.38);
+}
+@media (hover: hover) {
+  .control:hover {
+    border-color: rgba(60, 40, 15, 0.36);
+  }
+}
+.control:focus,
+.control:focus-visible {
+  border-color: #19332f;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(181, 145, 104, 0.24);
+}
+.control[aria-invalid="true"] {
+  border-color: #a4442f;
+}
+.control[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 4px rgba(164, 68, 47, 0.16);
+}
+select.control {
+  padding-right: 48px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2320231F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+}
+textarea.control {
+  height: auto;
+  min-height: 148px;
+  padding: 16px 18px;
+  line-height: 1.55;
+  resize: vertical;
+}
+.error {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #96391f;
+}
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(32, 35, 31, 0.74);
+  cursor: pointer;
+}
+.checkbox {
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  border: 1px solid rgba(60, 40, 15, 0.32);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.55);
+  appearance: none;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease-out,
+    background 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+.checkbox::after {
+  content: "";
+  width: 11px;
+  height: 6px;
+  margin-top: -3px;
+  border: solid #fcfaf6;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg) scale(0);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.checkbox:checked {
+  border-color: #19332f;
+  background: #19332f;
+}
+.checkbox:checked::after {
+  transform: rotate(-45deg) scale(1);
+}
+.checkbox:focus-visible {
+  outline: none;
+  border-color: #19332f;
+  box-shadow: 0 0 0 4px rgba(181, 145, 104, 0.3);
+}
+.checkbox[aria-invalid="true"] {
+  border-color: #a4442f;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  padding-top: 6px;
+}
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 208px;
+  height: 58px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 999px;
+  background: #19332f;
+  color: #fcfaf6;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 10px 28px -14px rgba(25, 51, 47, 0.7);
+  transition:
+    transform 0.3s ease-out,
+    background 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+}
+.arrow {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) {
+  .submit:not(:disabled):hover {
+    transform: translateY(-2px);
+    background: #26443f;
+    box-shadow: 0 16px 34px -14px rgba(25, 51, 47, 0.75);
+  }
+  .submit:not(:disabled):hover .arrow,
+  .cta:hover .arrow {
+    transform: translateX(4px);
+  }
+}
+.submit:not(:disabled):active {
+  transform: scale(0.98);
+  transition-duration: 0.08s;
+}
+.submit:disabled {
+  cursor: progress;
+  opacity: 0.78;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(252, 250, 246, 0.35);
+  border-top-color: #fcfaf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.orCall {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: rgba(32, 35, 31, 0.62);
+}
+.orCall a {
+  color: #20231f;
+  font-weight: 500;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .orCall a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+.notice {
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(164, 68, 47, 0.3);
+  border-radius: 12px;
+  background: rgba(164, 68, 47, 0.06);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #20231f;
+}
+.notice strong {
+  display: block;
+  font-weight: 600;
+}
+.notice a {
+  color: #19332f;
+  font-weight: 500;
+}
+
+.success {
+  margin-top: clamp(28px, 3vw, 40px);
+  padding: clamp(32px, 4vw, 56px) 0 8px;
+  border-top: 1px solid rgba(32, 35, 31, 0.14);
+  outline: none;
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.tick {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #19332f;
+  color: #fcfaf6;
+}
+.successTitle {
+  margin: 24px 0 0;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1.1;
+  color: #20231f;
+}
+.successText {
+  margin: 12px 0 0;
+  max-width: 44ch;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: rgba(32, 35, 31, 0.7);
+}
+.again {
+  margin: 28px 0 0;
+  padding: 0 0 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(25, 51, 47, 0.4);
+  background: none;
+  color: #19332f;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.3s ease-out;
+}
+@media (hover: hover) {
+  .again:hover {
+    border-color: #19332f;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Closing band ─────────────────────────────────────────────────────── */
+.closing {
+  position: relative;
+  background: #19332f;
+  color: #fcfaf6;
+}
+/* The text sits in the page container, so its left edge is the same line as everything above it; the image fills the
+   other half of the band out to the screen edge. */
+.closingText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  min-height: 440px;
+  padding: clamp(72px, 8vw, 112px) clamp(32px, 5vw, 88px) clamp(72px, 8vw, 112px) 0;
+}
+.closingTitle {
+  margin: 20px 0 0;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+.closingLede {
+  margin: 18px 0 0;
+  max-width: 36ch;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: rgba(252, 250, 246, 0.78);
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 56px;
+  margin-top: 32px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: #fcfaf6;
+  color: #19332f !important;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease-out,
+    background 0.3s ease-out;
+}
+@media (hover: hover) {
+  .cta:hover {
+    transform: translateY(-2px);
+    background: #e2ccab;
+  }
+}
+.cta:focus-visible {
+  outline-color: #d3b995;
+}
+.closingMedia {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  overflow: hidden;
+}
+.closingImg {
+  object-fit: cover;
+  object-position: 35% 50%;
+}
+
+/* ── Tablet and below: one column, in reading order ───────────────────── */
+@media (max-width: 899px) {
+  .main {
+    padding: clamp(72px, 11vw, 88px) 0;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(72px, 11vw, 88px);
+  }
+  .info {
+    padding-top: 0;
+  }
+  .frame {
+    aspect-ratio: 3 / 2;
+  }
+  .closingMedia {
+    position: relative;
+    left: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .closingText {
+    width: 100%;
+    min-height: 0;
+    padding: 64px 0 80px;
+  }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+  }
+  .item:last-child {
+    padding-bottom: 22px;
+  }
+}
+
+/* ── Phones ───────────────────────────────────────────────────────────── */
+@media (max-width: 599px) {
+  /* The full-bleed form surface hands straight over to the closing band. */
+  .main {
+    padding-bottom: 0;
+  }
+  .hero {
+    min-height: 0;
+  }
+  .heroInner {
+    padding-top: 190px;
+    padding-bottom: 44px;
+  }
+  .heroImg {
+    object-position: 50% 30%;
+  }
+  .item {
+    padding: 22px 0 24px;
+  }
+  .value {
+    font-size: 1.375rem;
+  }
+  .email {
+    font-size: 1.1875rem;
+  }
+  .socials {
+    flex-direction: column;
+    gap: 0;
+    font-size: 1.1875rem;
+  }
+  .socials a {
+    min-height: 44px;
+  }
+  .value a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+  .frame {
+    aspect-ratio: 4 / 3;
+  }
+  /* The form surface runs to the screen edges so fields keep the full gutter-to-gutter width. */
+  .panel {
+    margin: 0 calc(-1 * clamp(20px, 5vw, 80px));
+    padding: 56px clamp(20px, 5vw, 80px);
+    border-width: 1px 0;
+    border-radius: 0;
+  }
+  .form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .consent {
+    font-size: 0.9375rem;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    text-align: center;
+  }
+  .submit,
+  .cta {
+    width: 100%;
+  }
+  .closingText > div {
+    align-self: stretch;
+  }
+  .closingMedia {
+    aspect-ratio: 4 / 3;
+  }
+  .closingText {
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroMedia,
+  .success,
+  .spinner {
+    animation: none;
+  }
+}

@@ -1,25 +1,34 @@
-"use client";
-import { useEffect, useRef, type CSSProperties } from "react";
-import { sharpenLogo } from "@/lib/site";
+import type { CSSProperties } from "react";
 
-// The supplied logo PNGs have hairline strokes; sharpenLogo redraws them at display size (see lib/site.js).
+// The supplied logo PNGs have hairline strokes that vanish at header size; scripts/optimize-assets.mjs renders solid,
+// slightly thickened versions once (logo-ink for light backgrounds, logo-light for dark). Both are 469:132 / 597:168,
+// i.e. the same 3.55:1 shape, so width and height here only reserve the space.
+const FILES: Record<string, string> = {
+  "/assets/logo-dark.png": "/assets/logo-ink.webp",
+  "/assets/logo-white.png": "/assets/logo-light.webp",
+};
+
 export default function Logo({
   src,
   alt,
-  color,
   height,
   style,
 }: {
   src: string;
   alt: string;
-  color: string;
+  color?: string;
   height: number;
   style?: CSSProperties;
 }) {
-  const ref = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    sharpenLogo(ref.current, color, height);
-  }, [color, height]);
-  // eslint-disable-next-line @next/next/no-img-element
-  return <img ref={ref} src={src} alt={alt} style={style} />;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={FILES[src] || src}
+      alt={alt}
+      width={Math.round(height * 3.553)}
+      height={height}
+      decoding="async"
+      style={style}
+    />
+  );
 }

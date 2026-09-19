@@ -1,21 +1,81 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import Link from "next/link";
 
-const EASE = "cubic-bezier(.16,1,.3,1)";
-
-// Full-screen video hero that opens the home page, above the pinned five-chapter story. The film is a muted loop
-// (coast, home, interiors, waterfront); under prefers-reduced-motion it stays paused on the poster frame.
+// Full-screen video hero that opens the home page, above the pinned five-chapter story. The poster is what paints
+// first (preloaded below, portrait crop on phones); the film itself is a muted loop (coast, home,
+// interiors, waterfront) that is only fetched once the page has finished loading, fades in when it can play, and
+// pauses whenever the hero is off screen. It is skipped under prefers-reduced-motion and for data-saving visitors.
 export default function HomeHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      v.pause();
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || conn?.saveData || /2g/.test(conn?.effectiveType || ""))
       return;
-    }
-    v.play().catch(() => {});
+    const section = v.closest("section")!;
+    const wrap = v.parentElement!;
+    const content = contentRef.current;
+    let visible = true;
+    let loaded = false;
+    const load = () => {
+      if (loaded) return;
+      loaded = true;
+      v.src = matchMedia("(max-width: 900px)").matches ? "/video/hero-720.mp4" : "/video/hero-1080.mp4";
+      v.addEventListener("playing", () => (v.style.opacity = "1"), { once: true });
+      if (visible) v.play().catch(() => {});
+    };
+    // The film must not compete with the page's own resources, so it waits for the load event.
+    let idle = 0;
+    const onLoad = () => (idle = window.setTimeout(load, 200));
+    if (document.readyState === "complete") onLoad();
+    else addEventListener("load", onLoad, { once: true });
+
+    // Scroll-off (larger screens): the film drifts down at a slower rate while the copy lifts and fades, so the hero
+    // recedes under the story instead of just sliding away. The listener only exists while the hero is on screen.
+    const parallax = matchMedia("(min-width: 768px) and (pointer: fine)").matches;
+    let raf = 0;
+    let height = innerHeight;
+    const update = () => {
+      raf = 0;
+      const p = Math.min(1, Math.max(0, scrollY / height));
+      wrap.style.transform = `translate3d(0,${p * 12}%,0)`;
+      if (content) {
+        content.style.transform = `translate3d(0,${p * -60}px,0)`;
+        content.style.opacity = String(1 - p * 1.4);
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    const onResize = () => (height = innerHeight);
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible) {
+        if (loaded) v.play().catch(() => {});
+        if (parallax) {
+          wrap.style.willChange = "transform";
+          addEventListener("scroll", onScroll, { passive: true });
+          onScroll();
+        }
+      } else {
+        v.pause();
+        wrap.style.willChange = "";
+        removeEventListener("scroll", onScroll);
+      }
+    });
+    io.observe(section);
+    addEventListener("resize", onResize);
+    return () => {
+      io.disconnect();
+      clearTimeout(idle);
+      removeEventListener("load", onLoad);
+      removeEventListener("scroll", onScroll);
+      removeEventListener("resize", onResize);
+      cancelAnimationFrame(raf);
+    };
   }, []);
   return (
     <section
@@ -30,21 +90,55 @@ export default function HomeHero() {
         color: "#FCFAF6",
       }}
     >
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/video/hero-poster.jpg"
-        aria-hidden
-        tabIndex={-1}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-      >
-        <source src="/video/hero-720.mp4" type="video/mp4" media="(max-width: 900px)" />
-        <source src="/video/hero-1080.mp4" type="video/mp4" />
-      </video>
+      {/* React hoists these into <head>, so the poster starts downloading before the body is parsed. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/video/hero-poster-portrait.webp"
+        media="(max-width: 900px) and (orientation: portrait)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        href="/video/hero-poster.webp"
+        media="not ((max-width: 900px) and (orientation: portrait))"
+        fetchPriority="high"
+      />
+      <div style={{ position: "absolute", inset: 0 }}>
+        <picture>
+          <source media="(max-width: 900px) and (orientation: portrait)" srcSet="/video/hero-poster-portrait.webp" />
+          <source type="image/webp" srcSet="/video/hero-poster.webp" />
+          <img
+            src="/video/hero-poster.jpg"
+            alt=""
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </picture>
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden
+          tabIndex={-1}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0,
+            transition: "opacity 1.2s ease-out",
+          }}
+        />
+      </div>
       <div
         style={{
           position: "absolute",
@@ -55,6 +149,8 @@ export default function HomeHero() {
         }}
       />
       <div
+        ref={contentRef}
+        className="hero-content"
         style={{
           position: "relative",
           height: "100%",
@@ -65,10 +161,10 @@ export default function HomeHero() {
           flexDirection: "column",
           justifyContent: "flex-end",
           gap: "22px",
-          animation: `introRise 1.1s ${EASE} .2s both`,
         }}
       >
         <div
+          className="hero-in"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -81,10 +177,19 @@ export default function HomeHero() {
             color: "#D3B995",
           }}
         >
-          <span style={{ display: "block", width: "40px", height: "1px", background: "#D3B995" }} />
+          <span
+            className="hero-rule"
+            style={{
+              display: "block",
+              width: "40px",
+              height: "1px",
+              background: "#D3B995",
+            }}
+          />
           Furtado Property · South East Queensland
         </div>
         <h1
+          className="hero-h1"
           style={{
             margin: 0,
             fontSize: "clamp(2.6rem,7vw,6.4rem)",
@@ -96,8 +201,12 @@ export default function HomeHero() {
             textShadow: "0 2px 40px rgba(0,0,0,.35)",
           }}
         >
-          {"Building Dreams, "}
-          <span style={{ color: "#D3B995" }}>Creating Homes.</span>
+          <span className="hero-line">
+            <span>Building Dreams, </span>
+          </span>
+          <span className="hero-line" style={{ "--d": ".12s" } as CSSProperties}>
+            <span style={{ color: "#D3B995" }}>Creating Homes.</span>
+          </span>
         </h1>
         <div
           style={{
@@ -109,17 +218,31 @@ export default function HomeHero() {
           }}
         >
           <p
-            style={{
-              margin: 0,
-              fontSize: "clamp(1rem,1.25vw,1.2rem)",
-              lineHeight: 1.6,
-              color: "rgba(252,250,246,.85)",
-              maxWidth: "46ch",
-            }}
+            className="hero-in"
+            style={
+              {
+                "--d": ".45s",
+                margin: 0,
+                fontSize: "clamp(1rem,1.25vw,1.2rem)",
+                lineHeight: 1.6,
+                color: "rgba(252,250,246,.85)",
+                maxWidth: "46ch",
+              } as CSSProperties
+            }
           >
             Residential developments in South East Queensland, built on over 20 years of property experience.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          <div
+            className="hero-in"
+            style={
+              {
+                "--d": ".6s",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "12px",
+              } as CSSProperties
+            }
+          >
             <Link
               data-press="lift"
               href="/projects/mira-living"
@@ -160,16 +283,14 @@ export default function HomeHero() {
                 padding: "12px 24px",
                 borderRadius: "999px",
                 border: "1px solid rgba(252,250,246,.45)",
-                background: "rgba(252,250,246,.08)",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
+                background: "rgba(15,28,26,.32)",
                 color: "#FCFAF6",
                 fontSize: ".95rem",
                 fontWeight: 600,
                 textDecoration: "none",
               }}
             >
-              Scroll the story ↓
+              Scroll the story <span className="hero-cue">↓</span>
             </a>
           </div>
         </div>

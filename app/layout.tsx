@@ -42,10 +42,11 @@ export const metadata: Metadata = {
 // Runs before first paint: enables the hidden-until-revealed rule unless motion is reduced, and skips the intro
 // unless this is the visitor's entry to the site on the home page: any other page marks the session as entered, and
 // so does the intro itself once it has played (only if introOncePerSession is on). On the home page it also marks
-// the header as sitting over the hero film, so it paints clear from the start; SiteHeader keeps that flag current.
+// the header as sitting over the hero film (and on /contact over the hero image), so it paints clear from the start;
+// SiteHeader keeps that flag current.
 const bootScript = `(function(){try{var d=document.documentElement;
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('reveal-on');
-if(location.pathname==='/')d.setAttribute('data-over-hero','');
+if(location.pathname==='/'||location.pathname==='/contact')d.setAttribute('data-over-hero','');
 if(location.pathname!=='/'){d.classList.add('intro-seen');sessionStorage.setItem('furtado-intro-seen','1');}
 else if(${site.introOncePerSession}&&sessionStorage.getItem('furtado-intro-seen')==='1')d.classList.add('intro-seen');
 }catch(e){}})();`;

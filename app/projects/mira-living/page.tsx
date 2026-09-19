@@ -53,7 +53,7 @@ export default function Page() {
                     flexWrap: "wrap",
                     alignItems: "center",
                     gap: "8px 12px",
-                    fontSize: ".7rem",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
@@ -63,7 +63,7 @@ export default function Page() {
                   <span
                     style={{
                       fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: ".8rem",
+                      fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
                       color: "rgba(32,35,31,.55)",
@@ -71,7 +71,7 @@ export default function Page() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    01 / 09
+                    01 / 08
                   </span>
                   <span
                     data-reveal="rule"
@@ -127,7 +127,7 @@ export default function Page() {
                       padding: "10px 18px",
                       color: "#20231F",
                       fontWeight: "600",
-                      fontSize: ".86rem",
+                      fontSize: "var(--fs-86)",
                     }}
                   >
                     {salesStatus}
@@ -143,13 +143,13 @@ export default function Page() {
                       padding: "10px 18px",
                       color: "#20231F",
                       fontWeight: "600",
-                      fontSize: ".86rem",
+                      fontSize: "var(--fs-86)",
                     }}
                   >
                     Completion
                     <span
                       style={{
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "500",
                         letterSpacing: ".14em",
                         textTransform: "uppercase",
@@ -170,13 +170,13 @@ export default function Page() {
                       padding: "10px 18px",
                       color: "#20231F",
                       fontWeight: "600",
-                      fontSize: ".86rem",
+                      fontSize: "var(--fs-86)",
                     }}
                   >
                     3
                     <span
                       style={{
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "500",
                         letterSpacing: ".14em",
                         textTransform: "uppercase",
@@ -203,7 +203,7 @@ export default function Page() {
                       borderRadius: "999px",
                       background: "#26443F",
                       color: "#FCFAF6",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       fontWeight: "600",
                       textDecoration: "none",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
@@ -236,7 +236,7 @@ export default function Page() {
                       borderRadius: "999px",
                       border: "1px solid rgba(32,35,31,.15)",
                       color: "#20231F",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       fontWeight: "600",
                       textDecoration: "none",
                       transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",
@@ -261,13 +261,19 @@ export default function Page() {
                 <Image
                   width={1500}
                   height={844}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 600px"
                   preload
                   data-reveal="mask"
                   data-delay="200"
                   src="/uploads/front.jpg"
                   alt="Mira Living, street elevation at dusk"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#cbd1e4",
+                  }}
                 />
               </div>
             </div>
@@ -285,7 +291,7 @@ export default function Page() {
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -294,12 +300,14 @@ export default function Page() {
                 >
                   Type
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>Residential</dd>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                  Residential
+                </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -308,12 +316,14 @@ export default function Page() {
                 >
                   Location
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>Bargara, QLD</dd>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                  Bargara, QLD
+                </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -322,12 +332,12 @@ export default function Page() {
                 >
                   Year
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>2023</dd>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>2023</dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -336,14 +346,14 @@ export default function Page() {
                 >
                   Developer
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                   Furtado Property
                 </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -352,14 +362,14 @@ export default function Page() {
                 >
                   Builder
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                   Manage Design Build
                 </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -368,14 +378,14 @@ export default function Page() {
                 >
                   Architect
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                   Mondo Architects
                 </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -384,7 +394,7 @@ export default function Page() {
                 >
                   Interior Design
                 </dt>
-                <dd style={{ margin: "0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                   Sarah Wood Design
                 </dd>
               </div>
@@ -418,13 +428,19 @@ export default function Page() {
               }}
             >
               <Image
-                width={3840}
-                height={2160}
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                width={2400}
+                height={1350}
+                sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                 data-reveal="mask"
                 src="/uploads/living.jpg"
                 alt="Mira Living apartment living area"
-                style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  backgroundColor: "#dbd9cc",
+                }}
               />
             </div>
             <div>
@@ -435,7 +451,7 @@ export default function Page() {
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: "8px 12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -445,7 +461,7 @@ export default function Page() {
                 <span
                   style={{
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: ".8rem",
+                    fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
                     color: "rgba(32,35,31,.55)",
@@ -453,7 +469,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  02 / 09
+                  02 / 08
                 </span>
                 <span
                   data-reveal="rule"
@@ -509,7 +525,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -534,7 +550,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -559,7 +575,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -584,7 +600,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -609,7 +625,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -652,7 +668,7 @@ export default function Page() {
                     flexWrap: "wrap",
                     alignItems: "center",
                     gap: "8px 12px",
-                    fontSize: ".7rem",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
@@ -662,7 +678,7 @@ export default function Page() {
                   <span
                     style={{
                       fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: ".8rem",
+                      fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
                       color: "rgba(32,35,31,.55)",
@@ -670,7 +686,7 @@ export default function Page() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    03 / 09
+                    03 / 08
                   </span>
                   <span
                     data-reveal="rule"
@@ -734,7 +750,7 @@ export default function Page() {
                 <Image
                   width={2142}
                   height={1200}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 60vw, 850px"
                   data-reveal="image"
                   src="/uploads/mira-kitchen-living-open-plan.webp"
                   alt="Open-plan kitchen and living"
@@ -745,6 +761,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#dbd9cc",
                   }}
                 />
               </div>
@@ -762,7 +779,7 @@ export default function Page() {
                 <Image
                   width={1410}
                   height={1200}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
                   data-reveal="image"
                   data-delay="100"
                   src="/uploads/mira-bedroom-ocean-view.webp"
@@ -774,6 +791,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#ebe9e4",
                   }}
                 />
               </div>
@@ -789,9 +807,9 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={2000}
-                  height={2579}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  width={1861}
+                  height={2400}
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
                   data-reveal="image"
                   src="/uploads/mira-bathroom.webp"
                   alt="Bathroom"
@@ -802,6 +820,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#ebe1dc",
                   }}
                 />
               </div>
@@ -819,7 +838,7 @@ export default function Page() {
                 <Image
                   width={2000}
                   height={1271}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 60vw, 850px"
                   data-reveal="image"
                   data-delay="100"
                   src="/uploads/mira-living-room-balcony-ocean-view.webp"
@@ -831,6 +850,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#e3e1dc",
                   }}
                 />
               </div>
@@ -846,9 +866,9 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={2621}
-                  height={2400}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  width={2400}
+                  height={2198}
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px"
                   data-reveal="image"
                   src="/uploads/mira-dining-room.webp"
                   alt="Dining room"
@@ -859,6 +879,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#8b897c",
                   }}
                 />
               </div>
@@ -876,7 +897,7 @@ export default function Page() {
                 <Image
                   width={2048}
                   height={1380}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px"
                   data-reveal="image"
                   data-delay="100"
                   src="/uploads/mira-walk-in-wardrobe.webp"
@@ -888,6 +909,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#d3c9bc",
                   }}
                 />
               </div>
@@ -931,7 +953,7 @@ export default function Page() {
                     flexWrap: "wrap",
                     alignItems: "center",
                     gap: "8px 12px",
-                    fontSize: ".7rem",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
@@ -941,7 +963,7 @@ export default function Page() {
                   <span
                     style={{
                       fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: ".8rem",
+                      fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
                       color: "#D3B995",
@@ -949,7 +971,7 @@ export default function Page() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    04 / 09
+                    04 / 08
                   </span>
                   <span
                     data-reveal="rule"
@@ -1001,7 +1023,6 @@ export default function Page() {
                       borderRadius: "16px",
                       border: "1px solid rgba(255,255,255,.1)",
                       background: "rgba(250,247,240,.06)",
-                      backdropFilter: "blur(12px)",
                       padding: "20px 24px",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                     }}
@@ -1009,7 +1030,7 @@ export default function Page() {
                     <span
                       style={{
                         display: "block",
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -1037,7 +1058,6 @@ export default function Page() {
                       borderRadius: "16px",
                       border: "1px solid rgba(255,255,255,.1)",
                       background: "rgba(250,247,240,.06)",
-                      backdropFilter: "blur(12px)",
                       padding: "20px 24px",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                     }}
@@ -1045,7 +1065,7 @@ export default function Page() {
                     <span
                       style={{
                         display: "block",
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -1073,7 +1093,6 @@ export default function Page() {
                       borderRadius: "16px",
                       border: "1px solid rgba(255,255,255,.1)",
                       background: "rgba(250,247,240,.06)",
-                      backdropFilter: "blur(12px)",
                       padding: "20px 24px",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                     }}
@@ -1081,7 +1100,7 @@ export default function Page() {
                     <span
                       style={{
                         display: "block",
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -1116,11 +1135,17 @@ export default function Page() {
                 <Image
                   width={1500}
                   height={844}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                   data-reveal="mask"
                   src="/uploads/lobby.jpg"
                   alt="Mira Living entrance"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#b3a99c",
+                  }}
                 />
               </div>
             </div>
@@ -1148,7 +1173,7 @@ export default function Page() {
                 <Image
                   width={2000}
                   height={1125}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                   data-reveal="image"
                   src="/uploads/pool.jpg"
                   alt="Landscaped pool with sun loungers and alfresco area"
@@ -1159,9 +1184,11 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
+                    backgroundColor: "#dbe1e4",
                   }}
                 />
                 <span
+                  className="glass"
                   style={{
                     position: "absolute",
                     left: "20px",
@@ -1172,10 +1199,9 @@ export default function Page() {
                     borderRadius: "999px",
                     border: "1px solid rgba(255,255,255,.2)",
                     background: "rgba(32,35,31,.55)",
-                    backdropFilter: "blur(12px)",
                     padding: "8px 14px",
                     color: "#FCFAF6",
-                    fontSize: ".72rem",
+                    fontSize: "var(--fs-72)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -1192,7 +1218,7 @@ export default function Page() {
                     flexWrap: "wrap",
                     alignItems: "center",
                     gap: "8px 12px",
-                    fontSize: ".7rem",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
@@ -1202,7 +1228,7 @@ export default function Page() {
                   <span
                     style={{
                       fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: ".8rem",
+                      fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
                       color: "#D3B995",
@@ -1210,7 +1236,7 @@ export default function Page() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    05 / 09
+                    05 / 08
                   </span>
                   <span
                     data-reveal="rule"
@@ -1252,7 +1278,7 @@ export default function Page() {
                       alignItems: "flex-start",
                       gap: "8px",
                       color: "rgba(250,247,240,.75)",
-                      fontSize: ".9rem",
+                      fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
                   >
@@ -1277,7 +1303,7 @@ export default function Page() {
                       alignItems: "flex-start",
                       gap: "8px",
                       color: "rgba(250,247,240,.75)",
-                      fontSize: ".9rem",
+                      fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
                   >
@@ -1302,7 +1328,7 @@ export default function Page() {
                       alignItems: "flex-start",
                       gap: "8px",
                       color: "rgba(250,247,240,.75)",
-                      fontSize: ".9rem",
+                      fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
                   >
@@ -1327,7 +1353,7 @@ export default function Page() {
                       alignItems: "flex-start",
                       gap: "8px",
                       color: "rgba(250,247,240,.75)",
-                      fontSize: ".9rem",
+                      fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
                   >
@@ -1372,7 +1398,7 @@ export default function Page() {
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: "8px 12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -1382,7 +1408,7 @@ export default function Page() {
                 <span
                   style={{
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: ".8rem",
+                    fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
                     color: "rgba(32,35,31,.55)",
@@ -1390,7 +1416,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  06 / 09
+                  06 / 08
                 </span>
                 <span
                   data-reveal="rule"
@@ -1453,7 +1479,7 @@ export default function Page() {
                   <span
                     style={{
                       display: "block",
-                      fontSize: ".66rem",
+                      fontSize: "var(--fs-66)",
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
@@ -1489,7 +1515,7 @@ export default function Page() {
                   <span
                     style={{
                       display: "block",
-                      fontSize: ".66rem",
+                      fontSize: "var(--fs-66)",
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
@@ -1525,7 +1551,7 @@ export default function Page() {
                   <span
                     style={{
                       display: "block",
-                      fontSize: ".66rem",
+                      fontSize: "var(--fs-66)",
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
@@ -1562,7 +1588,7 @@ export default function Page() {
                   <span
                     style={{
                       display: "block",
-                      fontSize: ".66rem",
+                      fontSize: "var(--fs-66)",
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
@@ -1599,7 +1625,7 @@ export default function Page() {
                   borderRadius: "999px",
                   background: "#26443F",
                   color: "#FCFAF6",
-                  fontSize: ".9rem",
+                  fontSize: "var(--fs-90)",
                   fontWeight: "600",
                   textDecoration: "none",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
@@ -1620,20 +1646,54 @@ export default function Page() {
               }}
             >
               <Image
-                width={1707}
-                height={2560}
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                width={1600}
+                height={2400}
+                sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                 data-reveal="mask"
                 src="/uploads/mira-idc-site-excavation.jpg"
                 alt="Excavators digging the Mira Living basement"
-                style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  backgroundColor: "#f3f1ec",
+                }}
               />
             </div>
           </div>
         </section>
         {/* Bargara */}
-        <section data-screen-label="Bargara" style={{ background: "#EEE9DF", padding: "clamp(72px,10vw,128px) 0" }}>
-          <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
+        <section
+          data-screen-label="Bargara"
+          style={{
+            position: "relative",
+            background: "linear-gradient(135deg,#2F5A51,#26443F 50%,#19332F)",
+            color: "#FCFAF6",
+            padding: "clamp(72px,10vw,128px) 0",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
+              height: "1px",
+              background: "linear-gradient(90deg,transparent,rgba(255,255,255,.1) 50%,transparent)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: "0",
+              background: "radial-gradient(at 100% 0%,rgba(211,185,149,.12),transparent 55%)",
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{ position: "relative", maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}
+          >
             <div
               style={{
                 display: "grid",
@@ -1650,29 +1710,29 @@ export default function Page() {
                     flexWrap: "wrap",
                     alignItems: "center",
                     gap: "8px 12px",
-                    fontSize: ".7rem",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
-                    color: "#8C6A44",
+                    color: "#D3B995",
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: ".8rem",
+                      fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
-                      color: "rgba(32,35,31,.55)",
+                      color: "#D3B995",
                       textTransform: "none",
                       whiteSpace: "nowrap",
                     }}
                   >
-                    07 / 09
+                    07 / 08
                   </span>
                   <span
                     data-reveal="rule"
-                    style={{ display: "block", width: "40px", height: "1px", background: "#B59168" }}
+                    style={{ display: "block", width: "40px", height: "1px", background: "#D3B995" }}
                   />
                   Bargara
                 </div>
@@ -1685,13 +1745,13 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: "-.022em",
                     lineHeight: "1.2",
-                    color: "#20231F",
+                    color: "#FCFAF6",
                     maxWidth: "20ch",
                     textWrap: "balance",
                   }}
                 >
                   {"Natural beauty with village charm, just "}
-                  <span style={{ color: "#26443F" }}>20 minutes</span>
+                  <span style={{ color: "#D3B995" }}>20 minutes</span>
                   {" from Bundaberg."}
                 </h2>
               </div>
@@ -1703,7 +1763,7 @@ export default function Page() {
                     margin: "0",
                     fontSize: "1rem",
                     lineHeight: "1.625",
-                    color: "rgba(32,35,31,.65)",
+                    color: "rgba(250,247,240,.7)",
                     maxWidth: "58ch",
                   }}
                 >
@@ -1717,7 +1777,7 @@ export default function Page() {
                     margin: "16px 0 0",
                     fontSize: "1rem",
                     lineHeight: "1.625",
-                    color: "rgba(32,35,31,.65)",
+                    color: "rgba(250,247,240,.7)",
                     maxWidth: "58ch",
                   }}
                 >
@@ -1736,120 +1796,180 @@ export default function Page() {
               }}
             >
               <figure
-                className="fx-2272416"
+                className="fx-348c660"
                 data-reveal="text"
                 style={{
                   margin: "0",
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "12px 12px 20px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#E3DCCE" }}>
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    aspectRatio: "4/3",
+                    background: "rgba(250,247,240,.08)",
+                  }}
+                >
                   <Image
                     width={2048}
                     height={1434}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
                     data-reveal="mask"
                     src="/uploads/bargara-beach-couple-walking.webp"
                     alt="Couple walking on Bargara beach"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#ebe9e4",
+                    }}
                   />
                 </div>
-                <figcaption style={{ padding: "16px 8px 0", fontSize: ".92rem", fontWeight: "500", color: "#20231F" }}>
+                <figcaption
+                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                >
                   The Esplanade and beach
                 </figcaption>
               </figure>
               <figure
-                className="fx-2272416"
+                className="fx-348c660"
                 data-reveal="text"
                 data-delay="80"
                 style={{
                   margin: "0",
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "12px 12px 20px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#E3DCCE" }}>
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    aspectRatio: "4/3",
+                    background: "rgba(250,247,240,.08)",
+                  }}
+                >
                   <Image
                     width={2048}
                     height={1366}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
                     data-reveal="mask"
                     data-delay="80"
                     src="/uploads/bargara-cafes-dining.webp"
                     alt="Café dining on Bauer Street"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#8b897c",
+                    }}
                   />
                 </div>
-                <figcaption style={{ padding: "16px 8px 0", fontSize: ".92rem", fontWeight: "500", color: "#20231F" }}>
+                <figcaption
+                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                >
                   Cafés on Bauer Street
                 </figcaption>
               </figure>
               <figure
-                className="fx-2272416"
+                className="fx-348c660"
                 data-reveal="text"
                 data-delay="160"
                 style={{
                   margin: "0",
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "12px 12px 20px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#E3DCCE" }}>
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    aspectRatio: "4/3",
+                    background: "rgba(250,247,240,.08)",
+                  }}
+                >
                   <Image
                     width={2048}
                     height={1152}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
                     data-reveal="mask"
                     data-delay="160"
                     src="/uploads/bargara-golfer-sunset.webp"
                     alt="Golfer at sunset"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#f3f1ec",
+                    }}
                   />
                 </div>
-                <figcaption style={{ padding: "16px 8px 0", fontSize: ".92rem", fontWeight: "500", color: "#20231F" }}>
+                <figcaption
+                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                >
                   Bargara Golf Club
                 </figcaption>
               </figure>
               <figure
-                className="fx-2272416"
+                className="fx-348c660"
                 data-reveal="text"
                 data-delay="240"
                 style={{
                   margin: "0",
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "12px 12px 20px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#E3DCCE" }}>
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    aspectRatio: "4/3",
+                    background: "rgba(250,247,240,.08)",
+                  }}
+                >
                   <Image
                     width={2048}
                     height={1365}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
                     data-reveal="mask"
                     data-delay="240"
                     src="/uploads/bargara-shopping-markets.webp"
                     alt="Local markets and shopping"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#7b7974",
+                    }}
                   />
                 </div>
-                <figcaption style={{ padding: "16px 8px 0", fontSize: ".92rem", fontWeight: "500", color: "#20231F" }}>
+                <figcaption
+                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                >
                   Local markets and shopping
                 </figcaption>
               </figure>
@@ -1868,21 +1988,27 @@ export default function Page() {
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "16/9",
-                    boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                    background: "#E3DCCE",
+                    boxShadow: "0 12px 44px -16px rgba(0,0,0,.45)",
+                    background: "rgba(250,247,240,.08)",
                   }}
                 >
                   <Image
                     width={2181}
                     height={1226}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px"
                     data-reveal="mask"
                     src="/uploads/bargara-golf-course-coast-aerial.webp"
                     alt="Golf course running to the coastline"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#d3e1ec",
+                    }}
                   />
                 </div>
-                <figcaption style={{ fontSize: ".8rem", color: "rgba(32,35,31,.55)" }}>
+                <figcaption style={{ fontSize: "var(--fs-80)", color: "rgba(250,247,240,.55)" }}>
                   Golf course to coastline
                 </figcaption>
               </figure>
@@ -1896,22 +2022,28 @@ export default function Page() {
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "16/9",
-                    boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                    background: "#E3DCCE",
+                    boxShadow: "0 12px 44px -16px rgba(0,0,0,.45)",
+                    background: "rgba(250,247,240,.08)",
                   }}
                 >
                   <Image
                     width={600}
                     height={450}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px"
                     data-reveal="mask"
                     data-delay="100"
                     src="/uploads/bundaberg-hospital.webp"
                     alt="Render of the new Bundaberg Hospital"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#83817c",
+                    }}
                   />
                 </div>
-                <figcaption style={{ fontSize: ".8rem", color: "rgba(32,35,31,.55)" }}>
+                <figcaption style={{ fontSize: "var(--fs-80)", color: "rgba(250,247,240,.55)" }}>
                   New Bundaberg Hospital (render)
                 </figcaption>
               </figure>
@@ -1928,20 +2060,20 @@ export default function Page() {
                 data-reveal="text"
                 style={{
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "20px 24px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
               >
                 <span
                   style={{
                     display: "block",
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "#D3B995",
                   }}
                 >
                   {"Esplanade & beach"}
@@ -1953,7 +2085,7 @@ export default function Page() {
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
                     fontSize: "1.05rem",
                     fontWeight: "500",
-                    color: "#20231F",
+                    color: "#FCFAF6",
                   }}
                 >
                   A short walk
@@ -1964,20 +2096,20 @@ export default function Page() {
                 data-delay="80"
                 style={{
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "20px 24px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
               >
                 <span
                   style={{
                     display: "block",
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "#D3B995",
                   }}
                 >
                   Bargara Golf Club
@@ -1989,7 +2121,7 @@ export default function Page() {
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
                     fontSize: "1.05rem",
                     fontWeight: "500",
-                    color: "#20231F",
+                    color: "#FCFAF6",
                   }}
                 >
                   Walking distance
@@ -2000,20 +2132,20 @@ export default function Page() {
                 data-delay="160"
                 style={{
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "20px 24px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
               >
                 <span
                   style={{
                     display: "block",
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "#D3B995",
                   }}
                 >
                   Bundaberg
@@ -2025,7 +2157,7 @@ export default function Page() {
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
                     fontSize: "1.05rem",
                     fontWeight: "500",
-                    color: "#20231F",
+                    color: "#FCFAF6",
                   }}
                 >
                   20 min
@@ -2036,20 +2168,20 @@ export default function Page() {
                 data-delay="240"
                 style={{
                   borderRadius: "16px",
-                  border: "1px solid rgba(32,35,31,.06)",
-                  background: "rgba(255,255,255,.8)",
+                  border: "1px solid rgba(255,255,255,.1)",
+                  background: "rgba(250,247,240,.06)",
                   padding: "20px 24px",
-                  boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
               >
                 <span
                   style={{
                     display: "block",
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "#D3B995",
                   }}
                 >
                   Bundaberg Airport
@@ -2061,7 +2193,7 @@ export default function Page() {
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
                     fontSize: "1.05rem",
                     fontWeight: "500",
-                    color: "#20231F",
+                    color: "#FCFAF6",
                   }}
                 >
                   25 min
@@ -2071,100 +2203,6 @@ export default function Page() {
           </div>
         </section>
         {/* Lifestyle image break */}
-        <section data-screen-label="Lifestyle" style={{ padding: "clamp(72px,10vw,128px) 0 0" }}>
-          <div
-            style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)", position: "relative" }}
-          >
-            <div
-              data-reveal="text"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "8px 12px",
-                fontSize: ".7rem",
-                fontWeight: "600",
-                letterSpacing: ".22em",
-                textTransform: "uppercase",
-                color: "#8C6A44",
-                marginBottom: "32px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                  fontSize: ".8rem",
-                  fontWeight: "500",
-                  letterSpacing: ".08em",
-                  color: "rgba(32,35,31,.55)",
-                  textTransform: "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                08 / 09
-              </span>
-              <span
-                data-reveal="rule"
-                style={{ display: "block", width: "40px", height: "1px", background: "#B59168" }}
-              />
-              Lifestyle
-            </div>
-            <div
-              style={{
-                borderRadius: "16px",
-                overflow: "hidden",
-                aspectRatio: "21/9",
-                minHeight: "300px",
-                boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                background: "#EEE9DF",
-                width: "100%",
-              }}
-            >
-              <Image
-                width={2400}
-                height={1350}
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                data-reveal="mask"
-                src="/uploads/coast-bay-aerial.webp"
-                alt="Sheltered bay and headland from the air"
-                style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
-            <div
-              data-reveal="text"
-              data-delay="200"
-              style={{
-                position: "relative",
-                margin: "-56px clamp(20px,4vw,48px) 0",
-                maxWidth: "640px",
-                borderRadius: "16px",
-                background: "#fff",
-                border: "1px solid rgba(32,35,31,.06)",
-                padding: "28px 32px",
-                boxShadow: "0 16px 48px -16px rgba(38,68,63,.3)",
-              }}
-            >
-              <p
-                style={{
-                  margin: "0",
-                  fontSize: "clamp(1.15rem,1.8vw,1.5rem)",
-                  fontWeight: "600",
-                  letterSpacing: "-.018em",
-                  lineHeight: "1.3",
-                  color: "#20231F",
-                  textWrap: "pretty",
-                }}
-              >
-                {
-                  "By choosing Mira Living as your home, you're not just purchasing a property; you're investing in a lifestyle."
-                }
-              </p>
-              <p style={{ margin: "12px 0 0", fontSize: ".95rem", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}>
-                Wake to the sound of waves and watch the sun rise over the ocean from your own oceanfront residence.
-              </p>
-            </div>
-          </div>
-        </section>
         {/* Brochure CTA panel */}
         <section data-screen-label="Brochure" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
           <div data-reveal="text" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
@@ -2205,7 +2243,7 @@ export default function Page() {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -2213,7 +2251,7 @@ export default function Page() {
                 }}
               >
                 <span style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }} />
-                09 / 09 · Brochure
+                08 / 08 · Brochure
                 <span style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }} />
               </div>
               <h2
@@ -2264,7 +2302,7 @@ export default function Page() {
                     borderRadius: "999px",
                     background: "#D3B995",
                     color: "#19332F",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     fontWeight: "600",
                     textDecoration: "none",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.25),0 10px 36px -12px rgba(211,185,149,.45)",
@@ -2297,7 +2335,7 @@ export default function Page() {
                     borderRadius: "999px",
                     border: "1px solid rgba(250,247,240,.2)",
                     color: "#FCFAF6",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     fontWeight: "600",
                     textDecoration: "none",
                     transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",

@@ -54,7 +54,7 @@ export default function SiteFooter() {
               <p
                 style={{
                   margin: "0",
-                  fontSize: ".92rem",
+                  fontSize: "var(--fs-92)",
                   lineHeight: "1.625",
                   color: "rgba(250,247,240,.68)",
                   maxWidth: "36ch",
@@ -74,7 +74,7 @@ export default function SiteFooter() {
                   borderRadius: "999px",
                   background: "#D3B995",
                   color: "#19332F",
-                  fontSize: ".9rem",
+                  fontSize: "var(--fs-90)",
                   fontWeight: "600",
                   textDecoration: "none",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.25),0 10px 36px -12px rgba(211,185,149,.45)",
@@ -96,7 +96,7 @@ export default function SiteFooter() {
               <div style={{ display: "flex", flexDirection: "column", gap: "14px", minWidth: "0" }}>
                 <span
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -111,7 +111,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -123,7 +123,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -135,7 +135,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -147,7 +147,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -159,7 +159,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -169,7 +169,7 @@ export default function SiteFooter() {
               <div style={{ display: "flex", flexDirection: "column", gap: "14px", minWidth: "0" }}>
                 <span
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -184,7 +184,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -196,19 +196,19 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                     overflowWrap: "anywhere",
                   }}
                 >
                   info@furtadoproperty.com.au
                 </a>
-                <span style={{ color: "rgba(250,247,240,.75)", fontSize: ".92rem" }}>South East Queensland</span>
+                <span style={{ color: "rgba(250,247,240,.75)", fontSize: "var(--fs-92)" }}>South East Queensland</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "14px", minWidth: "0" }}>
                 <span
                   style={{
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -223,7 +223,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -235,7 +235,7 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
@@ -247,13 +247,13 @@ export default function SiteFooter() {
                   style={{
                     color: "rgba(250,247,240,.75)",
                     textDecoration: "none",
-                    fontSize: ".92rem",
+                    fontSize: "var(--fs-92)",
                     transition: "color .2s",
                   }}
                 >
                   LinkedIn
                 </a>
-                <span style={{ color: "rgba(250,247,240,.4)", fontSize: ".92rem" }}>@furtadoproperty</span>
+                <span style={{ color: "rgba(250,247,240,.4)", fontSize: "var(--fs-92)" }}>@furtadoproperty</span>
               </div>
             </div>
           </div>
@@ -264,14 +264,14 @@ export default function SiteFooter() {
               justifyContent: "space-between",
               gap: "12px 32px",
               padding: "24px 0 32px",
-              fontSize: ".78rem",
+              fontSize: "var(--fs-78)",
               color: "rgba(250,247,240,.55)",
             }}
           >
             <span>© Furtado Property 2026</span>
             <span
               style={{
-                fontSize: ".72rem",
+                fontSize: "var(--fs-72)",
                 letterSpacing: ".18em",
                 textTransform: "uppercase",
                 color: "rgba(250,247,240,.4)",

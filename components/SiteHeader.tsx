@@ -12,47 +12,55 @@ export default function SiteHeader() {
   const [openAt, setOpenAt] = useState<string | null>(null);
   const menuOpen = openAt === pathname;
   const barRef = useRef<HTMLDivElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    let scrolled: boolean | null = null;
-    const onScroll = () => {
-      // Over the home hero film the bar stays clear until the hero has scrolled out from under it; elsewhere it
-      // turns solid as soon as the page moves. globals.css styles the clear state off html[data-over-hero].
-      const hero = document.querySelector("[data-video-hero]");
-      const s = hero ? hero.getBoundingClientRect().bottom <= 64 : window.scrollY > 8;
-      if (s === scrolled) return;
-      scrolled = s;
-      document.documentElement.toggleAttribute("data-over-hero", !!hero && !s);
-      const b = barRef.current,
-        i = innerRef.current;
-      if (!b) return;
-      b.toggleAttribute("data-scrolled", s);
-      b.style.background = s ? "rgba(247,244,237,.95)" : "rgba(247,244,237,.85)";
-      b.style.borderBottomColor = s ? "rgba(32,35,31,.15)" : "rgba(32,35,31,.08)";
-      b.style.boxShadow = s ? "0 8px 28px -12px rgba(60,40,15,.18)" : "none";
-      if (i) i.style.height = s ? "64px" : "92px";
-    };
+    // Over the home hero film the bar stays clear until the hero has scrolled out from under it; elsewhere it turns
+    // solid as soon as the page moves. No scroll listener: an IntersectionObserver watches the hero (or, on other
+    // pages, a marker across the top 8px of the document) and flips two attributes that globals.css styles —
+    // .site-bar[data-scrolled] and html[data-over-hero].
+    const hero = document.querySelector("[data-video-hero]");
+    const marker = hero ? null : document.createElement("div");
+    if (marker) {
+      marker.style.cssText = "position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none";
+      document.body.append(marker);
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        const s = !e.isIntersecting;
+        document.documentElement.toggleAttribute("data-over-hero", !!hero && !s);
+        barRef.current?.toggleAttribute("data-scrolled", s);
+      },
+      { rootMargin: hero ? "-64px 0px 0px 0px" : "0px" },
+    );
+    io.observe(hero || marker!);
     const mq = matchMedia("(min-width: 1024px)");
     const onMq = () => {
       if (mq.matches) setOpenAt(null);
     };
-    addEventListener("scroll", onScroll, { passive: true });
     mq.addEventListener("change", onMq);
-    onScroll();
     return () => {
-      removeEventListener("scroll", onScroll);
+      io.disconnect();
+      marker?.remove();
       mq.removeEventListener("change", onMq);
     };
   }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
+    // While the drawer is open the page behind it does not scroll, Escape closes it, and focus starts on Close.
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    closeRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpenAt(null);
     };
     addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
+    return () => {
+      root.style.overflow = prev;
+      removeEventListener("keydown", onKey);
+    };
   }, [menuOpen]);
 
   const items: [string, string][] = [
@@ -81,6 +89,7 @@ export default function SiteHeader() {
     <>
       <div
         ref={barRef}
+        className="site-bar"
         style={{
           position: "fixed",
           top: "0",
@@ -88,14 +97,12 @@ export default function SiteHeader() {
           right: "0",
           zIndex: "60",
           background: "rgba(247,244,237,.85)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
           borderBottom: "1px solid rgba(32,35,31,.08)",
           transition: "background .5s ease-out,box-shadow .5s ease-out,border-color .5s ease-out",
         }}
       >
         <div
-          ref={innerRef}
+          className="site-bar-inner"
           style={{
             maxWidth: "1400px",
             margin: "0 auto",
@@ -130,7 +137,7 @@ export default function SiteHeader() {
                     href={l.href}
                     style={{
                       position: "relative",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       fontWeight: "500",
                       lineHeight: "1.5",
                       textDecoration: "none",
@@ -165,7 +172,7 @@ export default function SiteHeader() {
                 borderRadius: "999px",
                 background: "#26443F",
                 color: "#FCFAF6",
-                fontSize: ".88rem",
+                fontSize: "var(--fs-88)",
                 fontWeight: "600",
                 textDecoration: "none",
                 boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
@@ -188,7 +195,7 @@ export default function SiteHeader() {
                   borderRadius: "999px",
                   background: "#26443F",
                   color: "#FCFAF6",
-                  fontSize: ".84rem",
+                  fontSize: "var(--fs-84)",
                   fontWeight: "600",
                   textDecoration: "none",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
@@ -227,18 +234,19 @@ export default function SiteHeader() {
         <>
           <div
             onClick={closeMenu}
+            className="site-scrim"
             style={{
               position: "fixed",
               inset: "0",
               zIndex: "70",
               background: "rgba(32,35,31,.35)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
               animation: "scrimIn .4s ease-out",
             }}
           />
           <div
             role="dialog"
+            aria-modal="true"
+            className="site-drawer"
             aria-label="Menu"
             style={{
               position: "fixed",
@@ -267,7 +275,7 @@ export default function SiteHeader() {
             >
               <span
                 style={{
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -280,6 +288,7 @@ export default function SiteHeader() {
                 type="button"
                 onClick={closeMenu}
                 aria-label="Close menu"
+                ref={closeRef}
                 style={{
                   height: "40px",
                   padding: "0 16px",
@@ -288,7 +297,7 @@ export default function SiteHeader() {
                   background: "transparent",
                   color: "#20231F",
                   font: "inherit",
-                  fontSize: ".84rem",
+                  fontSize: "var(--fs-84)",
                   fontWeight: "600",
                   cursor: "pointer",
                 }}
@@ -318,7 +327,7 @@ export default function SiteHeader() {
                     <span
                       style={{
                         fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                        fontSize: ".78rem",
+                        fontSize: "var(--fs-78)",
                         fontWeight: "500",
                         letterSpacing: ".08em",
                         color: "rgba(32,35,31,.4)",
@@ -337,7 +346,7 @@ export default function SiteHeader() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
-                fontSize: ".9rem",
+                fontSize: "var(--fs-90)",
               }}
             >
               <Link
@@ -351,7 +360,7 @@ export default function SiteHeader() {
                   borderRadius: "999px",
                   background: "#26443F",
                   color: "#FCFAF6",
-                  fontSize: ".9rem",
+                  fontSize: "var(--fs-90)",
                   fontWeight: "600",
                   textDecoration: "none",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",

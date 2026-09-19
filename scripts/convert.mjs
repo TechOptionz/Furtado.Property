@@ -30,11 +30,17 @@ const DESCRIPTIONS = {
   Contact: 'Interested in one of our developments or want to learn more? Call 0418 982 517 or email info@furtadoproperty.com.au.',
 };
 
+// Written by scripts/optimize-assets.mjs (placeholder colour per photograph) and scripts/measure-image-sizes.mjs
+// (the `sizes` each image actually needs, measured from the rendered pages). Both are optional.
+const readJson = (file, fallback) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8')); } catch { return fallback; } };
+const IMAGE_META = readJson('lib/image-meta.json', {});
+const IMAGE_SIZES = readJson('scripts/image-sizes.json', {});
+
 const SITE_VARS = ['salesStatus', 'completion', 'constructionStatus', 'structureStatus', 'availability', 'statusLine'];
 
 const PAGES = [
   {
-    file: 'Home', out: 'app/page.tsx', extra: '<HomeStory /><CountUp />',
+    file: 'Home', out: 'app/page.tsx', noPreload: true, extra: '<HomeStory /><CountUp />',
     extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";',
     // The video hero (components/HomeHero.tsx) opens the page and owns the h1; the story below it starts at #story.
     // The export's first story chapter repeats the hero (same headline, copy and buttons), so it is dropped and the
@@ -56,8 +62,8 @@ const PAGES = [
       world.setAttribute('style', world.getAttribute('style').replace('height:560vh', 'height:480vh'));
       // With one chapter gone, the running section numbers further down the page shift by one ("07 / 12" → "06 / 11").
       root.querySelectorAll('span').forEach((s) => {
-        const m = s.text.match(/^(\d\d) \/ 12$/);
-        if (m) s.set_content(`${String(m[1] - 1).padStart(2, '0')} / 11`);
+        const m = s.text.match(/^(\d\d) \/ 12(.*)$/);
+        if (m) s.set_content(`${String(m[1] - 1).padStart(2, '0')} / 11${m[2]}`);
       });
       // Figures: whole numbers count up when the cards scroll in (components/CountUp.tsx), every card lifts on hover
       // (the export leaves the highlighted one static), and the status badge gets a live dot.
@@ -75,12 +81,16 @@ const PAGES = [
     },
     patch: (jsx) => jsx
       .replace(/(<main\b[^>]*>)/, '$1<HomeHero />')
-      .replace('data-world=""', 'data-world="" id="story"'),
+      .replace('data-world=""', 'data-world="" id="story"')
+      // The centred labels carry their running number as bare text ("09 / 12 · The residences").
+      .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`),
   },
-  { file: 'About', out: 'app/about/page.tsx' },
+  // The aerial image break (photo + overlapping quote card) is dropped from both pages, and the running section
+  // numbers close the gap ("06 / 06" → "05 / 05").
+  { file: 'About', out: 'app/about/page.tsx', ...dropSection('Image', 6) },
   { file: 'Projects', out: 'app/projects/page.tsx' },
-  { file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx' },
-  { file: 'Contact', out: 'app/contact/page.tsx' },
+  { file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx', ...dropSection('Lifestyle', 9) },
+  // /contact is handwritten (app/contact/) and no longer compiled from Contact.dc.html.
 ];
 
 const COMPONENTS = [
@@ -89,46 +99,56 @@ const COMPONENTS = [
     logo: { color: '#20231F', height: 40 },
     ifAsClass: { wide: 'only-wide', narrow: 'only-narrow' },
     imports: 'import { useEffect, useRef, useState } from "react";\nimport { usePathname } from "next/navigation";',
+    noGlass: true, // the bar and scrim get their own rules in globals.css
     signature: 'SiteHeader()',
+    // Hooks for globals.css (bar states, phone bar height, drawer) and the close button's ref.
+    patch: (jsx) => jsx
+      .replace('ref={barRef}', 'ref={barRef} className="site-bar"')
+      .replace('ref={innerRef}', 'className="site-bar-inner"')
+      .replace('role="dialog"', 'role="dialog" aria-modal="true" className="site-drawer"')
+      .replace(/onClick={closeMenu}(?=[^>]*animation: "scrimIn)/, 'onClick={closeMenu} className="site-scrim"')
+      .replace('aria-label="Close menu"', 'aria-label="Close menu" ref={closeRef}'),
     preamble: `
   const pathname = usePathname();
   // The drawer is open only for the route it was opened on, so navigating closes it.
   const [openAt, setOpenAt] = useState<string | null>(null);
   const menuOpen = openAt === pathname;
   const barRef = useRef<HTMLDivElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    let scrolled: boolean | null = null;
-    const onScroll = () => {
-      // Over the home hero film the bar stays clear until the hero has scrolled out from under it; elsewhere it
-      // turns solid as soon as the page moves. globals.css styles the clear state off html[data-over-hero].
-      const hero = document.querySelector("[data-video-hero]");
-      const s = hero ? hero.getBoundingClientRect().bottom <= 64 : window.scrollY > 8;
-      if (s === scrolled) return;
-      scrolled = s;
+    // Over the home hero film the bar stays clear until the hero has scrolled out from under it; elsewhere it turns
+    // solid as soon as the page moves. No scroll listener: an IntersectionObserver watches the hero (or, on other
+    // pages, a marker across the top 8px of the document) and flips two attributes that globals.css styles —
+    // .site-bar[data-scrolled] and html[data-over-hero].
+    const hero = document.querySelector("[data-video-hero]");
+    const marker = hero ? null : document.createElement("div");
+    if (marker) {
+      marker.style.cssText = "position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none";
+      document.body.append(marker);
+    }
+    const io = new IntersectionObserver(([e]) => {
+      const s = !e.isIntersecting;
       document.documentElement.toggleAttribute("data-over-hero", !!hero && !s);
-      const b = barRef.current, i = innerRef.current;
-      if (!b) return;
-      b.toggleAttribute("data-scrolled", s);
-      b.style.background = s ? "rgba(247,244,237,.95)" : "rgba(247,244,237,.85)";
-      b.style.borderBottomColor = s ? "rgba(32,35,31,.15)" : "rgba(32,35,31,.08)";
-      b.style.boxShadow = s ? "0 8px 28px -12px rgba(60,40,15,.18)" : "none";
-      if (i) i.style.height = s ? "64px" : "92px";
-    };
+      barRef.current?.toggleAttribute("data-scrolled", s);
+    }, { rootMargin: hero ? "-64px 0px 0px 0px" : "0px" });
+    io.observe(hero || marker!);
     const mq = matchMedia("(min-width: 1024px)");
     const onMq = () => { if (mq.matches) setOpenAt(null); };
-    addEventListener("scroll", onScroll, { passive: true });
     mq.addEventListener("change", onMq);
-    onScroll();
-    return () => { removeEventListener("scroll", onScroll); mq.removeEventListener("change", onMq); };
+    return () => { io.disconnect(); marker?.remove(); mq.removeEventListener("change", onMq); };
   }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
+    // While the drawer is open the page behind it does not scroll, Escape closes it, and focus starts on Close.
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    closeRef.current?.focus();
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpenAt(null); };
     addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
+    return () => { root.style.overflow = prev; removeEventListener("keydown", onKey); };
   }, [menuOpen]);
 
   const items: [string, string][] = [
@@ -196,7 +216,14 @@ const cssKey = (prop) => {
   if (prop.startsWith('-')) { const c = camel(prop.slice(1)); return c[0].toUpperCase() + c.slice(1); }
   return camel(prop);
 };
-const decls = (css) => css.split(';').map(d => d.trim()).filter(Boolean).map(d => { const i = d.indexOf(':'); return [d.slice(0, i).trim(), d.slice(i + 1).trim().replace(/'Geist Mono'/g, 'var(--font-geist-mono)')]; });
+// Fixed type sizes become tokens (app/globals.css) so phones can run body copy and labels a step larger than the
+// desktop design without touching the export: .95rem → var(--fs-95).
+const FS_TOKENS = new Set(['.66', '.7', '.72', '.78', '.8', '.84', '.86', '.88', '.9', '.92', '.95']);
+const token = (p, v) => {
+  const m = p === 'font-size' && v.match(/^(\.\d+)rem$/);
+  return m && FS_TOKENS.has(m[1]) ? `var(--fs-${m[1].slice(1).padEnd(2, '0')})` : v;
+};
+const decls = (css) => css.split(';').map(d => d.trim()).filter(Boolean).map(d => { const i = d.indexOf(':'); const p = d.slice(0, i).trim(); return [p, token(p, d.slice(i + 1).trim().replace(/'Geist Mono'/g, 'var(--font-geist-mono)'))]; });
 
 // "a {{ x }} b" → JS expression
 const BIND = /\{\{\s*([^}]+?)\s*\}\}/g;
@@ -209,10 +236,15 @@ function expr(value) {
 }
 
 function styleObject(css) {
+  // backdrop-filter is the most expensive thing on these pages. On the dark cards (6% white over flat green) it
+  // changes nothing visible, so it goes; the caption pills over photographs keep a small blur on larger screens
+  // through the .glass class (globals.css), which element() adds.
+  css = css.replace(/(^|;)\s*(-webkit-)?backdrop-filter:[^;]*/g, '$1');
   // aspect-ratio + min-height transfers a minimum width through the ratio and overflows narrow screens; a definite
   // width keeps the box inside its column (the image inside is object-fit: cover).
   if (/aspect-ratio:/.test(css) && /min-height:/.test(css) && !/(^|;)s*width:/.test(css)) css += ';width:100%';
-  return '{{ ' + decls(css).map(([p, v]) => `${cssKey(p)}: ${expr(v)}`).join(', ') + ' }}';
+  const body = '{ ' + decls(css).map(([p, v]) => `${cssKey(p)}: ${expr(v)}`).join(', ') + ' }';
+  return /(^|;)\s*--/.test(css) ? `{${body} as React.CSSProperties}` : `{${body}}`; // custom properties need the cast
 }
 
 function fxClass(states) {
@@ -274,7 +306,10 @@ function element(node, ctx) {
 
   const out = [];
   const states = {};
+  const classes = [];
   let name = tag;
+  if (/backdrop-filter:\s*blur/.test(attrs.style || '') && !/rgba\(250,247,240,\.06\)/.test(attrs.style) && !ctx.cfg.noGlass) classes.push('glass');
+  if (attrs['data-sticky']) attrs.style = `${attrs.style || ''};--sticky-top:${attrs['data-sticky']}`;
 
   if (tag === 'img') {
     const src = localSrc(attrs.src);
@@ -286,8 +321,15 @@ function element(node, ctx) {
     name = 'Image';
     const dim = imageSize(fs.readFileSync(path.join(ROOT, 'public', src)));
     attrs.src = src;
-    out.push(`width={${dim.width}}`, `height={${dim.height}}`, `sizes="${ctx.imgSizes || '(min-width: 1024px) 50vw, 100vw'}"`);
-    if (!ctx.firstImage) { ctx.firstImage = true; out.push('preload'); }
+    ctx.imgIndex = (ctx.imgIndex ?? -1) + 1;
+    const sizes = IMAGE_SIZES[ctx.cfg.out]?.[ctx.imgIndex];
+    out.push(`width={${dim.width}}`, `height={${dim.height}}`, `sizes="${sizes || '(min-width: 1024px) 50vw, 100vw'}"`);
+    // Only the first image of a page is above the fold and gets fetched early; on Home that job belongs to the
+    // hero poster. Everything else is lazy (next/image's default).
+    if (!ctx.firstImage && !ctx.cfg.noPreload) out.push('preload');
+    ctx.firstImage = true;
+    // Placeholder: the photograph's own softened colour fills the reserved box until the pixels arrive.
+    if (IMAGE_META[src]) attrs.style = `${attrs.style || ''};background-color:${IMAGE_META[src]}`;
   }
 
   if (tag === 'a' && ROUTES[attrs.href]) { name = 'Link'; ctx.uses.add('Link'); attrs.href = ROUTES[attrs.href]; }
@@ -310,7 +352,8 @@ function element(node, ctx) {
     if (NUMERIC.has(k) && /^"\d+"$/.test(e)) out.push(`${k}={${e.slice(1, -1)}}`);
     else out.push(e[0] === '"' ? `${k}=${e.includes('\\') ? `{${e}}` : e}` : `${k}={${e}}`);
   }
-  if (Object.keys(states).length) out.unshift(`className="${fxClass(states)}"`);
+  if (Object.keys(states).length) classes.unshift(fxClass(states));
+  if (classes.length) out.unshift(`className="${classes.join(' ')}"`);
 
   const open = `<${name}${out.length ? ' ' + out.join(' ') : ''}`;
   if (VOID.has(tag)) return `${open} />`;
@@ -323,6 +366,22 @@ function render(node, ctx) {
   if (node.nodeType === 8) return `{/* ${node.rawText.trim()} */}`;
   if (node.nodeType === 1) return element(node, ctx);
   return '';
+}
+
+// Page options that remove the section with the given data-screen-label and renumber the "NN / total" labels around it.
+function dropSection(label, total) {
+  const pad = (n) => String(n).padStart(2, '0');
+  let dropped = total;
+  return {
+    patchDom: (root) => {
+      const section = root.querySelector(`[data-screen-label="${label}"]`);
+      if (!section) throw new Error(`dropSection: no "${label}" section`);
+      const m = section.text.match(new RegExp(`(\\d\\d) \\/ ${pad(total)}`));
+      if (m) dropped = Number(m[1]);
+      section.remove();
+    },
+    patch: (jsx) => jsx.replace(new RegExp(`(\\d\\d) \\/ ${pad(total)}`, 'g'), (_, n) => `${pad(n > dropped ? n - 1 : Number(n))} / ${pad(total - 1)}`),
+  };
 }
 
 function load(file) {
@@ -383,7 +442,8 @@ export default function Page() {
 for (const cfg of COMPONENTS) {
   const { root } = load(cfg.file);
   const ctx = { cfg, uses: new Set(), firstImage: true };
-  const jsx = root.childNodes.map(n => render(n, ctx)).join('');
+  const rendered = root.childNodes.map(n => render(n, ctx)).join('');
+  const jsx = cfg.patch ? cfg.patch(rendered) : rendered;
   const imports = [cfg.imports, ...[...ctx.uses].map(u => IMPORTS[u])].filter(Boolean);
   await write(cfg.out, `${cfg.client ? '"use client";\n' : ''}${HEADER}${imports.join('\n')}
 

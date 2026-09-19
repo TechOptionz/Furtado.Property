@@ -53,7 +53,7 @@ export default function Page() {
                     flexWrap: "wrap",
                     alignItems: "center",
                     gap: "8px 12px",
-                    fontSize: ".7rem",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
@@ -63,7 +63,7 @@ export default function Page() {
                   <span
                     style={{
                       fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: ".8rem",
+                      fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
                       color: "rgba(32,35,31,.55)",
@@ -71,7 +71,7 @@ export default function Page() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    01 / 06
+                    01 / 05
                   </span>
                   <span
                     data-reveal="rule"
@@ -127,7 +127,7 @@ export default function Page() {
                       padding: "10px 18px",
                       color: "#20231F",
                       fontWeight: "600",
-                      fontSize: ".86rem",
+                      fontSize: "var(--fs-86)",
                     }}
                   >
                     Residential developer
@@ -143,7 +143,7 @@ export default function Page() {
                       padding: "10px 18px",
                       color: "#20231F",
                       fontWeight: "600",
-                      fontSize: ".86rem",
+                      fontSize: "var(--fs-86)",
                     }}
                   >
                     South East Queensland
@@ -165,7 +165,7 @@ export default function Page() {
                       borderRadius: "999px",
                       background: "#26443F",
                       color: "#FCFAF6",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       fontWeight: "600",
                       textDecoration: "none",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
@@ -198,7 +198,7 @@ export default function Page() {
                       borderRadius: "999px",
                       border: "1px solid rgba(32,35,31,.15)",
                       color: "#20231F",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       fontWeight: "600",
                       textDecoration: "none",
                       transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",
@@ -223,22 +223,55 @@ export default function Page() {
                 <Image
                   width={1410}
                   height={1200}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 600px"
                   preload
                   data-reveal="mask"
                   data-delay="200"
                   src="/uploads/mira-bedroom-ocean-view.webp"
                   alt="Mira Living bedroom with ocean view"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#ebe9e4",
+                  }}
                 />
               </div>
             </div>
           </div>
         </section>
         {/* Facts strip */}
-        <section data-screen-label="Facts" style={{ padding: "0 0 clamp(72px,10vw,128px)" }}>
+        <section
+          data-screen-label="Facts"
+          style={{
+            position: "relative",
+            background: "linear-gradient(135deg,#2F5A51,#26443F 50%,#19332F)",
+            color: "#FCFAF6",
+            padding: "clamp(56px,7vw,96px) 0",
+          }}
+        >
           <div
             style={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
+              height: "1px",
+              background: "linear-gradient(90deg,transparent,rgba(255,255,255,.1) 50%,transparent)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: "0",
+              background: "radial-gradient(at 100% 0%,rgba(211,185,149,.12),transparent 55%)",
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "relative",
               maxWidth: "1440px",
               margin: "0 auto",
               padding: "0 clamp(20px,5vw,80px)",
@@ -251,10 +284,10 @@ export default function Page() {
               data-reveal="text"
               style={{
                 borderRadius: "16px",
-                border: "1px solid rgba(32,35,31,.06)",
-                background: "rgba(255,255,255,.8)",
+                border: "1px solid rgba(255,255,255,.1)",
+                background: "rgba(250,247,240,.06)",
                 padding: "28px",
-                boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "8px",
@@ -262,11 +295,11 @@ export default function Page() {
             >
               <span
                 style={{
-                  fontSize: ".66rem",
+                  fontSize: "var(--fs-66)",
                   fontWeight: "600",
                   letterSpacing: ".18em",
                   textTransform: "uppercase",
-                  color: "rgba(32,35,31,.55)",
+                  color: "#D3B995",
                 }}
               >
                 Experience
@@ -278,22 +311,22 @@ export default function Page() {
                   fontWeight: "500",
                   letterSpacing: "-.01em",
                   lineHeight: "1.1",
-                  color: "#20231F",
+                  color: "#FCFAF6",
                 }}
               >
                 20+
               </span>
-              <span style={{ fontSize: ".92rem", color: "rgba(32,35,31,.65)" }}>Years in property</span>
+              <span style={{ fontSize: "var(--fs-92)", color: "rgba(250,247,240,.7)" }}>Years in property</span>
             </div>
             <div
               data-reveal="text"
               data-delay="80"
               style={{
                 borderRadius: "16px",
-                border: "1px solid rgba(32,35,31,.06)",
-                background: "rgba(255,255,255,.8)",
+                border: "1px solid rgba(255,255,255,.1)",
+                background: "rgba(250,247,240,.06)",
                 padding: "28px",
-                boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "8px",
@@ -301,11 +334,11 @@ export default function Page() {
             >
               <span
                 style={{
-                  fontSize: ".66rem",
+                  fontSize: "var(--fs-66)",
                   fontWeight: "600",
                   letterSpacing: ".18em",
                   textTransform: "uppercase",
-                  color: "rgba(32,35,31,.55)",
+                  color: "#D3B995",
                 }}
               >
                 Region
@@ -316,13 +349,15 @@ export default function Page() {
                   fontWeight: "600",
                   letterSpacing: "-.018em",
                   lineHeight: "1.2",
-                  color: "#20231F",
+                  color: "#FCFAF6",
                   padding: "10px 0",
                 }}
               >
                 South East Queensland
               </span>
-              <span style={{ fontSize: ".92rem", color: "rgba(32,35,31,.65)" }}>Coastal and regional locations</span>
+              <span style={{ fontSize: "var(--fs-92)", color: "rgba(250,247,240,.7)" }}>
+                Coastal and regional locations
+              </span>
             </div>
             <div
               data-reveal="text"
@@ -330,10 +365,10 @@ export default function Page() {
               style={{
                 position: "relative",
                 borderRadius: "16px",
-                border: "2px solid rgba(38,68,63,.4)",
-                background: "#fff",
+                border: "2px solid #D3B995",
+                background: "#FCFAF6",
                 padding: "28px",
-                boxShadow: "0 16px 48px -16px rgba(38,68,63,.3)",
+                boxShadow: "0 20px 56px -18px rgba(0,0,0,.45)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "8px",
@@ -344,11 +379,12 @@ export default function Page() {
                   position: "absolute",
                   top: "-12px",
                   left: "28px",
-                  background: "#26443F",
+                  background: "#19332F",
                   color: "#FCFAF6",
+                  border: "1px solid rgba(211,185,149,.55)",
                   borderRadius: "999px",
                   padding: "4px 12px",
-                  fontSize: ".66rem",
+                  fontSize: "var(--fs-66)",
                   fontWeight: "600",
                   letterSpacing: ".18em",
                   textTransform: "uppercase",
@@ -360,7 +396,7 @@ export default function Page() {
               </span>
               <span
                 style={{
-                  fontSize: ".66rem",
+                  fontSize: "var(--fs-66)",
                   fontWeight: "600",
                   letterSpacing: ".18em",
                   textTransform: "uppercase",
@@ -383,7 +419,7 @@ export default function Page() {
               </span>
               <Link
                 href="/projects/mira-living"
-                style={{ fontSize: ".92rem", fontWeight: "500", color: "#20231F", textDecoration: "none" }}
+                style={{ fontSize: "var(--fs-92)", fontWeight: "500", color: "#20231F", textDecoration: "none" }}
                 data-link=""
               >
                 Discover Mira Living →
@@ -416,11 +452,17 @@ export default function Page() {
               <Image
                 width={2181}
                 height={1226}
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                 data-reveal="mask"
                 src="/uploads/bargara-golf-course-coast-aerial.webp"
                 alt="Bargara golf course running to the coastline"
-                style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  backgroundColor: "#d3e1ec",
+                }}
               />
             </div>
             <div>
@@ -431,7 +473,7 @@ export default function Page() {
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: "8px 12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -441,7 +483,7 @@ export default function Page() {
                 <span
                   style={{
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: ".8rem",
+                    fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
                     color: "rgba(32,35,31,.55)",
@@ -449,7 +491,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  02 / 06
+                  02 / 05
                 </span>
                 <span
                   data-reveal="rule"
@@ -505,7 +547,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -530,7 +572,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -555,7 +597,7 @@ export default function Page() {
                     alignItems: "flex-start",
                     gap: "8px",
                     color: "rgba(32,35,31,.75)",
-                    fontSize: ".9rem",
+                    fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -589,7 +631,7 @@ export default function Page() {
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: "8px 12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -600,7 +642,7 @@ export default function Page() {
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#B59168" }}
                 />
-                03 / 06 · What guides us
+                03 / 05 · What guides us
                 <span
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#B59168" }}
@@ -649,11 +691,17 @@ export default function Page() {
                   <Image
                     width={1500}
                     height={844}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px"
                     data-reveal="mask"
                     src="/uploads/front.jpg"
                     alt="Mira Living street elevation"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#cbd1e4",
+                    }}
                   />
                 </div>
                 <div style={{ padding: "24px 16px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -667,7 +715,7 @@ export default function Page() {
                       background: "#B59168",
                       color: "#19332F",
                       fontWeight: "600",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                     }}
                   >
@@ -685,7 +733,9 @@ export default function Page() {
                   >
                     Our Commitment
                   </h3>
-                  <p style={{ margin: "0", fontSize: ".92rem", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}>
+                  <p
+                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                  >
                     We prioritise quality, architectural design and customer satisfaction in every development.
                   </p>
                 </div>
@@ -709,12 +759,18 @@ export default function Page() {
                   <Image
                     width={2142}
                     height={1200}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px"
                     data-reveal="mask"
                     data-delay="100"
                     src="/uploads/mira-kitchen-living-open-plan.webp"
                     alt="Open-plan kitchen and living"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#dbd9cc",
+                    }}
                   />
                 </div>
                 <div style={{ padding: "24px 16px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -728,7 +784,7 @@ export default function Page() {
                       background: "#B59168",
                       color: "#19332F",
                       fontWeight: "600",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                     }}
                   >
@@ -746,7 +802,9 @@ export default function Page() {
                   >
                     Our Approach
                   </h3>
-                  <p style={{ margin: "0", fontSize: ".92rem", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}>
+                  <p
+                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                  >
                     We partner with experienced regional designers and architects to create buildings designed for
                     longevity.
                   </p>
@@ -769,14 +827,20 @@ export default function Page() {
               >
                 <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
                   <Image
-                    width={1707}
-                    height={2560}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    width={1600}
+                    height={2400}
+                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px"
                     data-reveal="mask"
                     data-delay="200"
                     src="/uploads/mira-idc-site-excavation.jpg"
                     alt="Excavators on the Mira Living site"
-                    style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#f3f1ec",
+                    }}
                   />
                 </div>
                 <div style={{ padding: "24px 16px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -790,7 +854,7 @@ export default function Page() {
                       background: "#B59168",
                       color: "#19332F",
                       fontWeight: "600",
-                      fontSize: ".95rem",
+                      fontSize: "var(--fs-95)",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                     }}
                   >
@@ -808,7 +872,9 @@ export default function Page() {
                   >
                     Our Journey
                   </h3>
-                  <p style={{ margin: "0", fontSize: ".92rem", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}>
+                  <p
+                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                  >
                     From site selection through to final delivery, we embark on a journey to deliver a home made of
                     dreams.
                   </p>
@@ -856,7 +922,7 @@ export default function Page() {
                   flexWrap: "wrap",
                   alignItems: "center",
                   gap: "8px 12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -866,7 +932,7 @@ export default function Page() {
                 <span
                   style={{
                     fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: ".8rem",
+                    fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
                     color: "#D3B995",
@@ -874,7 +940,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  04 / 06
+                  04 / 05
                 </span>
                 <span
                   data-reveal="rule"
@@ -924,13 +990,19 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={2621}
-                  height={2400}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  width={2400}
+                  height={2198}
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 600px"
                   data-reveal="mask"
                   src="/uploads/mira-dining-room.webp"
                   alt="Mira Living dining room"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#8b897c",
+                  }}
                 />
               </div>
             </div>
@@ -953,7 +1025,6 @@ export default function Page() {
                   borderRadius: "16px",
                   border: "1px solid rgba(255,255,255,.1)",
                   background: "rgba(250,247,240,.06)",
-                  backdropFilter: "blur(12px)",
                   padding: "28px",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
@@ -969,7 +1040,7 @@ export default function Page() {
                     background: "#D3B995",
                     color: "#19332F",
                     fontWeight: "600",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                   }}
                 >
@@ -990,7 +1061,7 @@ export default function Page() {
                   <p
                     style={{
                       margin: "6px 0 0",
-                      fontSize: ".92rem",
+                      fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
                       color: "rgba(250,247,240,.68)",
                     }}
@@ -1009,7 +1080,6 @@ export default function Page() {
                   borderRadius: "16px",
                   border: "1px solid rgba(255,255,255,.1)",
                   background: "rgba(250,247,240,.06)",
-                  backdropFilter: "blur(12px)",
                   padding: "28px",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
@@ -1025,7 +1095,7 @@ export default function Page() {
                     background: "#D3B995",
                     color: "#19332F",
                     fontWeight: "600",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                   }}
                 >
@@ -1046,7 +1116,7 @@ export default function Page() {
                   <p
                     style={{
                       margin: "6px 0 0",
-                      fontSize: ".92rem",
+                      fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
                       color: "rgba(250,247,240,.68)",
                     }}
@@ -1065,7 +1135,6 @@ export default function Page() {
                   borderRadius: "16px",
                   border: "1px solid rgba(255,255,255,.1)",
                   background: "rgba(250,247,240,.06)",
-                  backdropFilter: "blur(12px)",
                   padding: "28px",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
@@ -1081,7 +1150,7 @@ export default function Page() {
                     background: "#D3B995",
                     color: "#19332F",
                     fontWeight: "600",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                   }}
                 >
@@ -1102,7 +1171,7 @@ export default function Page() {
                   <p
                     style={{
                       margin: "6px 0 0",
-                      fontSize: ".92rem",
+                      fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
                       color: "rgba(250,247,240,.68)",
                     }}
@@ -1122,7 +1191,6 @@ export default function Page() {
                   borderRadius: "16px",
                   border: "1px solid rgba(255,255,255,.1)",
                   background: "rgba(250,247,240,.06)",
-                  backdropFilter: "blur(12px)",
                   padding: "28px",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                 }}
@@ -1138,7 +1206,7 @@ export default function Page() {
                     background: "#D3B995",
                     color: "#19332F",
                     fontWeight: "600",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                   }}
                 >
@@ -1159,7 +1227,7 @@ export default function Page() {
                   <p
                     style={{
                       margin: "6px 0 0",
-                      fontSize: ".92rem",
+                      fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
                       color: "rgba(250,247,240,.68)",
                     }}
@@ -1172,99 +1240,6 @@ export default function Page() {
           </div>
         </section>
         {/* Image break */}
-        <section data-screen-label="Image" style={{ padding: "clamp(72px,10vw,128px) 0 0" }}>
-          <div
-            style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)", position: "relative" }}
-          >
-            <div
-              data-reveal="text"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "8px 12px",
-                fontSize: ".7rem",
-                fontWeight: "600",
-                letterSpacing: ".22em",
-                textTransform: "uppercase",
-                color: "#8C6A44",
-                marginBottom: "32px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                  fontSize: ".8rem",
-                  fontWeight: "500",
-                  letterSpacing: ".08em",
-                  color: "rgba(32,35,31,.55)",
-                  textTransform: "none",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                05 / 06
-              </span>
-              <span
-                data-reveal="rule"
-                style={{ display: "block", width: "40px", height: "1px", background: "#B59168" }}
-              />
-              Our project team
-            </div>
-            <div
-              style={{
-                borderRadius: "16px",
-                overflow: "hidden",
-                aspectRatio: "21/9",
-                minHeight: "300px",
-                boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                background: "#EEE9DF",
-                width: "100%",
-              }}
-            >
-              <Image
-                width={2400}
-                height={1350}
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                data-reveal="mask"
-                src="/uploads/coast-bay-aerial.webp"
-                alt="Sheltered bay and headland from the air"
-                style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
-            <div
-              data-reveal="text"
-              data-delay="200"
-              style={{
-                position: "relative",
-                margin: "-56px clamp(20px,4vw,48px) 0",
-                maxWidth: "640px",
-                borderRadius: "16px",
-                background: "#fff",
-                border: "1px solid rgba(32,35,31,.06)",
-                padding: "28px 32px",
-                boxShadow: "0 16px 48px -16px rgba(38,68,63,.3)",
-              }}
-            >
-              <p
-                style={{
-                  margin: "0",
-                  fontSize: "clamp(1.15rem,1.8vw,1.5rem)",
-                  fontWeight: "600",
-                  letterSpacing: "-.018em",
-                  lineHeight: "1.3",
-                  color: "#20231F",
-                  textWrap: "pretty",
-                }}
-              >
-                We partner with experienced regional designers and architects.
-              </p>
-              <p style={{ margin: "12px 0 0", fontSize: ".95rem", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}>
-                Mira Living: Mondo Architects, Sarah Wood Design and Manage Design Build, with Furtado Property as
-                developer.
-              </p>
-            </div>
-          </div>
-        </section>
         {/* CTA panel */}
         <section data-screen-label="CTA" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
           <div data-reveal="text" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
@@ -1305,7 +1280,7 @@ export default function Page() {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "12px",
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
@@ -1313,7 +1288,7 @@ export default function Page() {
                 }}
               >
                 <span style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }} />
-                06 / 06 · Enquire
+                05 / 05 · Enquire
                 <span style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }} />
               </div>
               <h2
@@ -1365,7 +1340,7 @@ export default function Page() {
                     borderRadius: "999px",
                     background: "#D3B995",
                     color: "#19332F",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     fontWeight: "600",
                     textDecoration: "none",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.25),0 10px 36px -12px rgba(211,185,149,.45)",
@@ -1398,7 +1373,7 @@ export default function Page() {
                     borderRadius: "999px",
                     border: "1px solid rgba(250,247,240,.2)",
                     color: "#FCFAF6",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     fontWeight: "600",
                     textDecoration: "none",
                     transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const { salesStatus, completion } = site;
+  const { salesStatus, completion, structureStatus, availability } = site;
   return (
     <>
       <main data-screen-label="Projects">
@@ -43,7 +43,7 @@ export default function Page() {
                 flexWrap: "wrap",
                 alignItems: "center",
                 gap: "8px 12px",
-                fontSize: ".7rem",
+                fontSize: "var(--fs-70)",
                 fontWeight: "600",
                 letterSpacing: ".22em",
                 textTransform: "uppercase",
@@ -53,7 +53,7 @@ export default function Page() {
               <span
                 style={{
                   fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                  fontSize: ".8rem",
+                  fontSize: "var(--fs-80)",
                   fontWeight: "500",
                   letterSpacing: ".08em",
                   color: "rgba(32,35,31,.55)",
@@ -61,7 +61,7 @@ export default function Page() {
                   whiteSpace: "nowrap",
                 }}
               >
-                01 / 03
+                01 / 04
               </span>
               <span
                 data-reveal="rule"
@@ -98,8 +98,118 @@ export default function Page() {
                 maxWidth: "62ch",
               }}
             >
-              Enduring quality and design, from site selection through to final delivery.
+              Furtado Property is a residential developer with over 20 years in property. One development is now selling
+              on the Bargara Esplanade, with more in planning across South East Queensland.
             </p>
+            <dl
+              data-reveal="text"
+              data-delay="300"
+              style={{
+                margin: "clamp(40px,5vw,64px) 0 0",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,180px),1fr))",
+                gap: "24px",
+                paddingTop: "24px",
+                borderTop: "1px solid rgba(32,35,31,.08)",
+              }}
+            >
+              <div>
+                <dd
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,3vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.025em",
+                    lineHeight: "1.1",
+                    color: "#26443F",
+                  }}
+                >
+                  20+
+                </dd>
+                <dt
+                  style={{
+                    margin: "6px 0 0",
+                    fontSize: "var(--fs-88)",
+                    lineHeight: "1.5",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Years in property
+                </dt>
+              </div>
+              <div>
+                <dd
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,3vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.025em",
+                    lineHeight: "1.1",
+                    color: "#26443F",
+                  }}
+                >
+                  25
+                </dd>
+                <dt
+                  style={{
+                    margin: "6px 0 0",
+                    fontSize: "var(--fs-88)",
+                    lineHeight: "1.5",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Oceanfront residences now selling
+                </dt>
+              </div>
+              <div>
+                <dd
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,3vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.025em",
+                    lineHeight: "1.1",
+                    color: "#26443F",
+                  }}
+                >
+                  3
+                </dd>
+                <dt
+                  style={{
+                    margin: "6px 0 0",
+                    fontSize: "var(--fs-88)",
+                    lineHeight: "1.5",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Developments in the pipeline
+                </dt>
+              </div>
+              <div>
+                <dd
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,3vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.025em",
+                    lineHeight: "1.1",
+                    color: "#26443F",
+                  }}
+                >
+                  {completion}
+                </dd>
+                <dt
+                  style={{
+                    margin: "6px 0 0",
+                    fontSize: "var(--fs-88)",
+                    lineHeight: "1.5",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Mira Living completion
+                </dt>
+              </div>
+            </dl>
           </div>
         </section>
         {/* Featured project */}
@@ -118,19 +228,19 @@ export default function Page() {
             >
               <span
                 style={{
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
                   color: "#8C6A44",
                 }}
               >
-                02 / 03 · Current project
+                02 / 04 · Current project
               </span>
               <span
                 style={{
                   fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                  fontSize: ".8rem",
+                  fontSize: "var(--fs-80)",
                   fontWeight: "500",
                   letterSpacing: ".08em",
                   color: "rgba(32,35,31,.55)",
@@ -154,14 +264,20 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={4032}
-                  height={2268}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  width={2400}
+                  height={1350}
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 50vw, (max-width: 1599px) 50vw, 710px"
                   preload
                   data-reveal="mask"
                   src="/uploads/aerial.jpg"
                   alt="The Bargara coastline and esplanade from the air"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#a3d1ec",
+                  }}
                 />
               </Link>
               <div
@@ -189,7 +305,7 @@ export default function Page() {
                     color: "#FCFAF6",
                     borderRadius: "999px",
                     padding: "4px 12px",
-                    fontSize: ".66rem",
+                    fontSize: "var(--fs-66)",
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
@@ -214,7 +330,8 @@ export default function Page() {
                 </h2>
                 <p style={{ margin: "0", fontSize: "1rem", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}>
                   Luxury coastal living, nestled seaside in Bargara. Twenty-five boutique oceanfront residences at the
-                  south end of the Esplanade, a few hundred metres from the sand.
+                  south end of the Esplanade, a few hundred metres from the sand, with a tropical landscaped pool,
+                  communal alfresco area and high-end European appliances throughout.
                 </p>
                 <dl
                   style={{ margin: "8px 0 0", display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "16px 24px" }}
@@ -222,7 +339,7 @@ export default function Page() {
                   <div>
                     <dt
                       style={{
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -231,14 +348,14 @@ export default function Page() {
                     >
                       Residences
                     </dt>
-                    <dd style={{ margin: "4px 0 0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                    <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                       25 three-bedroom
                     </dd>
                   </div>
                   <div>
                     <dt
                       style={{
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -247,14 +364,14 @@ export default function Page() {
                     >
                       Completion
                     </dt>
-                    <dd style={{ margin: "4px 0 0", fontSize: ".95rem", fontWeight: "500", color: "#26443F" }}>
+                    <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#26443F" }}>
                       {completion}
                     </dd>
                   </div>
                   <div>
                     <dt
                       style={{
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -263,14 +380,14 @@ export default function Page() {
                     >
                       Architect
                     </dt>
-                    <dd style={{ margin: "4px 0 0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                    <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                       Mondo Architects
                     </dd>
                   </div>
                   <div>
                     <dt
                       style={{
-                        fontSize: ".66rem",
+                        fontSize: "var(--fs-66)",
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
@@ -279,8 +396,40 @@ export default function Page() {
                     >
                       Builder
                     </dt>
-                    <dd style={{ margin: "4px 0 0", fontSize: ".95rem", fontWeight: "500", color: "#20231F" }}>
+                    <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
                       Manage Design Build
+                    </dd>
+                  </div>
+                  <div>
+                    <dt
+                      style={{
+                        fontSize: "var(--fs-66)",
+                        fontWeight: "600",
+                        letterSpacing: ".18em",
+                        textTransform: "uppercase",
+                        color: "rgba(32,35,31,.55)",
+                      }}
+                    >
+                      Interior design
+                    </dt>
+                    <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                      Sarah Wood Design
+                    </dd>
+                  </div>
+                  <div>
+                    <dt
+                      style={{
+                        fontSize: "var(--fs-66)",
+                        fontWeight: "600",
+                        letterSpacing: ".18em",
+                        textTransform: "uppercase",
+                        color: "rgba(32,35,31,.55)",
+                      }}
+                    >
+                      Parking
+                    </dt>
+                    <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                      Two basement spaces each
                     </dd>
                   </div>
                 </dl>
@@ -305,7 +454,7 @@ export default function Page() {
                       borderRadius: "999px",
                       background: "#26443F",
                       color: "#FCFAF6",
-                      fontSize: ".9rem",
+                      fontSize: "var(--fs-90)",
                       fontWeight: "600",
                       textDecoration: "none",
                       boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
@@ -326,7 +475,7 @@ export default function Page() {
                       borderRadius: "999px",
                       border: "1px solid rgba(32,35,31,.15)",
                       color: "#20231F",
-                      fontSize: ".9rem",
+                      fontSize: "var(--fs-90)",
                       fontWeight: "600",
                       textDecoration: "none",
                       transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",
@@ -335,6 +484,124 @@ export default function Page() {
                   >
                     Request the brochure
                   </Link>
+                </div>
+              </div>
+            </div>
+            <div
+              data-reveal="text"
+              style={{
+                marginTop: "24px",
+                borderRadius: "16px",
+                background: "#fff",
+                border: "1px solid rgba(32,35,31,.08)",
+                padding: "24px 32px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: "8px 24px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "var(--fs-70)",
+                    fontWeight: "600",
+                    letterSpacing: ".22em",
+                    textTransform: "uppercase",
+                    color: "#8C6A44",
+                  }}
+                >
+                  Construction progress
+                </span>
+                <span style={{ fontSize: "var(--fs-88)", color: "rgba(32,35,31,.65)" }}>{availability}</span>
+              </div>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,180px),1fr))",
+                  gap: "20px 24px",
+                  marginTop: "20px",
+                }}
+              >
+                <div style={{ borderTop: "2px solid #26443F", paddingTop: "12px" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    01
+                  </span>
+                  <div style={{ marginTop: "6px", fontSize: "var(--fs-95)", fontWeight: "600", color: "#20231F" }}>
+                    Site
+                  </div>
+                  <div style={{ marginTop: "2px", fontSize: "var(--fs-88)", color: "rgba(32,35,31,.65)" }}>
+                    Cleared and excavated
+                  </div>
+                </div>
+                <div style={{ borderTop: "2px solid #26443F", paddingTop: "12px" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    02
+                  </span>
+                  <div style={{ marginTop: "6px", fontSize: "var(--fs-95)", fontWeight: "600", color: "#20231F" }}>
+                    Basement
+                  </div>
+                  <div style={{ marginTop: "2px", fontSize: "var(--fs-88)", color: "rgba(32,35,31,.65)" }}>
+                    Complete
+                  </div>
+                </div>
+                <div style={{ borderTop: "2px solid #26443F", paddingTop: "12px" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    03
+                  </span>
+                  <div style={{ marginTop: "6px", fontSize: "var(--fs-95)", fontWeight: "600", color: "#20231F" }}>
+                    Structure
+                  </div>
+                  <div style={{ marginTop: "2px", fontSize: "var(--fs-88)", color: "rgba(32,35,31,.65)" }}>
+                    {structureStatus}
+                  </div>
+                </div>
+                <div style={{ borderTop: "2px solid rgba(32,35,31,.15)", paddingTop: "12px" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    04
+                  </span>
+                  <div style={{ marginTop: "6px", fontSize: "var(--fs-95)", fontWeight: "600", color: "#20231F" }}>
+                    Completion
+                  </div>
+                  <div style={{ marginTop: "2px", fontSize: "var(--fs-88)", color: "rgba(32,35,31,.65)" }}>
+                    {completion}
+                  </div>
                 </div>
               </div>
             </div>
@@ -358,11 +625,17 @@ export default function Page() {
                 <Image
                   width={1500}
                   height={844}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 30vw, (max-width: 1599px) 25vw, 310px"
                   data-reveal="mask"
                   src="/uploads/front.jpg"
                   alt="Mira Living street elevation"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#cbd1e4",
+                  }}
                 />
               </div>
               <div
@@ -377,12 +650,18 @@ export default function Page() {
                 <Image
                   width={2000}
                   height={1271}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 30vw, (max-width: 1599px) 25vw, 310px"
                   data-reveal="mask"
                   data-delay="80"
                   src="/uploads/mira-living-room-balcony-ocean-view.webp"
                   alt="Living room and balcony"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#e3e1dc",
+                  }}
                 />
               </div>
               <div
@@ -397,12 +676,18 @@ export default function Page() {
                 <Image
                   width={2000}
                   height={1125}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 30vw, (max-width: 1599px) 25vw, 310px"
                   data-reveal="mask"
                   data-delay="160"
                   src="/uploads/pool.jpg"
                   alt="Landscaped pool"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#dbe1e4",
+                  }}
                 />
               </div>
               <div
@@ -417,20 +702,26 @@ export default function Page() {
                 <Image
                   width={2142}
                   height={1200}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 30vw, (max-width: 1599px) 25vw, 310px"
                   data-reveal="mask"
                   data-delay="240"
                   src="/uploads/mira-kitchen-living-open-plan.webp"
                   alt="Kitchen and living"
-                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#dbd9cc",
+                  }}
                 />
               </div>
             </div>
           </div>
         </section>
-        {/* Future developments */}
+        {/* Upcoming projects */}
         <section
-          data-screen-label="Future developments"
+          data-screen-label="Upcoming projects"
           style={{ background: "#EEE9DF", padding: "clamp(72px,10vw,128px) 0" }}
         >
           <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
@@ -447,22 +738,34 @@ export default function Page() {
             >
               <span
                 style={{
-                  fontSize: ".7rem",
+                  fontSize: "var(--fs-70)",
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
                   color: "#8C6A44",
                 }}
               >
-                03 / 03 · Future developments
+                03 / 04 · Upcoming projects
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                  fontSize: "var(--fs-80)",
+                  fontWeight: "500",
+                  letterSpacing: ".08em",
+                  color: "rgba(32,35,31,.55)",
+                }}
+              >
+                Coming soon
               </span>
             </div>
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))",
-                gap: "48px clamp(48px,6vw,96px)",
-                alignItems: "center",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                alignItems: "flex-end",
+                gap: "24px 48px",
                 marginTop: "40px",
               }}
             >
@@ -494,48 +797,485 @@ export default function Page() {
                     maxWidth: "58ch",
                   }}
                 >
-                  Register your interest to hear about future developments from Furtado Property before they are
-                  released.
+                  Three developments are moving through site selection and design. Register your interest to hear about
+                  them before they are released.
                 </p>
-                <Link
-                  className="fx-5c2cf18"
-                  data-reveal="text"
-                  data-delay="160"
-                  href="/contact"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    marginTop: "32px",
-                    padding: "12px 20px",
-                    borderRadius: "999px",
-                    background: "#26443F",
-                    color: "#FCFAF6",
-                    fontSize: ".9rem",
-                    fontWeight: "600",
-                    textDecoration: "none",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
-                    transition: "transform .3s ease-out,background .3s ease-out,box-shadow .3s ease-out",
-                  }}
-                  data-press=""
-                >
-                  Register interest<span>→</span>
-                </Link>
               </div>
-              <div
+              <Link
+                className="fx-5c2cf18"
                 data-reveal="text"
-                data-delay="120"
+                data-delay="160"
+                href="/contact"
                 style={{
-                  borderRadius: "16px",
-                  border: "1px dashed rgba(32,35,31,.18)",
-                  padding: "40px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "12px 20px",
+                  borderRadius: "999px",
+                  background: "#26443F",
+                  color: "#FCFAF6",
+                  fontSize: "var(--fs-90)",
+                  fontWeight: "600",
+                  textDecoration: "none",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
+                  transition: "transform .3s ease-out,background .3s ease-out,box-shadow .3s ease-out",
+                }}
+                data-press=""
+              >
+                Register interest<span>→</span>
+              </Link>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,300px),1fr))",
+                gap: "24px",
+                marginTop: "40px",
+              }}
+            >
+              <article
+                className="fx-975541e"
+                data-reveal="text"
+                data-delay="0"
+                style={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  gap: "12px",
-                  minHeight: "240px",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  background: "#fff",
+                  boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
+                  transition: "transform .3s ease-out,box-shadow .3s ease-out",
+                }}
+              >
+                <div style={{ position: "relative", aspectRatio: "4/3", background: "#EEE9DF" }}>
+                  <Image
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
+                    src="/uploads/upcoming-coastal-apartments.jpg"
+                    alt="Indicative render of a boutique beachfront apartment building"
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#e3f1ec",
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "16px",
+                      left: "16px",
+                      background: "rgba(252,250,246,.92)",
+                      color: "#19332F",
+                      borderRadius: "999px",
+                      padding: "4px 12px",
+                      fontSize: "var(--fs-66)",
+                      fontWeight: "600",
+                      letterSpacing: ".18em",
+                      textTransform: "uppercase",
+                      lineHeight: "1.5",
+                    }}
+                  >
+                    Coming soon
+                  </span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "28px", flex: "1" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    02 · Design stage
+                  </span>
+                  <h3
+                    style={{
+                      margin: "0",
+                      fontSize: "1.35rem",
+                      fontWeight: "600",
+                      letterSpacing: "-.018em",
+                      lineHeight: "1.2",
+                      color: "#20231F",
+                    }}
+                  >
+                    Coastal Apartments
+                  </h3>
+                  <p
+                    style={{ margin: "0", fontSize: "var(--fs-95)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                  >
+                    A second boutique oceanfront address, following the Mira Living approach: generous three-bedroom
+                    floor plans, deep balconies and resort-style amenity.
+                  </p>
+                  <dl
+                    style={{
+                      margin: "auto 0 0",
+                      display: "grid",
+                      gridTemplateColumns: "repeat(2,1fr)",
+                      gap: "16px 24px",
+                      paddingTop: "20px",
+                      borderTop: "1px solid rgba(32,35,31,.08)",
+                    }}
+                  >
+                    <div>
+                      <dt
+                        style={{
+                          fontSize: "var(--fs-66)",
+                          fontWeight: "600",
+                          letterSpacing: ".18em",
+                          textTransform: "uppercase",
+                          color: "rgba(32,35,31,.55)",
+                        }}
+                      >
+                        Type
+                      </dt>
+                      <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                        Boutique apartments
+                      </dd>
+                    </div>
+                    <div>
+                      <dt
+                        style={{
+                          fontSize: "var(--fs-66)",
+                          fontWeight: "600",
+                          letterSpacing: ".18em",
+                          textTransform: "uppercase",
+                          color: "rgba(32,35,31,.55)",
+                        }}
+                      >
+                        Location
+                      </dt>
+                      <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                        Queensland coast
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+              <article
+                className="fx-975541e"
+                data-reveal="text"
+                data-delay="100"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  background: "#fff",
+                  boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
+                  transition: "transform .3s ease-out,box-shadow .3s ease-out",
+                }}
+              >
+                <div style={{ position: "relative", aspectRatio: "4/3", background: "#EEE9DF" }}>
+                  <Image
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
+                    src="/uploads/upcoming-townhomes.jpg"
+                    alt="Indicative render of a row of contemporary townhomes"
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#f3f1ec",
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "16px",
+                      left: "16px",
+                      background: "rgba(252,250,246,.92)",
+                      color: "#19332F",
+                      borderRadius: "999px",
+                      padding: "4px 12px",
+                      fontSize: "var(--fs-66)",
+                      fontWeight: "600",
+                      letterSpacing: ".18em",
+                      textTransform: "uppercase",
+                      lineHeight: "1.5",
+                    }}
+                  >
+                    Coming soon
+                  </span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "28px", flex: "1" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    03 · In planning
+                  </span>
+                  <h3
+                    style={{
+                      margin: "0",
+                      fontSize: "1.35rem",
+                      fontWeight: "600",
+                      letterSpacing: "-.018em",
+                      lineHeight: "1.2",
+                      color: "#20231F",
+                    }}
+                  >
+                    Townhome Collection
+                  </h3>
+                  <p
+                    style={{ margin: "0", fontSize: "var(--fs-95)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                  >
+                    Low-maintenance townhomes for downsizers and families, on a walkable, well-located site close to
+                    shops, schools and transport.
+                  </p>
+                  <dl
+                    style={{
+                      margin: "auto 0 0",
+                      display: "grid",
+                      gridTemplateColumns: "repeat(2,1fr)",
+                      gap: "16px 24px",
+                      paddingTop: "20px",
+                      borderTop: "1px solid rgba(32,35,31,.08)",
+                    }}
+                  >
+                    <div>
+                      <dt
+                        style={{
+                          fontSize: "var(--fs-66)",
+                          fontWeight: "600",
+                          letterSpacing: ".18em",
+                          textTransform: "uppercase",
+                          color: "rgba(32,35,31,.55)",
+                        }}
+                      >
+                        Type
+                      </dt>
+                      <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                        Townhomes
+                      </dd>
+                    </div>
+                    <div>
+                      <dt
+                        style={{
+                          fontSize: "var(--fs-66)",
+                          fontWeight: "600",
+                          letterSpacing: ".18em",
+                          textTransform: "uppercase",
+                          color: "rgba(32,35,31,.55)",
+                        }}
+                      >
+                        Location
+                      </dt>
+                      <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                        South East Queensland
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+              <article
+                className="fx-975541e"
+                data-reveal="text"
+                data-delay="200"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  background: "#fff",
+                  boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
+                  transition: "transform .3s ease-out,box-shadow .3s ease-out",
+                }}
+              >
+                <div style={{ position: "relative", aspectRatio: "4/3", background: "#EEE9DF" }}>
+                  <Image
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
+                    src="/uploads/upcoming-hinterland-residences.jpg"
+                    alt="Indicative render of hillside residences overlooking the coast"
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#f3f1ec",
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "16px",
+                      left: "16px",
+                      background: "rgba(252,250,246,.92)",
+                      color: "#19332F",
+                      borderRadius: "999px",
+                      padding: "4px 12px",
+                      fontSize: "var(--fs-66)",
+                      fontWeight: "600",
+                      letterSpacing: ".18em",
+                      textTransform: "uppercase",
+                      lineHeight: "1.5",
+                    }}
+                  >
+                    Coming soon
+                  </span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "28px", flex: "1" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                      fontSize: "var(--fs-80)",
+                      fontWeight: "500",
+                      letterSpacing: ".08em",
+                      color: "rgba(32,35,31,.55)",
+                    }}
+                  >
+                    04 · Site selection
+                  </span>
+                  <h3
+                    style={{
+                      margin: "0",
+                      fontSize: "1.35rem",
+                      fontWeight: "600",
+                      letterSpacing: "-.018em",
+                      lineHeight: "1.2",
+                      color: "#20231F",
+                    }}
+                  >
+                    Hinterland Residences
+                  </h3>
+                  <p
+                    style={{ margin: "0", fontSize: "var(--fs-95)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                  >
+                    A small release of architect-designed homes set into the landscape, with elevated outlooks and
+                    materials chosen for longevity.
+                  </p>
+                  <dl
+                    style={{
+                      margin: "auto 0 0",
+                      display: "grid",
+                      gridTemplateColumns: "repeat(2,1fr)",
+                      gap: "16px 24px",
+                      paddingTop: "20px",
+                      borderTop: "1px solid rgba(32,35,31,.08)",
+                    }}
+                  >
+                    <div>
+                      <dt
+                        style={{
+                          fontSize: "var(--fs-66)",
+                          fontWeight: "600",
+                          letterSpacing: ".18em",
+                          textTransform: "uppercase",
+                          color: "rgba(32,35,31,.55)",
+                        }}
+                      >
+                        Type
+                      </dt>
+                      <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                        Detached residences
+                      </dd>
+                    </div>
+                    <div>
+                      <dt
+                        style={{
+                          fontSize: "var(--fs-66)",
+                          fontWeight: "600",
+                          letterSpacing: ".18em",
+                          textTransform: "uppercase",
+                          color: "rgba(32,35,31,.55)",
+                        }}
+                      >
+                        Location
+                      </dt>
+                      <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
+                        SEQ hinterland
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+            </div>
+            <p
+              data-reveal="text"
+              style={{
+                margin: "24px 0 0",
+                fontSize: "var(--fs-80)",
+                lineHeight: "1.6",
+                color: "rgba(32,35,31,.55)",
+                maxWidth: "80ch",
+              }}
+            >
+              Images are indicative only. Upcoming projects are subject to site acquisition, design development and
+              planning approval; names, locations and details may change.
+            </p>
+          </div>
+        </section>
+        {/* How we deliver */}
+        <section data-screen-label="How we deliver" style={{ padding: "clamp(72px,10vw,128px) 0 0" }}>
+          <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
+            <div
+              data-reveal="text"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                gap: "24px",
+                paddingBottom: "20px",
+                borderBottom: "1px solid rgba(32,35,31,.08)",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "var(--fs-70)",
+                  fontWeight: "600",
+                  letterSpacing: ".22em",
+                  textTransform: "uppercase",
+                  color: "#8C6A44",
+                }}
+              >
+                04 / 04 · How we deliver
+              </span>
+            </div>
+            <h2
+              data-reveal="heading"
+              style={{
+                margin: "40px 0 0",
+                fontSize: "clamp(1.75rem,3vw,2.5rem)",
+                fontWeight: "600",
+                letterSpacing: "-.022em",
+                lineHeight: "1.2",
+                color: "#20231F",
+                maxWidth: "24ch",
+                textWrap: "balance",
+              }}
+            >
+              {"Involved from site selection through to "}
+              <span style={{ color: "#26443F" }}>final delivery.</span>
+            </h2>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,240px),1fr))",
+                gap: "24px",
+                marginTop: "40px",
+              }}
+            >
+              <div
+                data-reveal="text"
+                data-delay="0"
+                style={{
+                  borderRadius: "16px",
+                  background: "#fff",
+                  border: "1px solid rgba(32,35,31,.08)",
+                  padding: "28px",
                 }}
               >
                 <span
@@ -548,18 +1288,177 @@ export default function Page() {
                     background: "#B59168",
                     color: "#19332F",
                     fontWeight: "600",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
+                  }}
+                >
+                  01
+                </span>
+                <h3
+                  style={{
+                    margin: "20px 0 0",
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    letterSpacing: "-.012em",
+                    color: "#20231F",
+                  }}
+                >
+                  Site selection
+                </h3>
+                <p
+                  style={{
+                    margin: "8px 0 0",
+                    fontSize: "var(--fs-95)",
+                    lineHeight: "1.625",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Well-located sites in undersupplied South East Queensland markets, chosen for long-term liveability.
+                </p>
+              </div>
+              <div
+                data-reveal="text"
+                data-delay="80"
+                style={{
+                  borderRadius: "16px",
+                  background: "#fff",
+                  border: "1px solid rgba(32,35,31,.08)",
+                  padding: "28px",
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-grid",
+                    placeItems: "center",
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "999px",
+                    background: "#B59168",
+                    color: "#19332F",
+                    fontWeight: "600",
+                    fontSize: "var(--fs-95)",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
                   }}
                 >
                   02
                 </span>
-                <span style={{ fontSize: "1.05rem", fontWeight: "600", letterSpacing: "-.012em", color: "#20231F" }}>
-                  Next development
+                <h3
+                  style={{
+                    margin: "20px 0 0",
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    letterSpacing: "-.012em",
+                    color: "#20231F",
+                  }}
+                >
+                  Design
+                </h3>
+                <p
+                  style={{
+                    margin: "8px 0 0",
+                    fontSize: "var(--fs-95)",
+                    lineHeight: "1.625",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Architecture and interiors shaped with experienced regional designers, built for longevity.
+                </p>
+              </div>
+              <div
+                data-reveal="text"
+                data-delay="160"
+                style={{
+                  borderRadius: "16px",
+                  background: "#fff",
+                  border: "1px solid rgba(32,35,31,.08)",
+                  padding: "28px",
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-grid",
+                    placeItems: "center",
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "999px",
+                    background: "#B59168",
+                    color: "#19332F",
+                    fontWeight: "600",
+                    fontSize: "var(--fs-95)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
+                  }}
+                >
+                  03
                 </span>
-                <span style={{ fontSize: ".88rem", color: "rgba(32,35,31,.55)", maxWidth: "28ch" }}>
-                  Details will be published here when the project is released.
+                <h3
+                  style={{
+                    margin: "20px 0 0",
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    letterSpacing: "-.012em",
+                    color: "#20231F",
+                  }}
+                >
+                  Construction
+                </h3>
+                <p
+                  style={{
+                    margin: "8px 0 0",
+                    fontSize: "var(--fs-95)",
+                    lineHeight: "1.625",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Delivered with trusted builders, with quality and customer satisfaction as the measure at every stage.
+                </p>
+              </div>
+              <div
+                data-reveal="text"
+                data-delay="240"
+                style={{
+                  borderRadius: "16px",
+                  background: "#fff",
+                  border: "1px solid rgba(32,35,31,.08)",
+                  padding: "28px",
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-grid",
+                    placeItems: "center",
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "999px",
+                    background: "#B59168",
+                    color: "#19332F",
+                    fontWeight: "600",
+                    fontSize: "var(--fs-95)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.4)",
+                  }}
+                >
+                  04
                 </span>
+                <h3
+                  style={{
+                    margin: "20px 0 0",
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    letterSpacing: "-.012em",
+                    color: "#20231F",
+                  }}
+                >
+                  Delivery
+                </h3>
+                <p
+                  style={{
+                    margin: "8px 0 0",
+                    fontSize: "var(--fs-95)",
+                    lineHeight: "1.625",
+                    color: "rgba(32,35,31,.65)",
+                  }}
+                >
+                  Handover of a finished home, with the same team alongside owners from the first enquiry to the keys.
+                </p>
               </div>
             </div>
           </div>
@@ -633,7 +1532,7 @@ export default function Page() {
                     borderRadius: "999px",
                     background: "#D3B995",
                     color: "#19332F",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     fontWeight: "600",
                     textDecoration: "none",
                     boxShadow: "inset 0 1px 0 rgba(255,255,255,.25),0 10px 36px -12px rgba(211,185,149,.45)",
@@ -666,7 +1565,7 @@ export default function Page() {
                     borderRadius: "999px",
                     border: "1px solid rgba(250,247,240,.2)",
                     color: "#FCFAF6",
-                    fontSize: ".95rem",
+                    fontSize: "var(--fs-95)",
                     fontWeight: "600",
                     textDecoration: "none",
                     transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",

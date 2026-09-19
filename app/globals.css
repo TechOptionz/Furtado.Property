@@ -106,29 +106,84 @@ button:focus-visible {
 /* Home: while the hero film (components/HomeHero.tsx) is under it, the header sits clear with light controls.
    html[data-over-hero] is set before first paint (app/layout.tsx) and kept current by SiteHeader, which drops it
    once the hero has scrolled out from under the bar, handing the header back to the cream bar. The header's
-   markup is generated, so it is matched by structure and its inline colours are overridden here. */
-html[data-over-hero] div:has(> div > .only-wide) {
+   markup is generated (scripts/convert.mjs adds the .site-bar hooks), so its inline colours are overridden here. */
+/* Bar states. SiteHeader only flips [data-scrolled]; the look lives here. The blur is small and only on screens
+   that can afford it: on phones the bar is simply a little more opaque. */
+.site-bar {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.site-bar[data-scrolled] {
+  background: rgba(247, 244, 237, 0.95) !important;
+  border-bottom-color: rgba(32, 35, 31, 0.15) !important;
+  box-shadow: 0 8px 28px -12px rgba(60, 40, 15, 0.18);
+}
+.site-bar[data-scrolled] .site-bar-inner {
+  height: 64px !important;
+}
+@media (max-width: 1023px) {
+  /* Compact bar from the start on phones and tablets: no height change while scrolling. */
+  .site-bar-inner {
+    height: 64px !important;
+    transition: none !important;
+  }
+  .site-bar {
+    background: rgba(247, 244, 237, 0.96) !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .site-drawer > div:first-child {
+    height: 64px !important;
+  }
+}
+html[data-over-hero] .site-bar {
   background: transparent !important;
   border-bottom-color: rgba(252, 250, 246, 0.16) !important;
+  box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-div:has(> div > .only-wide) img {
+/* Drawer: a plain scrim (a full-screen backdrop blur is the single most expensive effect a phone can be asked
+   for), finger-sized controls, and its own scrolling if the screen is short. */
+.site-scrim {
+  background: rgba(20, 24, 21, 0.52) !important;
+}
+.site-drawer {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.site-drawer button,
+.site-drawer > div:last-child a {
+  min-height: 44px;
+}
+.site-drawer > div:last-child a {
+  display: inline-flex;
+  align-items: center;
+}
+.site-drawer > div:last-child {
+  gap: 4px !important;
+}
+.site-drawer > div:last-child a:first-child {
+  min-height: 52px;
+  margin-bottom: 8px;
+}
+.site-bar img {
   transition: filter 0.5s ease-out;
 }
-html[data-over-hero] div:has(> div > .only-wide) img {
+html[data-over-hero] .site-bar img {
   filter: brightness(0) invert(1);
 }
-html[data-over-hero] div:has(> div > .only-wide) nav[aria-label="Primary"] a {
+html[data-over-hero] .site-bar nav[aria-label="Primary"] a {
   color: rgba(252, 250, 246, 0.82) !important;
 }
-html[data-over-hero] div:has(> div > .only-wide) nav[aria-label="Primary"] a:hover {
+html[data-over-hero] .site-bar nav[aria-label="Primary"] a:hover {
   color: #fcfaf6 !important;
 }
-html[data-over-hero] div:has(> div > .only-wide) button[aria-label="Open menu"] {
+html[data-over-hero] .site-bar button[aria-label="Open menu"] {
   border-color: rgba(252, 250, 246, 0.45) !important;
 }
-html[data-over-hero] div:has(> div > .only-wide) button[aria-label="Open menu"] span span {
+html[data-over-hero] .site-bar button[aria-label="Open menu"] span span {
   background: #fcfaf6 !important;
 }
 
@@ -151,8 +206,11 @@ html.intro-seen [data-intro] {
   }
 }
 
-.blob-drift {
-  animation: blobDrift 20s ease-in-out infinite;
+/* The glow drifts only where there is a pointer and room for it; phones get it still. */
+@media (min-width: 1024px) and (hover: hover) {
+  .blob-drift {
+    animation: blobDrift 20s ease-in-out infinite;
+  }
 }
 
 @keyframes blobDrift {
@@ -221,6 +279,118 @@ html.intro-seen [data-intro] {
     transform: translateY(-100%);
   }
 }
+@keyframes introRuleCenter {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+@keyframes introWord {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes introDrift {
+  from {
+    transform: translate(-3%, 2%) scale(1);
+  }
+  to {
+    transform: translate(3%, -2%) scale(1.08);
+  }
+}
+@keyframes introOut {
+  to {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+}
+
+/* Home hero entrance (components/HomeHero.tsx). When the intro curtain is going to play, everything waits for it to
+   start lifting (SiteIntro LIFT_AT), so the headline rises as the curtain clears over an already-steady film. Each
+   element adds its own stagger through --d. */
+html:not(.intro-seen) {
+  --hero-delay: 2.25s;
+}
+.hero-in {
+  animation: introRise 1s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--hero-delay, 0.1s) + var(--d, 0s)) both;
+}
+.hero-rule {
+  transform-origin: left;
+  animation: introRule 1s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--hero-delay, 0.1s) + 0.2s) both;
+}
+.hero-line {
+  display: block;
+  overflow: hidden;
+  /* room for descenders inside the mask, without changing the line spacing */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.hero-line > span {
+  display: block;
+  animation: heroLine 1.2s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--hero-delay, 0.1s) + 0.15s + var(--d, 0s)) both;
+}
+.hero-cue {
+  display: inline-block;
+  animation: heroCue 2.2s ease-in-out infinite;
+}
+@keyframes heroLine {
+  from {
+    transform: translateY(105%) rotate(2deg);
+    transform-origin: left top;
+  }
+  to {
+    transform: none;
+    transform-origin: left top;
+  }
+}
+@keyframes heroCue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+/* Phones and touch screens: the hero copy fades as the hero leaves, so it never slides under the clear header. This
+   is a scroll-driven CSS animation (no JavaScript, runs off the main thread); larger screens use the parallax in
+   HomeHero instead. Browsers without scroll timelines simply keep the copy as it is. */
+@supports (animation-timeline: view()) {
+  @media (max-width: 767px), (pointer: coarse) {
+    [data-video-hero] {
+      view-timeline-name: --hero;
+    }
+    .hero-content {
+      animation: heroExit linear both;
+      animation-timeline: --hero;
+      animation-range: exit 5% exit 65%;
+    }
+  }
+}
+@keyframes heroExit {
+  to {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    animation: none !important;
+  }
+  .hero-in,
+  .hero-rule,
+  .hero-line > span,
+  .hero-cue {
+    animation: none;
+  }
+}
 
 /* Home story on phones. The design export stacks text over image in two equal rows, which clips the first chapter
    under the header and runs the scroll indicator through the buttons. Give the text the larger row, tighten it, let
@@ -245,5 +415,178 @@ html.intro-seen [data-intro] {
 @media (max-width: 860px) and (max-height: 740px) {
   [data-world] [data-chapter-text] a + a {
     display: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------------
+   Type tokens. scripts/convert.mjs turns the export's fixed sizes into var(--fs-NN); desktop keeps the design's
+   values (labels floor at 11px), phones run labels and body copy a step larger so nothing reads below 11px and
+   paragraphs and form fields sit at 16px (which also stops iOS zooming into inputs).
+   ------------------------------------------------------------------------------------------------------------ */
+:root {
+  --fs-66: 0.6875rem;
+  --fs-70: 0.7rem;
+  --fs-72: 0.72rem;
+  --fs-78: 0.78rem;
+  --fs-80: 0.8rem;
+  --fs-84: 0.84rem;
+  --fs-86: 0.86rem;
+  --fs-88: 0.88rem;
+  --fs-90: 0.9rem;
+  --fs-92: 0.92rem;
+  --fs-95: 0.95rem;
+}
+@media (max-width: 767px) {
+  :root {
+    --fs-66: 0.7rem;
+    --fs-70: 0.72rem;
+    --fs-72: 0.75rem;
+    --fs-78: 0.8125rem;
+    --fs-80: 0.85rem;
+    --fs-84: 0.875rem;
+    --fs-86: 0.92rem;
+    --fs-88: 0.92rem;
+    --fs-90: 0.95rem;
+    --fs-92: 0.98rem;
+    --fs-95: 1rem;
+  }
+  .hero-h1 {
+    font-size: clamp(2.625rem, 11.4vw, 3.25rem) !important;
+  }
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------------------------------------------------------
+   Responsive layout hooks from the design export. These used to be applied by JavaScript after load (and again on
+   every scroll frame); as CSS they are right on the first paint, so nothing jumps.
+     [data-show="wide|narrow"]  shown only on that side of 1024px
+     [data-vh]                  one viewport tall beside a sticky image on desktop, natural height when stacked
+     [data-gallery]             6-column editorial spans → 2 columns on tablets → 1 on phones
+     [data-sticky][data-stuck]  sticky while the column sits beside its sibling (lib/site.js sets data-stuck)
+   ------------------------------------------------------------------------------------------------------------ */
+@media (max-width: 1023px) {
+  [data-show="wide"] {
+    display: none !important;
+  }
+  [data-vh] {
+    min-height: 0 !important;
+  }
+  [data-gallery] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  [data-gallery] > * {
+    grid-column: auto !important;
+    aspect-ratio: 4/3 !important;
+  }
+}
+@media (max-width: 639px) {
+  [data-gallery] {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (min-width: 1024px) {
+  [data-show="narrow"] {
+    display: none !important;
+  }
+}
+[data-sticky][data-stuck] {
+  position: sticky !important;
+  top: var(--sticky-top, 96px);
+}
+
+/* Caption pills over photographs. A small blur where it is cheap; on phones and touch screens a slightly denser
+   fill does the same job without a backdrop filter on every image. */
+.glass {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 767px), (pointer: coarse) {
+  .glass:not(.site-bar):not(.site-scrim) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: rgba(32, 35, 31, 0.72) !important;
+  }
+}
+.site-scrim {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Stacked, crossfading photographs (home story, Bargara scene): keep them on the compositor while they fade. */
+[data-chapter-img],
+[data-scene-img] {
+  backface-visibility: hidden;
+}
+
+/* ------------------------------------------------------------------------------------------------------------
+   Phones. One gutter (20px, from the export's clamp(20px,5vw,80px)), section spacing 72–96px, finger-sized
+   targets, a stacked footer, and primary actions that span the column.
+   ------------------------------------------------------------------------------------------------------------ */
+@media (max-width: 639px) {
+  /* Primary and secondary pills that sit together in a row become a full-width stack. */
+  main :is(div, p):has(> a[data-press] + a[data-press]) {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  main :is(div, p):has(> a[data-press] + a[data-press]) > a[data-press],
+  main form button[type="submit"] {
+    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+  }
+  main a[data-press] {
+    min-height: 48px;
+  }
+  /* Footer: brand, then Explore, Contact, Follow, then legal — one column, generous separation. */
+  footer div[style*="auto-fit"] {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  footer div[style*="auto-fit"] > div {
+    gap: 0 !important;
+  }
+  footer div[style*="auto-fit"] > div > span:first-child {
+    margin-bottom: 8px;
+  }
+  footer div[style*="auto-fit"] > div > :is(a, span):not(:first-child) {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 1rem !important;
+  }
+  footer > div > div:last-child {
+    flex-direction: column;
+    gap: 8px !important;
+    padding-bottom: calc(32px + env(safe-area-inset-bottom)) !important;
+  }
+  footer > div > div:last-child a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+@media (pointer: coarse) {
+  /* Inline text links keep their place in the line; vertical padding on an inline box widens the tap area without
+     moving anything. */
+  main a[data-link],
+  main a[href^="tel:"],
+  main a[href^="mailto:"] {
+    padding-block: 12px;
+  }
+  input[type="checkbox"] {
+    width: 22px !important;
+    height: 22px !important;
+    margin-top: 0 !important;
   }
 }

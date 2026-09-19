@@ -12,5 +12,5 @@ export const site = {
   statusLine: `${salesStatus} · Mira Living · Bargara QLD`,
   // The intro curtain only ever plays on the home page. true: once, when the visitor first enters the site there;
   // false: on every full load of the home page.
-  introOncePerSession: true,
+  introOncePerSession: false,
 };

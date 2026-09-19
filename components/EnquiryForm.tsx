@@ -34,7 +34,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               display: "flex",
               flexDirection: "column",
               gap: "8px",
-              fontSize: ".8rem",
+              fontSize: "var(--fs-80)",
               fontWeight: "500",
               color: "#444640",
             }}
@@ -56,7 +56,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
                 background: "#FCFAF6",
                 color: "#20231F",
                 font: "inherit",
-                fontSize: ".95rem",
+                fontSize: "var(--fs-95)",
                 fontWeight: "400",
                 outline: "none",
                 transition: "border-color .25s,box-shadow .25s",
@@ -68,7 +68,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               display: "flex",
               flexDirection: "column",
               gap: "8px",
-              fontSize: ".8rem",
+              fontSize: "var(--fs-80)",
               fontWeight: "500",
               color: "#444640",
             }}
@@ -90,7 +90,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
                 background: "#FCFAF6",
                 color: "#20231F",
                 font: "inherit",
-                fontSize: ".95rem",
+                fontSize: "var(--fs-95)",
                 fontWeight: "400",
                 outline: "none",
                 transition: "border-color .25s,box-shadow .25s",
@@ -102,7 +102,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               display: "flex",
               flexDirection: "column",
               gap: "8px",
-              fontSize: ".8rem",
+              fontSize: "var(--fs-80)",
               fontWeight: "500",
               color: "#444640",
             }}
@@ -124,7 +124,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
                 background: "#FCFAF6",
                 color: "#20231F",
                 font: "inherit",
-                fontSize: ".95rem",
+                fontSize: "var(--fs-95)",
                 fontWeight: "400",
                 outline: "none",
                 transition: "border-color .25s,box-shadow .25s",
@@ -136,7 +136,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               display: "flex",
               flexDirection: "column",
               gap: "8px",
-              fontSize: ".8rem",
+              fontSize: "var(--fs-80)",
               fontWeight: "500",
               color: "#444640",
             }}
@@ -157,7 +157,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
                 background: "#FCFAF6",
                 color: "#20231F",
                 font: "inherit",
-                fontSize: ".95rem",
+                fontSize: "var(--fs-95)",
                 fontWeight: "400",
                 outline: "none",
                 transition: "border-color .25s,box-shadow .25s",
@@ -170,7 +170,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
             display: "flex",
             flexDirection: "column",
             gap: "8px",
-            fontSize: ".8rem",
+            fontSize: "var(--fs-80)",
             fontWeight: "500",
             color: "#444640",
           }}
@@ -188,7 +188,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               background: "#FCFAF6",
               color: "#20231F",
               font: "inherit",
-              fontSize: ".95rem",
+              fontSize: "var(--fs-95)",
               fontWeight: "400",
               outline: "none",
               appearance: "none",
@@ -211,7 +211,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
             display: "flex",
             flexDirection: "column",
             gap: "8px",
-            fontSize: ".8rem",
+            fontSize: "var(--fs-80)",
             fontWeight: "500",
             color: "#444640",
           }}
@@ -230,7 +230,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               background: "#FCFAF6",
               color: "#20231F",
               font: "inherit",
-              fontSize: ".95rem",
+              fontSize: "var(--fs-95)",
               fontWeight: "400",
               lineHeight: "1.5",
               outline: "none",
@@ -244,7 +244,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
             display: "flex",
             gap: "12px",
             alignItems: "flex-start",
-            fontSize: ".8rem",
+            fontSize: "var(--fs-80)",
             lineHeight: "1.55",
             color: "rgba(32,35,31,.7)",
             cursor: "pointer",
@@ -277,7 +277,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
               background: "#26443F",
               color: "#FCFAF6",
               font: "inherit",
-              fontSize: ".92rem",
+              fontSize: "var(--fs-92)",
               fontWeight: "500",
               cursor: "pointer",
               boxShadow: "0 8px 24px -12px rgba(38,68,63,.55)",
@@ -287,7 +287,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
           >
             {buttonLabel}
           </button>
-          <span style={{ fontSize: ".88rem", color: "rgba(32,35,31,.62)" }}>
+          <span style={{ fontSize: "var(--fs-88)", color: "rgba(32,35,31,.62)" }}>
             {"Or call "}
             <a
               href="tel:0418982517"
@@ -308,7 +308,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
                 borderRadius: "12px",
                 border: "1px solid rgba(181,145,104,.4)",
                 background: "rgba(211,185,149,.14)",
-                fontSize: ".88rem",
+                fontSize: "var(--fs-88)",
                 lineHeight: "1.55",
                 color: "#20231F",
               }}
