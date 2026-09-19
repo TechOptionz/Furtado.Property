@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/image-variants.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "convert": "node scripts/convert.mjs",
-    "assets": "node scripts/optimize-assets.mjs",
+    "assets": "node scripts/optimize-assets.mjs && node scripts/image-variants.mjs",
+    "variants": "node scripts/image-variants.mjs",
     "sizes": "node scripts/measure-image-sizes.mjs"
   },
   "dependencies": {
