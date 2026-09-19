@@ -20,8 +20,16 @@ const geistMono = Geist_Mono({
   weight: ["500"],
 });
 
+// NEXT_PUBLIC_SITE_URL may be unset or blank (an empty value in the host's settings); then fall back to the
+// production domain Vercel assigns, and to localhost in development.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: "Furtado Property — Residential Developer, South East Queensland",
   description:
     "Building Dreams, Creating Homes. Residential developments in South East Queensland, built on 20 years of experience.",
