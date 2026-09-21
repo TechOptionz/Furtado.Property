@@ -1,0 +1,333 @@
+/* Chat launcher and panel (components/ChatBot.tsx). Sits under the header (z 60) and the menu drawer (z 70), and
+   under the intro curtain (z 100), so it never shows through them. */
+.root {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+.root > * {
+  pointer-events: auto;
+}
+
+.launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 20px 0 16px;
+  border: 1px solid rgba(252, 250, 246, 0.18);
+  border-radius: 999px;
+  background: #26443f;
+  color: #fcfaf6;
+  font: 500 0.88rem/1 var(--font-geist-sans), sans-serif;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 14px 36px -14px rgba(25, 51, 47, 0.6);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.3s ease-out,
+    background 0.3s ease-out;
+}
+.launcher svg {
+  color: #d3b995;
+}
+@media (hover: hover) {
+  .launcher:hover {
+    background: #19332f;
+    transform: translateY(-2px);
+  }
+}
+.launcher:active {
+  transform: scale(0.97);
+  transition-duration: 0.08s;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: min(380px, calc(100vw - 40px));
+  height: min(640px, calc(100dvh - 120px));
+  overflow: hidden;
+  border: 1px solid rgba(32, 35, 31, 0.12);
+  border-radius: 18px;
+  background: #f7f4ed;
+  box-shadow: 0 30px 80px -24px rgba(25, 35, 30, 0.45);
+  transform-origin: bottom right;
+  animation: panelIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 16px 16px 20px;
+  background: #26443f;
+  color: #fcfaf6;
+}
+.kicker {
+  display: block;
+  color: #d3b995;
+  font: 500 0.6875rem/1 var(--font-geist-mono), monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.title {
+  margin: 10px 0 0;
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(252, 250, 246, 0.28);
+  border-radius: 999px;
+  background: transparent;
+  color: #fcfaf6;
+  cursor: pointer;
+  transition: background 0.3s ease-out;
+}
+@media (hover: hover) {
+  .close:hover {
+    background: rgba(252, 250, 246, 0.12);
+  }
+}
+
+.log {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.bot,
+.visitor {
+  max-width: 88%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  animation: messageIn 0.35s ease-out both;
+}
+.bot p,
+.visitor p {
+  margin: 0;
+}
+.bot p + p {
+  margin-top: 8px;
+}
+.bot {
+  align-self: flex-start;
+  border: 1px solid rgba(32, 35, 31, 0.1);
+  border-bottom-left-radius: 4px;
+  background: #fcfaf6;
+  color: #444640;
+}
+.visitor {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  background: #26443f;
+  color: #fcfaf6;
+}
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(32, 35, 31, 0.1);
+}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  color: #26443f;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: #b59168;
+  text-underline-offset: 4px;
+}
+
+.typing {
+  display: inline-flex;
+  gap: 5px;
+  padding: 16px 14px;
+}
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #b59168;
+  animation: typingDot 1s ease-in-out infinite;
+}
+.typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes typingDot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: none;
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.chips {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 6px;
+}
+.chipsLabel {
+  color: #7d7f76;
+  font: 500 0.6875rem/1 var(--font-geist-mono), monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.chip {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(38, 68, 63, 0.3);
+  border-radius: 999px;
+  background: transparent;
+  color: #26443f;
+  font: 500 0.86rem/1.3 var(--font-geist-sans), sans-serif;
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition:
+    background 0.3s ease-out,
+    color 0.3s ease-out,
+    border-color 0.3s ease-out;
+}
+@media (hover: hover) {
+  .chip:hover {
+    border-color: #26443f;
+    background: #26443f;
+    color: #fcfaf6;
+  }
+}
+.chip:active {
+  transform: scale(0.98);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px 10px 16px;
+  border-top: 1px solid rgba(32, 35, 31, 0.12);
+  background: #fcfaf6;
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: #20231f;
+  /* 16px stops iOS zooming into the field */
+  font: 400 1rem/1 var(--font-geist-sans), sans-serif;
+  outline: none;
+}
+.input::placeholder {
+  color: #8b8d84;
+}
+.form:focus-within {
+  box-shadow: inset 0 2px 0 #b59168;
+}
+.send {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #26443f;
+  color: #fcfaf6;
+  cursor: pointer;
+  transition:
+    background 0.3s ease-out,
+    opacity 0.3s ease-out;
+}
+.send:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+@media (hover: hover) {
+  .send:not(:disabled):hover {
+    background: #19332f;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Phones: the panel takes the width of the screen and most of its height; the launcher keeps to an icon-and-label
+   pill clear of the home indicator. */
+@media (max-width: 639px) {
+  .root {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  .panel {
+    width: calc(100vw - 32px);
+    height: min(640px, calc(100dvh - 104px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .bot,
+  .visitor,
+  .typing span {
+    animation: none;
+  }
+  .launcher,
+  .chip {
+    transition: none;
+  }
+}

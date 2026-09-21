@@ -4,6 +4,7 @@ import SiteIntro from "@/components/SiteIntro";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SiteEffects from "@/components/SiteEffects";
+import ChatBot from "@/components/ChatBot";
 import { site } from "@/lib/site-config";
 import "./globals.css";
 import "./interactions.css";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         {children}
         <SiteFooter />
+        <ChatBot />
         <SiteEffects />
       </body>
     </html>
