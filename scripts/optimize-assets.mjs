@@ -57,10 +57,25 @@ await sharp(poster).resize({ width: 1920 }).jpeg({ quality: 78, mozjpeg: true })
 for (const f of ['hero-poster-portrait.webp', 'hero-poster.webp', 'hero-poster.jpg']) console.log(f, kb(fs.statSync(path.join(ROOT, 'public/video', f)).size));
 
 // Logos --------------------------------------------------------------------------------------------------------
-// Thicken the strokes evenly (the "F" mark a little more than the lettering), recolour to a solid ink and scale to
-// three times the largest display height.
+// The supplied brand files (FURTADO_Logo-01 = ink, -02 = white, both 3334x1250 on transparent) carry a wide margin
+// around the lockup, so the transparent padding is cropped first. Then the strokes are thickened evenly (the "F"
+// a little more than the lettering), recoloured to a solid ink and scaled to three times the largest display height.
+// The printed aspect ratio is what components/Logo.tsx uses to reserve the image's width.
 async function logo(srcName, outName, color, displayHeight) {
-  const { data, info } = await sharp(original(srcName) || path.join(ROOT, 'public/assets', srcName)).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const src = sharp(original(srcName) || path.join(ROOT, 'public/assets', srcName)).ensureAlpha();
+  const full = await src.raw().toBuffer({ resolveWithObject: true });
+  const box = { l: full.info.width, t: full.info.height, r: 0, b: 0 };
+  for (let y = 0; y < full.info.height; y++) for (let x = 0; x < full.info.width; x++) {
+    if (full.data[(y * full.info.width + x) * 4 + 3] > 8) {
+      if (x < box.l) box.l = x; if (x > box.r) box.r = x; if (y < box.t) box.t = y; if (y > box.b) box.b = y;
+    }
+  }
+  const pad = Math.round((box.b - box.t) * 0.02); // a 2% margin so the thickened edge is never clipped and both variants share one shape
+  const { data, info } = await src.extract({
+    left: Math.max(0, box.l - pad), top: Math.max(0, box.t - pad),
+    width: Math.min(full.info.width, box.r + pad + 1) - Math.max(0, box.l - pad),
+    height: Math.min(full.info.height, box.b + pad + 1) - Math.max(0, box.t - pad),
+  }).raw().toBuffer({ resolveWithObject: true });
   const W = info.width, H = info.height;
   const a = new Uint8ClampedArray(W * H);
   for (let i = 0; i < W * H; i++) a[i] = data[i * 4 + 3];
@@ -92,7 +107,67 @@ async function logo(srcName, outName, color, displayHeight) {
   const out = path.join(ROOT, 'public/assets', outName);
   await sharp(px, { raw: { width: W, height: H, channels: 4 } }).resize({ height: displayHeight * 3 }).webp({ quality: 90, alphaQuality: 100, effort: 6 }).toFile(out);
   const m = await sharp(out).metadata();
-  console.log(outName, `${m.width}x${m.height}`, kb(fs.statSync(out).size));
+  console.log(outName, `${m.width}x${m.height}`, kb(fs.statSync(out).size), `ratio ${(m.width / m.height).toFixed(3)}`);
 }
 await logo('logo-dark.png', 'logo-ink.webp', '20231F', 44);
 await logo('logo-white.png', 'logo-light.webp', 'FCFAF6', 56);
+
+// Favicon ------------------------------------------------------------------------------------------------------
+// The brand supplied no standalone mark, so the tab icon is the "F" of the ink logo, cream on an ink square:
+// app/icon.png and app/apple-icon.png (Next.js links them itself) plus app/favicon.ico for clients that still ask
+// for that path. The .ico is the 32px PNG in an ICO wrapper, which every current browser reads.
+{
+  const src = sharp(original('logo-dark.png') || path.join(ROOT, 'public/assets/logo-dark.png')).ensureAlpha();
+  const { data, info } = await src.raw().toBuffer({ resolveWithObject: true });
+  const W = info.width, H = info.height;
+  const inked = (x, y) => data[(y * W + x) * 4 + 3] > 40;
+  // Take the first run of inked columns (the F), then that run's own top and bottom.
+  let l = -1, r = -1;
+  for (let x = 0; x < W; x++) {
+    let ink = false;
+    for (let y = 0; y < H; y++) if (inked(x, y)) { ink = true; break; }
+    if (ink && l < 0) l = x; else if (!ink && l >= 0) { r = x - 1; break; }
+  }
+  let t = H, b = 0;
+  for (let y = 0; y < H; y++) for (let x = l; x <= r; x++) if (inked(x, y)) { if (y < t) t = y; if (y > b) b = y; break; }
+  const glyphH = b - t + 1, glyphW = r - l + 1;
+  const glyph = await src.extract({ left: l, top: t, width: glyphW, height: glyphH }).raw().toBuffer();
+  const write = async (size, file) => {
+    const gh = Math.round(size * 0.6), gw = Math.round((gh * glyphW) / glyphH);
+    const cream = { r: 252, g: 250, b: 246 };
+    // Thicken by about half a display pixel so the hairline crossbar survives at tab size.
+    const rad = Math.round((glyphH / gh) * 0.5);
+    const alpha = new Uint8ClampedArray(glyphW * glyphH);
+    for (let i = 0; i < glyphW * glyphH; i++) alpha[i] = glyph[i * 4 + 3];
+    const dilate = (a, horizontal) => {
+      const o = new Uint8ClampedArray(glyphW * glyphH);
+      for (let y = 0; y < glyphH; y++) for (let x = 0; x < glyphW; x++) {
+        let m = 0;
+        for (let k = -rad; k <= rad; k++) {
+          const xx = horizontal ? x + k : x, yy = horizontal ? y : y + k;
+          if (xx >= 0 && xx < glyphW && yy >= 0 && yy < glyphH && a[yy * glyphW + xx] > m) m = a[yy * glyphW + xx];
+        }
+        o[y * glyphW + x] = m;
+      }
+      return o;
+    };
+    const thick = rad > 0 ? dilate(dilate(alpha, true), false) : alpha;
+    const px = Buffer.alloc(glyphW * glyphH * 4);
+    for (let i = 0; i < glyphW * glyphH; i++) { px[i * 4] = cream.r; px[i * 4 + 1] = cream.g; px[i * 4 + 2] = cream.b; px[i * 4 + 3] = thick[i]; }
+    const letter = await sharp(px, { raw: { width: glyphW, height: glyphH, channels: 4 } }).resize({ width: gw, height: gh, kernel: 'lanczos3' }).png().toBuffer();
+    const radius = Math.round(size * 0.18);
+    const mask = Buffer.from(`<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" rx="${radius}" fill="#20231F"/></svg>`);
+    const png = await sharp(mask).composite([{ input: letter, left: Math.round((size - gw) / 2), top: Math.round((size - gh) / 2) }]).png().toBuffer();
+    if (file) fs.writeFileSync(path.join(ROOT, 'app', file), png);
+    return png;
+  };
+  await write(512, 'icon.png');
+  await write(180, 'apple-icon.png');
+  const png32 = await write(32);
+  const ico = Buffer.alloc(6 + 16);
+  ico.writeUInt16LE(0, 0); ico.writeUInt16LE(1, 2); ico.writeUInt16LE(1, 4);
+  ico.writeUInt8(32, 6); ico.writeUInt8(32, 7); ico.writeUInt8(0, 8); ico.writeUInt8(0, 9);
+  ico.writeUInt16LE(1, 10); ico.writeUInt16LE(32, 12); ico.writeUInt32LE(png32.length, 14); ico.writeUInt32LE(22, 18);
+  fs.writeFileSync(path.join(ROOT, 'app/favicon.ico'), Buffer.concat([ico, png32]));
+  console.log('app/icon.png, app/apple-icon.png, app/favicon.ico from the logo "F"', `${glyphW}x${glyphH}`);
+}
