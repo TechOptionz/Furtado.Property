@@ -164,7 +164,7 @@ export default function HomeHero() {
         }}
       >
         <div
-          className="hero-in"
+          className="hero-in eyebrow on-dark"
           style={{
             display: "flex",
             flexWrap: "wrap",

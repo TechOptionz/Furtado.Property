@@ -38,10 +38,13 @@ const IMAGE_SIZES = readJson('scripts/image-sizes.json', {});
 
 const SITE_VARS = ['salesStatus', 'completion', 'constructionStatus', 'structureStatus', 'availability', 'statusLine'];
 
+// Home's Bargara scene: two sections under one number, 10 of 11 by the time Home's own patches have run.
+const BARGARA = dropSection(['Bargara intro', 'Bargara'], 11, '07 Bargara: dark intro, then a sticky image that changes as the places scroll');
+
 const PAGES = [
   {
     file: 'Home', out: 'app/page.tsx', noPreload: true, extra: '<HomeStory /><CountUp />',
-    extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";',
+    extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";\nimport { TrackRecordHome } from "@/components/TrackRecord";',
     // The video hero (components/HomeHero.tsx) opens the page and owns the h1; the story below it starts at #story.
     // The export's first story chapter repeats the hero (same headline, copy and buttons), so it is dropped and the
     // remaining five are renumbered; the new first chapter starts visible. Captions live in components/HomeStory.tsx.
@@ -65,6 +68,9 @@ const PAGES = [
         const m = s.text.match(/^(\d\d) \/ 12(.*)$/);
         if (m) s.set_content(`${String(m[1] - 1).padStart(2, '0')} / 11${m[2]}`);
       });
+      // The Bargara scene (dark intro, then a sticky image that changes as the places scroll) is about the
+      // development's setting, so it leaves Home for Mira Living (see that page below).
+      BARGARA.patchDom(root);
       // Figures: whole numbers count up when the cards scroll in (components/CountUp.tsx), every card lifts on hover
       // (the export leaves the highlighted one static), and the status badge gets a live dot.
       const cards = root.querySelectorAll('[data-screen-label="Figures"] > div > div');
@@ -79,11 +85,14 @@ const PAGES = [
         }
       }
     },
-    patch: (jsx) => jsx
+    // Last, the numbers close the gap the Bargara scene left ("11 / 11" → "10 / 10"), the handwritten track-record
+    // section (components/TrackRecord.tsx) goes in after "The company" as 07, and the sections from Mira Living on
+    // move down one ("07 / 10" → "08 / 11").
+    patch: (jsx) => addSection('<TrackRecordHome />', '04 Mira Living showcase: image to the left edge, metadata alongside', 7, 10).patch(BARGARA.patch(jsx
       .replace(/(<main\b[^>]*>)/, '$1<HomeHero />')
       .replace('data-world=""', 'data-world="" id="story"')
       // The centred labels carry their running number as bare text ("09 / 12 · The residences").
-      .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`),
+      .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`))),
   },
   // The aerial image break (photo + overlapping quote card) is dropped from both pages, and the running section
   // numbers close the gap ("06 / 06" → "05 / 05").
@@ -100,7 +109,12 @@ const PAGES = [
     extraImport: 'import TrackRecord from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
     ...addSection('<TrackRecord />', 'How we deliver', 4, 4),
   },
-  { file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx', ...dropSection('Lifestyle', 9) },
+  // Mira Living's own Bargara section (photo cards and distances) makes way for the Bargara scene from Home, which
+  // covers the same places and takes over its running number.
+  {
+    file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx',
+    ...chain(borrowSections('Bargara', 'Home', ['Bargara intro', 'Bargara']), dropSection('Lifestyle', 9)),
+  },
   // /contact is handwritten (app/contact/) and no longer compiled from Contact.dc.html.
 ];
 
@@ -320,6 +334,9 @@ function element(node, ctx) {
   const classes = [];
   let name = tag;
   if (/backdrop-filter:\s*blur/.test(attrs.style || '') && !/rgba\(250,247,240,\.06\)/.test(attrs.style) && !ctx.cfg.noGlass) classes.push('glass');
+  // Eyebrow lines ("09 / 11 —— How we work") read larger and darker than the export draws them: .eyebrow in globals.css.
+  const eyebrow = (attrs.style || '').match(/font-size:\.7rem;font-weight:600;letter-spacing:\.22em;text-transform:uppercase;color:#(8C6A44|D3B995)/);
+  if (eyebrow) classes.push(eyebrow[1] === 'D3B995' ? 'eyebrow on-dark' : 'eyebrow');
   if (attrs['data-sticky']) attrs.style = `${attrs.style || ''};--sticky-top:${attrs['data-sticky']}`;
 
   if (tag === 'img') {
@@ -379,19 +396,45 @@ function render(node, ctx) {
   return '';
 }
 
-// Page options that remove the section with the given data-screen-label and renumber the "NN / total" labels around it.
-function dropSection(label, total) {
+// Page options that remove the section with the given data-screen-label and renumber the "NN / total" labels around
+// it. Several labels drop the sections that together make one numbered part of the page, and with it the comment
+// that introduces them.
+function dropSection(label, total, comment) {
   const pad = (n) => String(n).padStart(2, '0');
   let dropped = total;
   return {
     patchDom: (root) => {
-      const section = root.querySelector(`[data-screen-label="${label}"]`);
-      if (!section) throw new Error(`dropSection: no "${label}" section`);
-      const m = section.text.match(new RegExp(`(\\d\\d) \\/ ${pad(total)}`));
-      if (m) dropped = Number(m[1]);
-      section.remove();
+      for (const l of [label].flat()) {
+        const section = root.querySelector(`[data-screen-label="${l}"]`);
+        if (!section) throw new Error(`dropSection: no "${l}" section`);
+        const m = section.text.match(new RegExp(`(\\d\\d) \\/ ${pad(total)}`));
+        if (m) dropped = Number(m[1]);
+        if (comment) section.parentNode.childNodes.find((n) => n.nodeType === 8 && n.rawText.trim() === comment)?.remove();
+        section.remove();
+      }
     },
     patch: (jsx) => jsx.replace(new RegExp(`(\\d\\d) \\/ ${pad(total)}`, 'g'), (_, n) => `${pad(n > dropped ? n - 1 : Number(n))} / ${pad(total - 1)}`),
+  };
+}
+
+// Page options that replace the section with the given data-screen-label by sections another page of the export
+// draws; the first of them takes over the running "NN / total" number.
+function borrowSections(label, file, labels) {
+  return {
+    patchDom: (root) => {
+      const old = root.querySelector(`[data-screen-label="${label}"]`);
+      if (!old) throw new Error(`borrowSections: no "${label}" section`);
+      const from = load(file).root;
+      const sections = labels.map((l) => {
+        const section = from.querySelector(`[data-screen-label="${l}"]`);
+        if (!section) throw new Error(`borrowSections: no "${l}" section in ${file}`);
+        return section;
+      });
+      const number = old.querySelectorAll('span').find((s) => /^\d\d \/ \d\d$/.test(s.text));
+      const theirs = sections[0].querySelectorAll('span').find((s) => /^\d\d \/ \d\d$/.test(s.text));
+      if (number && theirs) theirs.set_content(number.text);
+      old.replaceWith(...sections);
+    },
   };
 }
 

@@ -39,6 +39,7 @@ export default function Page() {
             style={{ position: "relative", maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}
           >
             <div
+              className="eyebrow"
               data-reveal="text"
               style={{
                 display: "flex",
@@ -229,6 +230,7 @@ export default function Page() {
               }}
             >
               <span
+                className="eyebrow"
                 style={{
                   fontSize: "var(--fs-70)",
                   fontWeight: "600",
@@ -509,6 +511,7 @@ export default function Page() {
                 }}
               >
                 <span
+                  className="eyebrow"
                   style={{
                     fontSize: "var(--fs-70)",
                     fontWeight: "600",
@@ -739,6 +742,7 @@ export default function Page() {
               }}
             >
               <span
+                className="eyebrow"
                 style={{
                   fontSize: "var(--fs-70)",
                   fontWeight: "600",
@@ -1236,6 +1240,7 @@ export default function Page() {
               }}
             >
               <span
+                className="eyebrow"
                 style={{
                   fontSize: "var(--fs-70)",
                   fontWeight: "600",

@@ -1,5 +1,5 @@
-/* Track record (components/TrackRecord.tsx): the full record on /projects (.band, dark) and its summary on /about
-   (.summary, light). Handwritten, like the contact page. Entrances, the bars drawing in and the counting figures all
+/* Track record (components/TrackRecord.tsx): the full record on /projects (.band, dark), its summary on /about
+   (.summary, light) and the at-a-glance section on the home page (.home, light). Handwritten, like the contact page. Entrances, the bars drawing in and the counting figures all
    come from the shared data-reveal / data-count systems; the only animation defined here is the ticker. */
 
 .container {
@@ -15,7 +15,8 @@
   --line: rgba(255, 255, 255, 0.12);
   --accent: #d3b995;
 }
-.summary {
+.summary,
+.home {
   --ink: #20231f;
   --muted: rgba(32, 35, 31, 0.65);
   --faint: rgba(32, 35, 31, 0.55);
@@ -72,9 +73,6 @@
   line-height: 1.05;
   color: var(--ink);
 }
-.summary .stat dd {
-  color: var(--accent);
-}
 
 /* ── /projects: the full record ───────────────────────────────────────── */
 .band {
@@ -106,9 +104,9 @@
   border-bottom: 1px solid var(--line);
 }
 .bar span:first-child {
-  font-size: var(--fs-70);
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -338,50 +336,110 @@ li.row {
 }
 
 /* ── /about: the summary ──────────────────────────────────────────────── */
+/* Heading on the left with the paragraph and link level with its last line; the four figure cards span the full
+   width beneath, and the ticker closes the section. */
 .summary {
   background: #eee9df;
-  padding: clamp(72px, 10vw, 128px) 0 0;
+  padding: clamp(64px, 7vw, 96px) 0 0;
 }
-.summaryGrid {
+.summaryHead {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
-  gap: 48px clamp(48px, 6vw, 96px);
-  align-items: center;
+  gap: 24px clamp(48px, 6vw, 96px);
+  align-items: end;
+}
+.summary .lead {
+  margin: 0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 24px);
+  margin: clamp(36px, 4vw, 56px) 0 0;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid rgba(32, 35, 31, 0.06);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: clamp(18px, 2vw, 28px);
+  box-shadow: 0 2px 28px -14px rgba(60, 40, 15, 0.1);
+  transition:
+    transform 0.3s ease-out,
+    border-color 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+}
+.card dt {
+  font-size: var(--fs-66);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: #8c6a44;
+}
+.card dd {
+  margin: 0;
+  font-size: var(--fs-90);
+  line-height: 1.5;
+  color: var(--muted);
+}
+.card dd[data-count] {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: clamp(2.25rem, 3.4vw, 3.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--accent);
+}
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(38, 68, 63, 0.3);
+    box-shadow: 0 12px 44px -14px rgba(38, 68, 63, 0.18);
+  }
+}
+@media (max-width: 899px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .eyebrow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 12px;
-  font-size: var(--fs-70);
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #8c6a44;
+  color: var(--eyebrow-ink);
 }
 .eyebrow span:first-child {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: var(--fs-80);
-  font-weight: 500;
+  font-size: var(--fs-eyebrow-num);
+  font-weight: 600;
   letter-spacing: 0.08em;
-  color: rgba(32, 35, 31, 0.55);
+  color: rgba(32, 35, 31, 0.8);
   text-transform: none;
   white-space: nowrap;
 }
 .eyebrow span + span {
   display: block;
   width: 40px;
-  height: 1px;
+  height: 2px;
   background: #b59168;
 }
 .summary .heading {
   margin-top: 20px;
+  max-width: 22ch;
 }
 .more {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 32px;
+  margin-top: 24px;
   padding: 12px 24px;
   border: 1px solid rgba(32, 35, 31, 0.15);
   border-radius: 999px;
@@ -402,7 +460,7 @@ li.row {
 /* Ticker of the communities' names along the foot of the section. The list is rendered twice and the pair moves
    left by exactly one list, so the loop has no seam. */
 .ticker {
-  margin-top: clamp(56px, 7vw, 96px);
+  margin-top: clamp(40px, 5vw, 64px);
   border-top: 1px solid var(--line);
   overflow: hidden;
   -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -477,4 +535,159 @@ li.row {
   .ticker ul[aria-hidden] {
     display: none;
   }
+}
+
+/* ── home: the record at a glance ─────────────────────────────────────── */
+.home {
+  background: #eee9df;
+  padding: clamp(64px, 8vw, 112px) 0;
+}
+.homeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 32px clamp(48px, 6vw, 96px);
+  align-items: end;
+}
+.numeral {
+  margin: 20px 0 0;
+  font-size: clamp(5.5rem, 14vw, 12rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--accent);
+}
+.numeralNote {
+  margin: 14px 0 0;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* One strip, one block per community, each as wide as its share of the homes. Two colours tell the kinds apart
+   (checked for colour-blind separation and for contrast on this background); the legend names them and a block names
+   itself on hover. */
+.share {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.shareHead {
+  font-size: var(--fs-66);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: #8c6a44;
+}
+.strip {
+  display: flex;
+  gap: 2px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.strip li {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 14px;
+}
+/* a taller target than the block itself */
+.strip li::before {
+  content: "";
+  position: absolute;
+  inset: -14px 0;
+}
+.strip li > span:first-child {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: #26443f;
+  transition: opacity 0.25s ease-out;
+}
+.strip li[data-kind="1"] > span:first-child,
+.legend li[data-kind="1"] i {
+  background: #a07e52;
+}
+.strip li:first-child > span:first-child {
+  border-radius: 7px 3px 3px 7px;
+}
+.strip li:last-child > span:first-child {
+  border-radius: 3px 7px 7px 3px;
+}
+.tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  z-index: 2;
+  border-radius: 8px;
+  background: #20231f;
+  padding: 7px 12px;
+  font-size: var(--fs-84);
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: #fcfaf6;
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+.tip b {
+  margin-left: 10px;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: var(--fs-78);
+  font-weight: 500;
+  color: rgba(252, 250, 246, 0.7);
+}
+/* the end blocks keep their labels inside the strip's width */
+.strip li:first-child .tip {
+  left: 0;
+  transform: translate(0, 4px);
+}
+.strip li:last-child .tip {
+  left: auto;
+  right: 0;
+  transform: translate(0, 4px);
+}
+@media (hover: hover) {
+  .strip:hover li:not(:hover) > span:first-child {
+    opacity: 0.4;
+  }
+  .strip li:hover .tip {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  .strip li:first-child:hover .tip,
+  .strip li:last-child:hover .tip {
+    transform: none;
+  }
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px clamp(24px, 3vw, 48px);
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.legend li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-size: var(--fs-92);
+  font-weight: 600;
+  color: var(--ink);
+}
+.legend i {
+  align-self: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: #26443f;
+}
+.legend span {
+  font-weight: 400;
+  color: var(--muted);
 }

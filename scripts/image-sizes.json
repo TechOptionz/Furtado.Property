@@ -17,16 +17,6 @@
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px",
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px",
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px",
-    "(max-width: 639px) 100vw, (max-width: 1023px) 95vw, (max-width: 1599px) 60vw, 1110px",
-    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
-    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
-    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
-    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 40vw, 520px"
   ],
   "app/about/page.tsx": [
@@ -35,8 +25,7 @@
     "(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px",
     "(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px",
     "(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 600px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 95vw, 1280px"
+    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 600px"
   ],
   "app/projects/page.tsx": [
     "(max-width: 639px) 90vw, (max-width: 1023px) 50vw, (max-width: 1599px) 50vw, 710px",
@@ -60,12 +49,15 @@
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px",
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px",
     "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px",
-    "(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px",
-    "(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px",
-    "(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px",
-    "(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px",
-    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 95vw, 1280px"
+    "(max-width: 639px) 100vw, (max-width: 1023px) 95vw, (max-width: 1599px) 60vw, 1110px",
+    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
+    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
+    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
+    "(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px",
+    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
+    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
+    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
+    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px",
+    "(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
   ]
 }

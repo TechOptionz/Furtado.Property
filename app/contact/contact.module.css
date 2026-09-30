@@ -13,16 +13,16 @@
   align-items: center;
   gap: 12px;
   margin: 0;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #8c6a44;
+  color: var(--eyebrow-ink);
 }
 .eyebrowRule {
   display: block;
   width: 40px;
-  height: 1px;
+  height: 2px;
   background: #b59168;
 }
 .onDark {

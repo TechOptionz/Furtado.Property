@@ -49,6 +49,7 @@ export default function Page() {
             >
               <div>
                 <div
+                  className="eyebrow"
                   data-reveal="text"
                   style={{
                     display: "flex",
@@ -469,6 +470,7 @@ export default function Page() {
             </div>
             <div>
               <div
+                className="eyebrow"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -627,6 +629,7 @@ export default function Page() {
           <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div
+                className="eyebrow"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -919,6 +922,7 @@ export default function Page() {
           >
             <div>
               <div
+                className="eyebrow on-dark"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -1277,6 +1281,7 @@ export default function Page() {
                 }}
               />
               <div
+                className="eyebrow on-dark"
                 style={{
                   position: "relative",
                   display: "flex",

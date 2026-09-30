@@ -47,6 +47,7 @@ export default function Page() {
             >
               <div>
                 <div
+                  className="eyebrow"
                   data-reveal="text"
                   style={{
                     display: "flex",
@@ -445,6 +446,7 @@ export default function Page() {
             </div>
             <div>
               <div
+                className="eyebrow"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -662,6 +664,7 @@ export default function Page() {
             >
               <div>
                 <div
+                  className="eyebrow"
                   data-reveal="text"
                   style={{
                     display: "flex",
@@ -947,6 +950,7 @@ export default function Page() {
             >
               <div>
                 <div
+                  className="eyebrow on-dark"
                   data-reveal="text"
                   style={{
                     display: "flex",
@@ -1212,6 +1216,7 @@ export default function Page() {
               </div>
               <div>
                 <div
+                  className="eyebrow on-dark"
                   data-reveal="text"
                   style={{
                     display: "flex",
@@ -1392,6 +1397,7 @@ export default function Page() {
           >
             <div>
               <div
+                className="eyebrow"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -1665,12 +1671,14 @@ export default function Page() {
         </section>
         {/* Bargara */}
         <section
-          data-screen-label="Bargara"
+          data-screen-label="Bargara intro"
           style={{
-            position: "relative",
             background: "linear-gradient(135deg,#2F5A51,#26443F 50%,#19332F)",
             color: "#FCFAF6",
-            padding: "clamp(72px,10vw,128px) 0",
+            position: "relative",
+            minHeight: "55vh",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <div
@@ -1685,141 +1693,264 @@ export default function Page() {
           />
           <div
             style={{
-              position: "absolute",
-              inset: "0",
-              background: "radial-gradient(at 100% 0%,rgba(211,185,149,.12),transparent 55%)",
-              pointerEvents: "none",
+              maxWidth: "1440px",
+              width: "100%",
+              margin: "0 auto",
+              padding: "clamp(72px,10vw,128px) clamp(20px,5vw,80px)",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "flex-end",
+              gap: "32px clamp(48px,6vw,96px)",
             }}
-          />
-          <div
-            style={{ position: "relative", maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}
           >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))",
-                gap: "32px clamp(48px,6vw,96px)",
-                alignItems: "end",
-              }}
-            >
-              <div>
-                <div
-                  data-reveal="text"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    alignItems: "center",
-                    gap: "8px 12px",
-                    fontSize: "var(--fs-70)",
-                    fontWeight: "600",
-                    letterSpacing: ".22em",
-                    textTransform: "uppercase",
-                    color: "#D3B995",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                      fontSize: "var(--fs-80)",
-                      fontWeight: "500",
-                      letterSpacing: ".08em",
-                      color: "#D3B995",
-                      textTransform: "none",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    07 / 08
-                  </span>
-                  <span
-                    data-reveal="rule"
-                    style={{ display: "block", width: "40px", height: "1px", background: "#D3B995" }}
-                  />
-                  Bargara
-                </div>
-                <h2
-                  data-reveal="heading"
-                  data-delay="80"
-                  style={{
-                    margin: "20px 0 0",
-                    fontSize: "clamp(1.75rem,3vw,2.5rem)",
-                    fontWeight: "600",
-                    letterSpacing: "-.022em",
-                    lineHeight: "1.2",
-                    color: "#FCFAF6",
-                    maxWidth: "20ch",
-                    textWrap: "balance",
-                  }}
-                >
-                  {"Natural beauty with village charm, just "}
-                  <span style={{ color: "#D3B995" }}>20 minutes</span>
-                  {" from Bundaberg."}
-                </h2>
-              </div>
-              <div>
-                <p
-                  data-reveal="text"
-                  data-delay="160"
-                  style={{
-                    margin: "0",
-                    fontSize: "1rem",
-                    lineHeight: "1.625",
-                    color: "rgba(250,247,240,.7)",
-                    maxWidth: "58ch",
-                  }}
-                >
-                  Start your day strolling the Esplanade or sipping coffee on Bauer Street, then spend the afternoon on
-                  the fairways of Bargara Golf Club, within walking distance of Mira Living.
-                </p>
-                <p
-                  data-reveal="text"
-                  data-delay="240"
-                  style={{
-                    margin: "16px 0 0",
-                    fontSize: "1rem",
-                    lineHeight: "1.625",
-                    color: "rgba(250,247,240,.7)",
-                    maxWidth: "58ch",
-                  }}
-                >
-                  {
-                    "The region is seeing considered growth, including the new $1.2 billion Bundaberg Hospital, part of Queensland's Big Build programme."
-                  }
-                </p>
-              </div>
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,220px),1fr))",
-                gap: "24px",
-                marginTop: "56px",
-              }}
-            >
-              <figure
-                className="fx-348c660"
+            <div style={{ flex: "1 1 380px" }}>
+              <div
+                className="eyebrow on-dark"
                 data-reveal="text"
                 style={{
-                  margin: "0",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "8px 12px",
+                  fontSize: "var(--fs-70)",
+                  fontWeight: "600",
+                  letterSpacing: ".22em",
+                  textTransform: "uppercase",
+                  color: "#D3B995",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                    fontSize: "var(--fs-80)",
+                    fontWeight: "500",
+                    letterSpacing: ".08em",
+                    color: "#D3B995",
+                    textTransform: "none",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  07 / 08
+                </span>
+                <span
+                  data-reveal="rule"
+                  style={{ display: "block", width: "40px", height: "1px", background: "#D3B995" }}
+                />
+                Bargara, Queensland
+              </div>
+              <h2
+                data-reveal="heading"
+                data-delay="100"
+                style={{
+                  margin: "20px 0 0",
+                  fontSize: "clamp(2.25rem,4.5vw,4rem)",
+                  fontWeight: "600",
+                  letterSpacing: "-.03em",
+                  lineHeight: "1.02",
+                  color: "#FCFAF6",
+                  maxWidth: "16ch",
+                  textWrap: "balance",
+                }}
+              >
+                {"Natural beauty with village charm, "}
+                <span style={{ color: "#D3B995" }}>20 minutes</span>
+                {" from Bundaberg."}
+              </h2>
+            </div>
+            <p
+              data-reveal="text"
+              data-delay="240"
+              style={{
+                flex: "1 1 320px",
+                margin: "0",
+                fontSize: "1.05rem",
+                lineHeight: "1.65",
+                color: "rgba(250,247,240,.7)",
+                maxWidth: "46ch",
+              }}
+            >
+              Start your day strolling the Esplanade or sipping coffee on Bauer Street, then spend the afternoon on the
+              fairways of Bargara Golf Club, within walking distance of Mira Living.
+            </p>
+          </div>
+        </section>
+        <section
+          data-screen-label="Bargara"
+          data-scene=""
+          style={{ background: "#F7F4ED", padding: "0 0 clamp(72px,10vw,128px)" }}
+        >
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start" }}>
+            <div
+              data-sticky="clamp(12px,1.5vw,24px)"
+              data-show="wide"
+              style={
+                {
+                  flex: "3 1 460px",
+                  position: "relative",
+                  height: "calc(100vh - 2 * clamp(12px,1.5vw,24px))",
+                  overflow: "hidden",
+                  background: "#EEE9DF",
                   borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "12px 12px 20px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                  transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
+                  margin: "clamp(12px,1.5vw,24px)",
+                  boxShadow: "0 12px 48px -18px rgba(60,40,15,.3)",
+                  "--sticky-top": "clamp(12px,1.5vw,24px)",
+                } as React.CSSProperties
+              }
+            >
+              <Image
+                width={2048}
+                height={1434}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 95vw, (max-width: 1599px) 60vw, 1110px"
+                data-scene-img="0"
+                src="/uploads/bargara-beach-couple-walking.webp"
+                alt="Couple walking on Bargara beach"
+                style={{
+                  position: "absolute",
+                  inset: "0",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
+                  backgroundColor: "#ebe9e4",
+                }}
+              />
+              <Image
+                width={2048}
+                height={1152}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px"
+                data-scene-img="1"
+                src="/uploads/bargara-golfer-sunset.webp"
+                alt="Golfer at sunset, Bargara Golf Club"
+                style={{
+                  position: "absolute",
+                  inset: "0",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  opacity: "0",
+                  transform: "scale(1.04)",
+                  transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
+                  backgroundColor: "#f3f1ec",
+                }}
+              />
+              <Image
+                width={2048}
+                height={1366}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px"
+                data-scene-img="2"
+                src="/uploads/bargara-cafes-dining.webp"
+                alt="Café dining on Bauer Street"
+                style={{
+                  position: "absolute",
+                  inset: "0",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  opacity: "0",
+                  transform: "scale(1.04)",
+                  transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
+                  backgroundColor: "#8b897c",
+                }}
+              />
+              <Image
+                width={2048}
+                height={1365}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px"
+                data-scene-img="3"
+                src="/uploads/bargara-shopping-markets.webp"
+                alt="Local markets and shopping"
+                style={{
+                  position: "absolute",
+                  inset: "0",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  opacity: "0",
+                  transform: "scale(1.04)",
+                  transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
+                  backgroundColor: "#7b7974",
+                }}
+              />
+              <Image
+                width={2400}
+                height={1350}
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px"
+                data-scene-img="4"
+                src="/uploads/aerial.jpg"
+                alt="Aerial view of the growing Bargara coastline"
+                style={{
+                  position: "absolute",
+                  inset: "0",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  opacity: "0",
+                  transform: "scale(1.04)",
+                  transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
+                  backgroundColor: "#a3d1ec",
+                }}
+              />
+              <div
+                className="glass"
+                style={{
+                  position: "absolute",
+                  left: "clamp(20px,3vw,40px)",
+                  bottom: "clamp(20px,3vw,40px)",
+                  display: "inline-flex",
+                  alignItems: "baseline",
+                  gap: "10px",
+                  borderRadius: "999px",
+                  border: "1px solid rgba(255,255,255,.2)",
+                  background: "rgba(32,35,31,.55)",
+                  padding: "8px 14px",
+                  color: "#FCFAF6",
+                  fontSize: "var(--fs-80)",
+                  fontWeight: "500",
+                }}
+              >
+                <span data-scene-index="" style={{ fontFamily: "var(--font-geist-mono),ui-monospace,monospace" }}>
+                  01
+                </span>
+                <span data-scene-label="">The Esplanade and beach</span>
+              </div>
+            </div>
+            <ol
+              style={{
+                flex: "2 1 340px",
+                margin: "0",
+                padding: "0 clamp(20px,5vw,80px)",
+                listStyle: "none",
+                minWidth: "0",
+                alignSelf: "flex-start",
+                marginTop: "clamp(12px,1.5vw,24px)",
+              }}
+            >
+              <li
+                data-scene-item=""
+                data-label="The Esplanade and beach"
+                data-vh=""
+                style={{
+                  minHeight: "92vh",
+                  display: "grid",
+                  alignContent: "center",
+                  gap: "20px",
+                  padding: "clamp(40px,5vw,64px) 0",
                 }}
               >
                 <div
+                  data-show="narrow"
                   style={{
-                    borderRadius: "12px",
+                    borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
-                    background: "rgba(250,247,240,.08)",
+                    background: "#EEE9DF",
+                    marginBottom: "8px",
                   }}
                 >
                   <Image
                     width={2048}
                     height={1434}
-                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
                     src="/uploads/bargara-beach-couple-walking.webp"
                     alt="Couple walking on Bargara beach"
@@ -1832,85 +1963,88 @@ export default function Page() {
                     }}
                   />
                 </div>
-                <figcaption
-                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
-                >
-                  The Esplanade and beach
-                </figcaption>
-              </figure>
-              <figure
-                className="fx-348c660"
-                data-reveal="text"
-                data-delay="80"
-                style={{
-                  margin: "0",
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "12px 12px 20px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                  transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
-                }}
-              >
-                <div
+                <span
+                  className="eyebrow"
+                  data-reveal="text"
                   style={{
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    aspectRatio: "4/3",
-                    background: "rgba(250,247,240,.08)",
+                    fontSize: "var(--fs-70)",
+                    fontWeight: "600",
+                    letterSpacing: ".22em",
+                    textTransform: "uppercase",
+                    color: "#8C6A44",
                   }}
                 >
-                  <Image
-                    width={2048}
-                    height={1366}
-                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
-                    data-reveal="mask"
-                    data-delay="80"
-                    src="/uploads/bargara-cafes-dining.webp"
-                    alt="Café dining on Bauer Street"
-                    style={{
-                      display: "block",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      backgroundColor: "#8b897c",
-                    }}
-                  />
-                </div>
-                <figcaption
-                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                  01 · The Esplanade and beach
+                </span>
+                <h3
+                  data-reveal="heading"
+                  data-delay="80"
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,2.8vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.022em",
+                    lineHeight: "1.12",
+                    color: "#20231F",
+                    textWrap: "balance",
+                  }}
                 >
-                  Cafés on Bauer Street
-                </figcaption>
-              </figure>
-              <figure
-                className="fx-348c660"
-                data-reveal="text"
-                data-delay="160"
+                  A short walk to the sand.
+                </h3>
+                <p
+                  data-reveal="text"
+                  data-delay="180"
+                  style={{
+                    margin: "0",
+                    fontSize: "1rem",
+                    lineHeight: "1.65",
+                    color: "rgba(32,35,31,.65)",
+                    maxWidth: "44ch",
+                  }}
+                >
+                  Mira Living sits at the south end of the Esplanade, Bargara — a few hundred metres from the beach.
+                </p>
+                <span
+                  data-reveal="text"
+                  data-delay="260"
+                  style={{
+                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                    fontSize: "1.3rem",
+                    fontWeight: "500",
+                    color: "#26443F",
+                  }}
+                >
+                  A short walk
+                </span>
+              </li>
+              <li
+                data-scene-item=""
+                data-label="Bargara Golf Club"
+                data-vh=""
                 style={{
-                  margin: "0",
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "12px 12px 20px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                  transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
+                  minHeight: "92vh",
+                  display: "grid",
+                  alignContent: "center",
+                  gap: "20px",
+                  padding: "clamp(40px,5vw,64px) 0",
+                  borderTop: "1px solid rgba(32,35,31,.1)",
                 }}
               >
                 <div
+                  data-show="narrow"
                   style={{
-                    borderRadius: "12px",
+                    borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
-                    background: "rgba(250,247,240,.08)",
+                    background: "#EEE9DF",
+                    marginBottom: "8px",
                   }}
                 >
                   <Image
                     width={2048}
                     height={1152}
-                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
-                    data-delay="160"
                     src="/uploads/bargara-golfer-sunset.webp"
                     alt="Golfer at sunset"
                     style={{
@@ -1922,40 +2056,169 @@ export default function Page() {
                     }}
                   />
                 </div>
-                <figcaption
-                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                <span
+                  className="eyebrow"
+                  data-reveal="text"
+                  style={{
+                    fontSize: "var(--fs-70)",
+                    fontWeight: "600",
+                    letterSpacing: ".22em",
+                    textTransform: "uppercase",
+                    color: "#8C6A44",
+                  }}
                 >
-                  Bargara Golf Club
-                </figcaption>
-              </figure>
-              <figure
-                className="fx-348c660"
-                data-reveal="text"
-                data-delay="240"
+                  02 · Bargara Golf Club
+                </span>
+                <h3
+                  data-reveal="heading"
+                  data-delay="80"
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,2.8vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.022em",
+                    lineHeight: "1.12",
+                    color: "#20231F",
+                    textWrap: "balance",
+                  }}
+                >
+                  An afternoon on the fairways.
+                </h3>
+                <p
+                  data-reveal="text"
+                  data-delay="180"
+                  style={{
+                    margin: "0",
+                    fontSize: "1rem",
+                    lineHeight: "1.65",
+                    color: "rgba(32,35,31,.65)",
+                    maxWidth: "44ch",
+                  }}
+                >
+                  Bargara Golf Club is within walking distance of Mira Living.
+                </p>
+                <span
+                  data-reveal="text"
+                  data-delay="260"
+                  style={{
+                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                    fontSize: "1.3rem",
+                    fontWeight: "500",
+                    color: "#26443F",
+                  }}
+                >
+                  Walking distance
+                </span>
+              </li>
+              <li
+                data-scene-item=""
+                data-label="Cafés on Bauer Street"
+                data-vh=""
                 style={{
-                  margin: "0",
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "12px 12px 20px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                  transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
+                  minHeight: "92vh",
+                  display: "grid",
+                  alignContent: "center",
+                  gap: "20px",
+                  padding: "clamp(40px,5vw,64px) 0",
+                  borderTop: "1px solid rgba(32,35,31,.1)",
                 }}
               >
                 <div
+                  data-show="narrow"
                   style={{
-                    borderRadius: "12px",
+                    borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
-                    background: "rgba(250,247,240,.08)",
+                    background: "#EEE9DF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  <Image
+                    width={2048}
+                    height={1366}
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
+                    data-reveal="mask"
+                    src="/uploads/bargara-cafes-dining.webp"
+                    alt="Café dining on Bauer Street"
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      backgroundColor: "#8b897c",
+                    }}
+                  />
+                </div>
+                <span
+                  className="eyebrow"
+                  data-reveal="text"
+                  style={{
+                    fontSize: "var(--fs-70)",
+                    fontWeight: "600",
+                    letterSpacing: ".22em",
+                    textTransform: "uppercase",
+                    color: "#8C6A44",
+                  }}
+                >
+                  03 · Cafés on Bauer Street
+                </span>
+                <h3
+                  data-reveal="heading"
+                  data-delay="80"
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,2.8vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.022em",
+                    lineHeight: "1.12",
+                    color: "#20231F",
+                    textWrap: "balance",
+                  }}
+                >
+                  Coffee on Bauer Street.
+                </h3>
+                <p
+                  data-reveal="text"
+                  data-delay="180"
+                  style={{
+                    margin: "0",
+                    fontSize: "1rem",
+                    lineHeight: "1.65",
+                    color: "rgba(32,35,31,.65)",
+                    maxWidth: "44ch",
+                  }}
+                >
+                  Village charm, with cafés and dining along Bauer Street.
+                </p>
+              </li>
+              <li
+                data-scene-item=""
+                data-label="Local markets and shopping"
+                data-vh=""
+                style={{
+                  minHeight: "92vh",
+                  display: "grid",
+                  alignContent: "center",
+                  gap: "20px",
+                  padding: "clamp(40px,5vw,64px) 0",
+                  borderTop: "1px solid rgba(32,35,31,.1)",
+                }}
+              >
+                <div
+                  data-show="narrow"
+                  style={{
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    aspectRatio: "4/3",
+                    background: "#EEE9DF",
+                    marginBottom: "8px",
                   }}
                 >
                   <Image
                     width={2048}
                     height={1365}
-                    sizes="(max-width: 639px) 85vw, (max-width: 1023px) 25vw, (max-width: 1599px) 20vw, 280px"
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
-                    data-delay="240"
                     src="/uploads/bargara-shopping-markets.webp"
                     alt="Local markets and shopping"
                     style={{
@@ -1967,239 +2230,192 @@ export default function Page() {
                     }}
                   />
                 </div>
-                <figcaption
-                  style={{ padding: "16px 8px 0", fontSize: "var(--fs-92)", fontWeight: "500", color: "#FCFAF6" }}
+                <span
+                  className="eyebrow"
+                  data-reveal="text"
+                  style={{
+                    fontSize: "var(--fs-70)",
+                    fontWeight: "600",
+                    letterSpacing: ".22em",
+                    textTransform: "uppercase",
+                    color: "#8C6A44",
+                  }}
                 >
-                  Local markets and shopping
-                </figcaption>
-              </figure>
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,320px),1fr))",
-                gap: "24px",
-                marginTop: "24px",
-              }}
-            >
-              <figure data-reveal="text" style={{ margin: "0", display: "flex", flexDirection: "column", gap: "12px" }}>
+                  04 · Local markets and shopping
+                </span>
+                <h3
+                  data-reveal="heading"
+                  data-delay="80"
+                  style={{
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,2.8vw,2.5rem)",
+                    fontWeight: "600",
+                    letterSpacing: "-.022em",
+                    lineHeight: "1.12",
+                    color: "#20231F",
+                    textWrap: "balance",
+                  }}
+                >
+                  Markets and shopping, close to home.
+                </h3>
+                <p
+                  data-reveal="text"
+                  data-delay="180"
+                  style={{
+                    margin: "0",
+                    fontSize: "1rem",
+                    lineHeight: "1.65",
+                    color: "rgba(32,35,31,.65)",
+                    maxWidth: "44ch",
+                  }}
+                >
+                  Local markets and shopping in Bargara, with Bundaberg 20 minutes away.
+                </p>
+              </li>
+              <li
+                data-scene-item=""
+                data-label="Bundaberg"
+                data-vh=""
+                style={{
+                  minHeight: "92vh",
+                  display: "grid",
+                  alignContent: "center",
+                  gap: "20px",
+                  padding: "clamp(40px,5vw,64px) 0",
+                  borderTop: "1px solid rgba(32,35,31,.1)",
+                }}
+              >
                 <div
+                  data-show="narrow"
                   style={{
                     borderRadius: "16px",
                     overflow: "hidden",
-                    aspectRatio: "16/9",
-                    boxShadow: "0 12px 44px -16px rgba(0,0,0,.45)",
-                    background: "rgba(250,247,240,.08)",
+                    aspectRatio: "4/3",
+                    background: "#EEE9DF",
+                    marginBottom: "8px",
                   }}
                 >
                   <Image
-                    width={2181}
-                    height={1226}
-                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px"
+                    width={2400}
+                    height={1350}
+                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
-                    src="/uploads/bargara-golf-course-coast-aerial.webp"
-                    alt="Golf course running to the coastline"
+                    src="/uploads/aerial.jpg"
+                    alt="Aerial view of the growing Bargara coastline"
                     style={{
                       display: "block",
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      backgroundColor: "#d3e1ec",
+                      backgroundColor: "#a3d1ec",
                     }}
                   />
                 </div>
-                <figcaption style={{ fontSize: "var(--fs-80)", color: "rgba(250,247,240,.55)" }}>
-                  Golf course to coastline
-                </figcaption>
-              </figure>
-              <figure
-                data-reveal="text"
-                data-delay="100"
-                style={{ margin: "0", display: "flex", flexDirection: "column", gap: "12px" }}
-              >
-                <div
-                  style={{
-                    borderRadius: "16px",
-                    overflow: "hidden",
-                    aspectRatio: "16/9",
-                    boxShadow: "0 12px 44px -16px rgba(0,0,0,.45)",
-                    background: "rgba(250,247,240,.08)",
-                  }}
-                >
-                  <Image
-                    width={600}
-                    height={450}
-                    sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 45vw, 630px"
-                    data-reveal="mask"
-                    data-delay="100"
-                    src="/uploads/bundaberg-hospital.webp"
-                    alt="Render of the new Bundaberg Hospital"
-                    style={{
-                      display: "block",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      backgroundColor: "#83817c",
-                    }}
-                  />
-                </div>
-                <figcaption style={{ fontSize: "var(--fs-80)", color: "rgba(250,247,240,.55)" }}>
-                  New Bundaberg Hospital (render)
-                </figcaption>
-              </figure>
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,180px),1fr))",
-                gap: "16px",
-                marginTop: "56px",
-              }}
-            >
-              <div
-                data-reveal="text"
-                style={{
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "20px 24px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                }}
-              >
                 <span
+                  className="eyebrow"
+                  data-reveal="text"
                   style={{
-                    display: "block",
-                    fontSize: "var(--fs-66)",
+                    fontSize: "var(--fs-70)",
                     fontWeight: "600",
-                    letterSpacing: ".18em",
+                    letterSpacing: ".22em",
                     textTransform: "uppercase",
-                    color: "#D3B995",
+                    color: "#8C6A44",
                   }}
                 >
-                  {"Esplanade & beach"}
+                  05 · Bundaberg
                 </span>
-                <span
+                <h3
+                  data-reveal="heading"
+                  data-delay="80"
                   style={{
-                    display: "block",
-                    marginTop: "6px",
-                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: "1.05rem",
-                    fontWeight: "500",
-                    color: "#FCFAF6",
-                  }}
-                >
-                  A short walk
-                </span>
-              </div>
-              <div
-                data-reveal="text"
-                data-delay="80"
-                style={{
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "20px 24px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                }}
-              >
-                <span
-                  style={{
-                    display: "block",
-                    fontSize: "var(--fs-66)",
+                    margin: "0",
+                    fontSize: "clamp(1.75rem,2.8vw,2.5rem)",
                     fontWeight: "600",
-                    letterSpacing: ".18em",
-                    textTransform: "uppercase",
-                    color: "#D3B995",
+                    letterSpacing: "-.022em",
+                    lineHeight: "1.12",
+                    color: "#20231F",
+                    textWrap: "balance",
                   }}
                 >
-                  Bargara Golf Club
-                </span>
-                <span
+                  {"A region seeing "}
+                  <span style={{ color: "#26443F" }}>considered growth.</span>
+                </h3>
+                <p
+                  data-reveal="text"
+                  data-delay="180"
                   style={{
-                    display: "block",
-                    marginTop: "6px",
-                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: "1.05rem",
-                    fontWeight: "500",
-                    color: "#FCFAF6",
+                    margin: "0",
+                    fontSize: "1rem",
+                    lineHeight: "1.65",
+                    color: "rgba(32,35,31,.65)",
+                    maxWidth: "44ch",
                   }}
                 >
-                  Walking distance
-                </span>
-              </div>
-              <div
-                data-reveal="text"
-                data-delay="160"
-                style={{
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "20px 24px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                }}
-              >
-                <span
+                  {
+                    "The region is seeing considered growth, including the new $1.2 billion Bundaberg Hospital, part of Queensland's Big Build programme."
+                  }
+                </p>
+                <dl
+                  data-reveal="text"
+                  data-delay="260"
                   style={{
-                    display: "block",
-                    fontSize: "var(--fs-66)",
-                    fontWeight: "600",
-                    letterSpacing: ".18em",
-                    textTransform: "uppercase",
-                    color: "#D3B995",
+                    margin: "8px 0 0",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2,minmax(0,1fr))",
+                    gap: "16px",
                   }}
                 >
-                  Bundaberg
-                </span>
-                <span
-                  style={{
-                    display: "block",
-                    marginTop: "6px",
-                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: "1.05rem",
-                    fontWeight: "500",
-                    color: "#FCFAF6",
-                  }}
-                >
-                  20 min
-                </span>
-              </div>
-              <div
-                data-reveal="text"
-                data-delay="240"
-                style={{
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,.1)",
-                  background: "rgba(250,247,240,.06)",
-                  padding: "20px 24px",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
-                }}
-              >
-                <span
-                  style={{
-                    display: "block",
-                    fontSize: "var(--fs-66)",
-                    fontWeight: "600",
-                    letterSpacing: ".18em",
-                    textTransform: "uppercase",
-                    color: "#D3B995",
-                  }}
-                >
-                  Bundaberg Airport
-                </span>
-                <span
-                  style={{
-                    display: "block",
-                    marginTop: "6px",
-                    fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
-                    fontSize: "1.05rem",
-                    fontWeight: "500",
-                    color: "#FCFAF6",
-                  }}
-                >
-                  25 min
-                </span>
-              </div>
-            </div>
+                  <div>
+                    <dt
+                      style={{
+                        fontSize: "var(--fs-66)",
+                        fontWeight: "600",
+                        letterSpacing: ".18em",
+                        textTransform: "uppercase",
+                        color: "rgba(32,35,31,.55)",
+                      }}
+                    >
+                      Bundaberg
+                    </dt>
+                    <dd
+                      style={{
+                        margin: "4px 0 0",
+                        fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                        fontSize: "1.3rem",
+                        fontWeight: "500",
+                        color: "#26443F",
+                      }}
+                    >
+                      20 min
+                    </dd>
+                  </div>
+                  <div>
+                    <dt
+                      style={{
+                        fontSize: "var(--fs-66)",
+                        fontWeight: "600",
+                        letterSpacing: ".18em",
+                        textTransform: "uppercase",
+                        color: "rgba(32,35,31,.55)",
+                      }}
+                    >
+                      Bundaberg Airport
+                    </dt>
+                    <dd
+                      style={{
+                        margin: "4px 0 0",
+                        fontFamily: "var(--font-geist-mono),ui-monospace,monospace",
+                        fontSize: "1.3rem",
+                        fontWeight: "500",
+                        color: "#26443F",
+                      }}
+                    >
+                      25 min
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            </ol>
           </div>
         </section>
         {/* Lifestyle image break */}
@@ -2237,6 +2453,7 @@ export default function Page() {
                 }}
               />
               <div
+                className="eyebrow on-dark"
                 style={{
                   position: "relative",
                   display: "flex",

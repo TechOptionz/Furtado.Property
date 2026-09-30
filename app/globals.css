@@ -435,6 +435,33 @@ html:not(.intro-seen) {
   --fs-90: 0.9rem;
   --fs-92: 0.92rem;
   --fs-95: 0.95rem;
+  --fs-eyebrow: 0.8125rem;
+  --fs-eyebrow-num: 0.875rem;
+  --eyebrow-ink: #74542f;
+}
+/* Eyebrow lines ("09 / 11 —— How we work"). The export sets them at 11px in a pale bronze with a hairline rule,
+   which is hard to read; scripts/convert.mjs tags them .eyebrow (.on-dark on the green bands; HomeHero sets it by
+   hand) and they run at 13px, heavier, less widely spaced and darker. The handwritten eyebrows (TrackRecord,
+   contact) use the same tokens. */
+.eyebrow {
+  font-size: var(--fs-eyebrow) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+}
+.eyebrow:not(.on-dark) {
+  color: var(--eyebrow-ink) !important;
+}
+/* the running number */
+.eyebrow > span:not(:empty) {
+  font-size: var(--fs-eyebrow-num) !important;
+  font-weight: 600 !important;
+}
+.eyebrow:not(.on-dark) > span:not(:empty) {
+  color: rgba(32, 35, 31, 0.8) !important;
+}
+/* the rule */
+.eyebrow > span:empty {
+  height: 2px !important;
 }
 @media (max-width: 767px) {
   :root {
