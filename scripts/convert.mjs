@@ -87,8 +87,19 @@ const PAGES = [
   },
   // The aerial image break (photo + overlapping quote card) is dropped from both pages, and the running section
   // numbers close the gap ("06 / 06" → "05 / 05").
-  { file: 'About', out: 'app/about/page.tsx', ...dropSection('Image', 6) },
-  { file: 'Projects', out: 'app/projects/page.tsx' },
+  // About and Projects each gain a handwritten track-record section (components/TrackRecord.tsx, the communities in
+  // lib/track-record.ts): the summary before "How we work" on About, the full record before "How we deliver" on
+  // Projects. Both number themselves 04, and their figures count up (components/CountUp.tsx).
+  {
+    file: 'About', out: 'app/about/page.tsx', extra: '<CountUp />',
+    extraImport: 'import { TrackRecordSummary } from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
+    ...chain(dropSection('Image', 6), addSection('<TrackRecordSummary />', 'How we work: dark band', 4, 5)),
+  },
+  {
+    file: 'Projects', out: 'app/projects/page.tsx', extra: '<CountUp />',
+    extraImport: 'import TrackRecord from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
+    ...addSection('<TrackRecord />', 'How we deliver', 4, 4),
+  },
   { file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx', ...dropSection('Lifestyle', 9) },
   // /contact is handwritten (app/contact/) and no longer compiled from Contact.dc.html.
 ];
@@ -381,6 +392,29 @@ function dropSection(label, total) {
       section.remove();
     },
     patch: (jsx) => jsx.replace(new RegExp(`(\\d\\d) \\/ ${pad(total)}`, 'g'), (_, n) => `${pad(n > dropped ? n - 1 : Number(n))} / ${pad(total - 1)}`),
+  };
+}
+
+// Page options that place a handwritten section (a JSX tag) before the export section introduced by the given
+// comment, as number `at` of what were `total` sections: labels from `at` on move down one ("04 / 04" → "05 / 05").
+function addSection(tag, before, at, total) {
+  const pad = (n) => String(n).padStart(2, '0');
+  const marker = `{/* ${before} */}`;
+  return {
+    patch: (jsx) => {
+      if (!jsx.includes(marker)) throw new Error(`addSection: no "${before}" section`);
+      return jsx
+        .replace(new RegExp(`(\\d\\d) \\/ ${pad(total)}`, 'g'), (_, n) => `${pad(n >= at ? +n + 1 : +n)} / ${pad(total + 1)}`)
+        .replace(marker, tag + marker);
+    },
+  };
+}
+
+// Several sets of page options as one: their DOM patches, then their JSX patches, run in order.
+function chain(...options) {
+  return {
+    patchDom: (root) => options.forEach((o) => o.patchDom?.(root)),
+    patch: (jsx) => options.reduce((out, o) => (o.patch ? o.patch(out) : out), jsx),
   };
 }
 

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Blob from "@/components/Blob";
 import Link from "next/link";
 import Image from "next/image";
+import TrackRecord from "@/components/TrackRecord";
+import CountUp from "@/components/CountUp";
 import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -61,7 +63,7 @@ export default function Page() {
                   whiteSpace: "nowrap",
                 }}
               >
-                01 / 04
+                01 / 05
               </span>
               <span
                 data-reveal="rule"
@@ -235,7 +237,7 @@ export default function Page() {
                   color: "#8C6A44",
                 }}
               >
-                02 / 04 · Current project
+                02 / 05 · Current project
               </span>
               <span
                 style={{
@@ -745,7 +747,7 @@ export default function Page() {
                   color: "#8C6A44",
                 }}
               >
-                03 / 04 · Upcoming projects
+                03 / 05 · Upcoming projects
               </span>
               <span
                 style={{
@@ -1218,6 +1220,7 @@ export default function Page() {
             </p>
           </div>
         </section>
+        <TrackRecord />
         {/* How we deliver */}
         <section data-screen-label="How we deliver" style={{ padding: "clamp(72px,10vw,128px) 0 0" }}>
           <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
@@ -1241,7 +1244,7 @@ export default function Page() {
                   color: "#8C6A44",
                 }}
               >
-                04 / 04 · How we deliver
+                05 / 05 · How we deliver
               </span>
             </div>
             <h2
@@ -1579,6 +1582,7 @@ export default function Page() {
           </div>
         </section>
       </main>
+      <CountUp />
     </>
   );
 }

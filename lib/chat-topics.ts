@@ -1,4 +1,5 @@
 import { site } from "@/lib/site-config";
+import { totals } from "@/lib/track-record";
 
 // Questions and answers for components/ChatBot.tsx. Every answer restates what the site already says (status lines
 // come from lib/site-config.ts); anything the site does not publish — prices, the stock list, body corporate levies,
@@ -272,6 +273,10 @@ export const topics: ChatTopic[] = [
       "upcoming",
       "next project",
       "past projects",
+      "track record",
+      "managed",
+      "management",
+      "villages",
       "new developments",
       "brisbane",
       "gold coast",
@@ -279,9 +284,11 @@ export const topics: ChatTopic[] = [
     ],
     answer: [
       "Furtado Property is a residential developer in South East Queensland with over 20 years of property experience, focused on quality, architectural design and customer satisfaction.",
+      `From ${totals.from} to ${totals.to} it managed ${totals.communities} residential communities across the region, ${totals.homes} homes in all, including ${totals.villages} over-50s villages.`,
       "Mira Living is the project now selling. To hear about upcoming developments first, choose “Future developments” on the enquiry form.",
     ],
     links: [
+      { label: "Our track record", href: "/projects#track-record" },
       { label: "Our projects", href: "/projects" },
       { label: "Register for future projects", href: "/contact" },
     ],

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Blob from "@/components/Blob";
 import Link from "next/link";
 import Image from "next/image";
+import { TrackRecordSummary } from "@/components/TrackRecord";
+import CountUp from "@/components/CountUp";
 import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -71,7 +73,7 @@ export default function Page() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    01 / 05
+                    01 / 06
                   </span>
                   <span
                     data-reveal="rule"
@@ -491,7 +493,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  02 / 05
+                  02 / 06
                 </span>
                 <span
                   data-reveal="rule"
@@ -642,7 +644,7 @@ export default function Page() {
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#B59168" }}
                 />
-                03 / 05 · What guides us
+                03 / 06 · What guides us
                 <span
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#B59168" }}
@@ -883,6 +885,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <TrackRecordSummary />
         {/* How we work: dark band */}
         <section
           data-screen-label="How we work"
@@ -940,7 +943,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  04 / 05
+                  05 / 06
                 </span>
                 <span
                   data-reveal="rule"
@@ -1288,7 +1291,7 @@ export default function Page() {
                 }}
               >
                 <span style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }} />
-                05 / 05 · Enquire
+                06 / 06 · Enquire
                 <span style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }} />
               </div>
               <h2
@@ -1387,6 +1390,7 @@ export default function Page() {
           </div>
         </section>
       </main>
+      <CountUp />
     </>
   );
 }
