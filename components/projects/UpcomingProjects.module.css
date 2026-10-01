@@ -1,0 +1,219 @@
+/* Upcoming projects on /projects (UpcomingProjects.tsx): a sand band, three cards without frames. */
+
+.section {
+  padding: var(--section) 0;
+  background: #eee9df;
+}
+
+.intro {
+  row-gap: 24px;
+  align-items: end;
+  margin-top: clamp(24px, 3vw, 40px);
+}
+.intro h2 {
+  grid-column: 1 / span 7;
+  max-width: 14ch;
+}
+.intro > div {
+  grid-column: 9 / span 4;
+}
+.intro a {
+  margin-top: 28px;
+}
+
+.scroller {
+  /* contains the cards' visually hidden text, which would otherwise widen the page from inside the scrolling row */
+  position: relative;
+  margin-top: var(--block);
+}
+/* Three level columns of equal height: image, name, type and location, a short description, and the stage
+   indicator held to the foot of the card so the three line up. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cards > li {
+  display: flex;
+}
+.cards article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e3ddd0;
+}
+.image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.image > span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 8px 12px;
+  background: #f7f4ed;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.cards h3 {
+  margin: 22px 0 0;
+  font-size: clamp(1.5rem, 2.3vw, 2.125rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.meta {
+  margin: 8px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.description {
+  margin: 14px 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 44ch;
+}
+
+/* Where the project stands: four steps, filled up to the current one, which is the only label in full ink. */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  margin: auto 0 0;
+  padding: 28px 0 0;
+  list-style: none;
+}
+.stages li {
+  padding: 10px 6px 0 0;
+  border-top: 3px solid rgba(32, 35, 31, 0.2);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+.stages li[data-state="done"] {
+  border-top-color: rgba(38, 68, 63, 0.5);
+}
+.stages li[data-state="current"] {
+  border-top-color: var(--accent);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.image img {
+  transition: transform 0.9s var(--ease);
+}
+@media (hover: hover) {
+  .cards > li:hover .image img {
+    transform: scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .image img {
+    transition: none;
+  }
+}
+
+.finePrint {
+  margin: var(--block) 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 88ch;
+}
+
+@media (max-width: 1099px) {
+  .intro h2,
+  .intro > div {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Below 1024px the cards become a row that snaps one card at a time, bleeding to the screen edge. */
+@media (max-width: 1023px) {
+  .scroller {
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 6px var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .scroller::-webkit-scrollbar {
+    display: none;
+  }
+  .scroller:focus-visible {
+    outline-offset: -2px;
+  }
+  .cards {
+    display: flex;
+    gap: 16px;
+  }
+  .cards > li:nth-child(n) {
+    flex: 0 0 min(46%, 420px);
+    scroll-snap-align: start;
+  }
+}
+@media (max-width: 639px) {
+  .cards > li:nth-child(n) {
+    flex-basis: 80%;
+  }
+}
+
+/* Each card answers the cursor: its image zooms (above), its name takes the accent and a rule draws under it. */
+.cards h3 {
+  position: relative;
+  padding-bottom: 14px;
+  transition: color 0.4s var(--ease);
+}
+.cards h3::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease);
+}
+.meta {
+  margin-top: 14px;
+}
+@media (hover: hover) {
+  .cards > li:hover h3 {
+    color: var(--accent);
+  }
+  .cards > li:hover h3::after {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cards h3,
+  .cards h3::after {
+    transition: none;
+  }
+}

@@ -194,7 +194,7 @@ export default function HomeHero() {
             margin: 0,
             fontSize: "clamp(2.6rem,7vw,6.4rem)",
             fontWeight: 600,
-            letterSpacing: "-.032em",
+            letterSpacing: "-.04em",
             lineHeight: ".98",
             maxWidth: "14ch",
             textWrap: "balance",

@@ -61,56 +61,60 @@ button:focus-visible {
   }
 }
 
-/* Step cards ("How we deliver" on Projects; scripts/convert.mjs adds the class). On hover the card lifts, a bronze
-   line draws across its top edge and the number badge turns green. The card's border and the badge's colours are
-   inline in the generated markup, hence the !important. */
-.step-card {
+/* Cards and photograph frames answer the cursor. scripts/convert.mjs tags them data-card (handwritten sections set
+   it themselves): a card lifts, its border warms and a soft glow follows the pointer across it (lib/site.js keeps
+   --mx / --my current); a photograph zooms a little inside its frame. Only where there is a real pointer, and
+   without movement under prefers-reduced-motion. Card borders and shadows are inline in the generated markup,
+   hence the !important. */
+[data-card] {
   position: relative;
-  overflow: hidden;
-  transition:
-    transform 0.35s ease-out,
-    border-color 0.35s ease-out,
-    box-shadow 0.35s ease-out;
 }
-.step-card::before {
+[data-card=""] {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-card=""]::after {
   content: "";
   position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: #b59168;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.45s ease-out;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(196, 160, 112, 0.2), transparent 62%);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  pointer-events: none;
 }
-.step-card > span:first-child {
-  transition:
-    background 0.35s ease-out,
-    color 0.35s ease-out,
-    transform 0.35s ease-out;
+[data-card="photo"] {
+  overflow: hidden;
+}
+[data-card="photo"] img,
+[data-card="photo"] video {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 @media (hover: hover) {
-  .step-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(181, 145, 104, 0.55) !important;
-    box-shadow: 0 24px 48px -24px rgba(25, 51, 47, 0.35);
+  [data-card=""]:hover {
+    transform: translateY(-4px);
+    border-color: rgba(181, 145, 104, 0.7) !important;
+    box-shadow: 0 24px 48px -28px rgba(25, 51, 47, 0.5) !important;
   }
-  .step-card:hover::before {
-    transform: scaleX(1);
+  [data-card=""]:hover::after {
+    opacity: 1;
   }
-  .step-card:hover > span:first-child {
-    background: #26443f !important;
-    color: #f7f4ed !important;
-    transform: scale(1.08);
+  [data-card="photo"]:hover img,
+  [data-card="photo"]:hover video {
+    transform: scale(1.04);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .step-card,
-  .step-card::before,
-  .step-card > span:first-child {
+  [data-card=""],
+  [data-card="photo"] img,
+  [data-card="photo"] video {
     transition: none;
   }
-  .step-card:hover,
-  .step-card:hover > span:first-child {
+  [data-card=""]:hover,
+  [data-card="photo"]:hover img,
+  [data-card="photo"]:hover video {
     transform: none;
   }
 }
@@ -492,6 +496,39 @@ html:not(.intro-seen) {
   --fs-eyebrow: 0.8125rem;
   --fs-eyebrow-num: 0.875rem;
   --eyebrow-ink: #74542f;
+  /* Secondary text. scripts/convert.mjs maps the export's translucent inks onto these, and the handwritten pages
+     use them directly: -2 body copy, -3 labels and captions, -4 the faintest notes. */
+  --ink-2: rgba(32, 35, 31, 0.86);
+  --ink-3: rgba(32, 35, 31, 0.74);
+  --ink-4: rgba(32, 35, 31, 0.62);
+  --on-dark-2: rgba(250, 247, 240, 0.9);
+  --on-dark-3: rgba(250, 247, 240, 0.78);
+  --on-dark-4: rgba(250, 247, 240, 0.64);
+  /* Space above and below a section, on every page. */
+  --space-section: clamp(48px, 5.5vw, 80px);
+  /* Headline scale, shared by every page (set on /projects first). */
+  --display-size: clamp(2.375rem, 5.7vw, 5.5rem);
+  --display-tracking: -0.04em;
+  --display-leading: 0.98;
+  --title-size: clamp(2rem, 4.2vw, 3.75rem);
+  --title-tracking: -0.03em;
+  --title-leading: 1.04;
+}
+/* The generated pages set their headings inline at a smaller, looser size; these bring them onto the shared scale.
+   Handwritten headings carry a class and use the tokens themselves. */
+main h1:not([class]) {
+  font-size: var(--display-size) !important;
+  letter-spacing: var(--display-tracking) !important;
+  line-height: var(--display-leading) !important;
+}
+main h2:not([class]) {
+  font-size: var(--title-size) !important;
+  letter-spacing: var(--title-tracking) !important;
+  line-height: var(--title-leading) !important;
+}
+main h3:not([class]) {
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
 }
 /* Eyebrow lines ("09 / 11 —— How we work"). The export sets them at 11px in a pale bronze with a hairline rule,
    which is hard to read; scripts/convert.mjs tags them .eyebrow (.on-dark on the green bands; HomeHero sets it by
@@ -600,6 +637,64 @@ li {
 .site-scrim {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
+}
+
+/* ------------------------------------------------------------------------------------------------------------
+   Mira Living construction progress: the site film (components/ConstructionFilm.tsx) fills a rounded panel that
+   takes the whole section, behind a green scrim that is heaviest under the copy and clears towards the building.
+   The copy sits bottom left on the page gutter; the film's caption and pause button sit top right.
+   scripts/convert.mjs adds the classes and the film.
+   ------------------------------------------------------------------------------------------------------------ */
+.film-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(88vh, 860px);
+  border-radius: 16px;
+  background: #1c2f2b;
+  box-shadow: 0 12px 48px -18px rgba(60, 40, 15, 0.3);
+}
+.film-bg {
+  z-index: -2;
+}
+.film-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(0deg, rgba(18, 32, 29, 0.5) 0%, rgba(18, 32, 29, 0) 45%),
+    linear-gradient(90deg, rgba(18, 32, 29, 0.9) 0%, rgba(18, 32, 29, 0.74) 38%, rgba(18, 32, 29, 0.2) 70%, rgba(18, 32, 29, 0) 100%);
+}
+.film-copy {
+  --film-gutter: max(
+    20px,
+    clamp(20px, 5vw, 80px) - clamp(12px, 1.5vw, 24px),
+    (100vw - 1440px) / 2 + 56px
+  );
+  width: 100%;
+  padding: clamp(96px, 9vw, 128px) var(--film-gutter) clamp(32px, 4.5vw, 64px);
+}
+.film-copy > * {
+  max-width: 760px;
+}
+.film-controls {
+  position: absolute;
+  top: clamp(16px, 2vw, 28px);
+  right: clamp(16px, 2vw, 28px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 1023px) {
+  .film-panel {
+    min-height: 0;
+  }
+  .film-panel::before {
+    background: linear-gradient(180deg, rgba(18, 32, 29, 0.5) 0%, rgba(18, 32, 29, 0.78) 40%, rgba(18, 32, 29, 0.9) 100%);
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------------------

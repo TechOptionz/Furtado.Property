@@ -20,6 +20,9 @@ const ROUTES = {
   './Projects.dc.html': '/projects',
   './Mira-Living.dc.html': '/projects/mira-living',
   './Contact.dc.html': '/contact',
+  // Handwritten pages with no export of their own (app/privacy, app/terms); the footer links to them.
+  './Privacy.dc.html': '/privacy',
+  './Terms.dc.html': '/terms',
 };
 
 const DESCRIPTIONS = {
@@ -133,44 +136,64 @@ const PAGES = [
       // The centred labels carry their running number as bare text ("09 / 12 · The residences").
       .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`))),
   },
-  // The aerial image break (photo + overlapping quote card) is dropped from both pages, and the running section
-  // numbers close the gap ("06 / 06" → "05 / 05").
-  // About and Projects each gain a handwritten track-record section (components/TrackRecord.tsx, the communities in
-  // lib/track-record.ts): the summary before "How we work" on About, the full record before "How we deliver" on
-  // Projects. Both number themselves 04, and their figures count up (components/CountUp.tsx).
+  // The aerial image break (photo + overlapping quote card) is dropped, and the running section numbers close the
+  // gap ("06 / 06" → "05 / 05").
+  // About gains a handwritten track-record section (components/TrackRecord.tsx, the communities in
+  // lib/track-record.ts): the summary before "How we work". It numbers itself 04, and its figures count up
+  // (components/CountUp.tsx).
   {
     file: 'About', out: 'app/about/page.tsx', extra: '<CountUp />',
     extraImport: 'import { TrackRecordSummary } from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
     ...chain(dropSection('Image', 6), addSection('<TrackRecordSummary />', 'How we work: dark band', 4, 5)),
   },
-  {
-    file: 'Projects', out: 'app/projects/page.tsx', extra: '<CountUp />',
-    extraImport: 'import TrackRecord from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
-    // The four "How we deliver" step cards get a class so globals.css can give them a hover state (.step-card).
-    ...chain(addSection('<TrackRecord />', 'How we deliver', 4, 4), {
-      patchDom: (root) => {
-        const cards = root.querySelectorAll('[data-screen-label="How we deliver"] div[data-delay]');
-        if (cards.length !== 4) throw new Error(`Projects: expected 4 step cards, found ${cards.length}`);
-        cards.forEach((card) => card.setAttribute('class', 'step-card'));
-      },
-    }),
-  },
   // Mira Living's own Bargara section (photo cards and distances) makes way for the Bargara scene from Home, which
-  // covers the same places and takes over its running number. The site film (components/ConstructionFilm.tsx) plays
-  // in the "Construction progress" frame, over the excavation photograph, which stays as its poster and fallback.
+  // covers the same places and takes over its running number. In "Construction progress" the excavation photograph
+  // leaves its small frame and the site film (components/ConstructionFilm.tsx, in with `patch` below) fills the whole
+  // section as a rounded panel inset on the page colour, the way the Bargara image is; the copy sits over it in light
+  // colours and the status cards turn to dark glass — .film-panel and .film-copy in globals.css.
   {
     file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx',
     extraImport: 'import ConstructionFilm from "@/components/ConstructionFilm";',
     ...chain(borrowSections('Bargara', 'Home', ['Bargara intro', 'Bargara']), dropSection('Lifestyle', 9), {
       patchDom: (root) => {
-        const photo = root.querySelector('[data-screen-label="Construction progress"] img');
+        const section = root.querySelector('[data-screen-label="Construction progress"]');
+        const photo = section?.querySelector('img');
         if (!photo) throw new Error('Mira-Living: no construction photograph');
-        photo.parentNode.setAttribute('style', `${photo.parentNode.getAttribute('style')};position:relative`);
+        photo.parentNode.remove();
+        const restyle = (el, from, to) => el.setAttribute('style', el.getAttribute('style').replace(from, to));
+        section.setAttribute('style', 'padding:clamp(12px,1.5vw,24px)');
+        const panel = section.querySelector('> div');
+        panel.removeAttribute('style');
+        panel.setAttribute('class', 'film-panel');
+        const copy = panel.querySelector('> div');
+        copy.setAttribute('class', 'film-copy');
+        const [eyebrow, cards] = copy.querySelectorAll('> div');
+        restyle(eyebrow, 'color:#8C6A44', 'color:#D3B995');
+        const [number, rule] = eyebrow.querySelectorAll('span');
+        restyle(number, 'color:rgba(32,35,31,.55)', 'color:#D3B995');
+        restyle(rule, '#B59168', '#D3B995');
+        const head = copy.querySelector('h2');
+        restyle(head, 'color:#20231F', 'color:#FCFAF6');
+        restyle(head.querySelector('span'), '#26443F', '#D3B995');
+        restyle(copy.querySelector('p'), 'rgba(32,35,31,.65)', 'rgba(250,247,240,.7)');
+        const all = cards.querySelectorAll('> div');
+        all.forEach((card, i) => {
+          const last = i === all.length - 1;
+          card.setAttribute('style', `border-radius:16px;border:1px solid ${last ? 'rgba(211,185,149,.65)' : 'rgba(255,255,255,.16)'};background:rgba(18,32,29,.45);padding:20px 24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(8px)`);
+          const [label, value] = card.querySelectorAll('span');
+          restyle(label, 'color:rgba(32,35,31,.55)', 'color:#D3B995');
+          restyle(value, /color:#\w+/, `color:${last ? '#D3B995' : '#FCFAF6'}`);
+        });
+        const cta = copy.querySelector('a');
+        restyle(cta, /background:#26443F;color:#FCFAF6;(.*)box-shadow:[^;]+/, 'background:#FCFAF6;color:#19332F;$1box-shadow:0 10px 28px -12px rgba(0,0,0,.6)');
+        cta.setAttribute('style-hover', 'transform:translateY(-2px);background:#fff;box-shadow:0 14px 34px -12px rgba(0,0,0,.7)');
       },
-      patch: (jsx) => jsx.replace(/(<Image\b[^<]*src="\/uploads\/mira-idc-site-excavation\.jpg"[^<]*\/>)/, '$1<ConstructionFilm />'),
+      patch: (jsx) => jsx.replace(/(<div className="film-panel">)/, '$1<ConstructionFilm />'),
     }),
   },
   // /contact is handwritten (app/contact/) and no longer compiled from Contact.dc.html.
+  // /projects is handwritten too (app/projects/page.tsx, components/projects/, lib/projects.ts) and no longer
+  // compiled from Projects.dc.html. Its route stays in ROUTES so links to it from the other pages still resolve.
 ];
 
 const COMPONENTS = [
@@ -241,7 +264,7 @@ const COMPONENTS = [
     .sort((a, b) => b.length - a.length)[0];
   const links = items.map(([label, href], i) => ({
     label, href, index: "0" + (i + 1),
-    color: href === activeHref ? "#20231F" : "rgba(32,35,31,.65)",
+    color: href === activeHref ? "#20231F" : "var(--ink-2)",
     line: href === activeHref ? "#B59168" : "transparent",
   }));
   const openMenu = () => setOpenAt(pathname);
@@ -299,7 +322,19 @@ const cssKey = (prop) => {
 // Fixed type sizes become tokens (app/globals.css) so phones can run body copy and labels a step larger than the
 // desktop design without touching the export: .95rem → var(--fs-95).
 const FS_TOKENS = new Set(['.66', '.7', '.72', '.78', '.8', '.84', '.86', '.88', '.9', '.92', '.95']);
+// Secondary text colours become tokens too (app/globals.css), so the whole site's small copy darkens or lightens in
+// one place: body copy → --ink-2, labels → --ink-3, the faintest notes → --ink-4, and --on-dark-* on the green bands.
+const INK = { '.75': 2, '.7': 2, '.65': 2, '.62': 2, '.55': 3, '.45': 4, '.4': 4, '.35': 4 };
+const ON_DARK = { '.75': 2, '.7': 2, '.68': 2, '.55': 3, '.4': 4 };
+// The export's section spacing is one token as well (--space-section), tighter than the design drew it.
+const SECTION_SPACE = /clamp\(72px,10vw,128px\)/g;
 const token = (p, v) => {
+  if (/^(padding|margin)/.test(p)) return v.replace(SECTION_SPACE, 'var(--space-section)');
+  const c = p === 'color' && v.match(/^rgba\((32,35,31|250,247,240),(\.\d+)\)$/);
+  if (c) {
+    const level = (c[1] === '32,35,31' ? INK : ON_DARK)[c[2]];
+    return level ? `var(--${c[1] === '32,35,31' ? 'ink' : 'on-dark'}-${level})` : v;
+  }
   const m = p === 'font-size' && v.match(/^(\.\d+)rem$/);
   return m && FS_TOKENS.has(m[1]) ? `var(--fs-${m[1].slice(1).padEnd(2, '0')})` : v;
 };
@@ -392,6 +427,13 @@ function element(node, ctx) {
   // Eyebrow lines ("09 / 11 —— How we work") read larger and darker than the export draws them: .eyebrow in globals.css.
   const eyebrow = (attrs.style || '').match(/font-size:\.7rem;font-weight:600;letter-spacing:\.22em;text-transform:uppercase;color:#(8C6A44|D3B995)/);
   if (eyebrow) classes.push(eyebrow[1] === 'D3B995' ? 'eyebrow on-dark' : 'eyebrow');
+  // Cards (a filled, padded box with 12–16px corners) and photograph frames are tagged data-card so globals.css can
+  // make them answer the cursor: cards lift under a glow that follows the pointer, photographs zoom in their frame.
+  const radius = ((attrs.style || '').match(/border-radius:(\d+)px/) || [])[1];
+  if (['div', 'li', 'article'].includes(tag) && (radius === '12' || radius === '16') && attrs.class !== 'enquiry-card') {
+    if (/padding:/.test(attrs.style) && /background:/.test(attrs.style)) attrs['data-card'] = '';
+    else if (/aspect-ratio:|box-shadow:/.test(attrs.style)) attrs['data-card'] = 'photo';
+  }
   if (attrs['data-sticky']) attrs.style = `${attrs.style || ''};--sticky-top:${attrs['data-sticky']}`;
 
   if (tag === 'img') {

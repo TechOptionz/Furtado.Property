@@ -69,7 +69,7 @@ export default function Page() {
                       fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
-                      color: "rgba(32,35,31,.55)",
+                      color: "var(--ink-3)",
                       textTransform: "none",
                       whiteSpace: "nowrap",
                     }}
@@ -107,7 +107,7 @@ export default function Page() {
                     margin: "20px 0 0",
                     fontSize: "1.1rem",
                     lineHeight: "1.625",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "62ch",
                   }}
                 >
@@ -156,7 +156,7 @@ export default function Page() {
                         fontWeight: "500",
                         letterSpacing: ".14em",
                         textTransform: "uppercase",
-                        color: "rgba(32,35,31,.45)",
+                        color: "var(--ink-4)",
                       }}
                     >
                       {completion}
@@ -183,7 +183,7 @@ export default function Page() {
                         fontWeight: "500",
                         letterSpacing: ".14em",
                         textTransform: "uppercase",
-                        color: "rgba(32,35,31,.45)",
+                        color: "var(--ink-4)",
                       }}
                     >
                       bedrooms
@@ -251,7 +251,7 @@ export default function Page() {
                 </div>
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   borderRadius: "16px",
                   overflow: "hidden",
                   aspectRatio: "4/3",
@@ -298,7 +298,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Type
@@ -314,7 +314,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Location
@@ -330,7 +330,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Year
@@ -344,7 +344,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Developer
@@ -360,7 +360,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Builder
@@ -376,7 +376,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Architect
@@ -392,7 +392,7 @@ export default function Page() {
                     fontWeight: "600",
                     letterSpacing: ".18em",
                     textTransform: "uppercase",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                   }}
                 >
                   Interior Design
@@ -408,7 +408,7 @@ export default function Page() {
         <section
           id="residences"
           data-screen-label="Residences"
-          style={{ background: "#EEE9DF", padding: "clamp(72px,10vw,128px) 0" }}
+          style={{ background: "#EEE9DF", padding: "var(--space-section) 0" }}
         >
           <div
             style={{
@@ -422,7 +422,7 @@ export default function Page() {
             }}
           >
             <div
-              style={{
+              data-card="photo" style={{
                 borderRadius: "16px",
                 overflow: "hidden",
                 aspectRatio: "4/3",
@@ -468,7 +468,7 @@ export default function Page() {
                     fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                     textTransform: "none",
                     whiteSpace: "nowrap",
                   }}
@@ -504,7 +504,7 @@ export default function Page() {
                   margin: "16px 0 0",
                   fontSize: "1rem",
                   lineHeight: "1.625",
-                  color: "rgba(32,35,31,.65)",
+                  color: "var(--ink-2)",
                   maxWidth: "58ch",
                 }}
               >
@@ -528,7 +528,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -553,7 +553,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -578,7 +578,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -603,7 +603,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -628,7 +628,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -653,7 +653,7 @@ export default function Page() {
           </div>
         </section>
         {/* Interior gallery */}
-        <section data-screen-label="Interiors" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
+        <section data-screen-label="Interiors" style={{ padding: "var(--space-section) 0" }}>
           <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
             <div
               style={{
@@ -686,7 +686,7 @@ export default function Page() {
                       fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
-                      color: "rgba(32,35,31,.55)",
+                      color: "var(--ink-3)",
                       textTransform: "none",
                       whiteSpace: "nowrap",
                     }}
@@ -724,7 +724,7 @@ export default function Page() {
                   margin: "0",
                   fontSize: "1rem",
                   lineHeight: "1.65",
-                  color: "rgba(32,35,31,.65)",
+                  color: "var(--ink-2)",
                   maxWidth: "40ch",
                 }}
               >
@@ -742,7 +742,7 @@ export default function Page() {
               }}
             >
               <div
-                style={{
+                data-card="photo" style={{
                   gridColumn: "span 4",
                   position: "relative",
                   borderRadius: "16px",
@@ -771,7 +771,7 @@ export default function Page() {
                 />
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   gridColumn: "span 2",
                   position: "relative",
                   borderRadius: "16px",
@@ -801,7 +801,7 @@ export default function Page() {
                 />
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   gridColumn: "span 2",
                   position: "relative",
                   borderRadius: "16px",
@@ -830,7 +830,7 @@ export default function Page() {
                 />
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   gridColumn: "span 4",
                   position: "relative",
                   borderRadius: "16px",
@@ -860,7 +860,7 @@ export default function Page() {
                 />
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   gridColumn: "span 3",
                   position: "relative",
                   borderRadius: "16px",
@@ -889,7 +889,7 @@ export default function Page() {
                 />
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   gridColumn: "span 3",
                   position: "relative",
                   borderRadius: "16px",
@@ -927,7 +927,7 @@ export default function Page() {
           style={{
             background: "linear-gradient(135deg,#2F5A51,#26443F 50%,#19332F)",
             color: "#FCFAF6",
-            padding: "clamp(72px,10vw,128px) 0",
+            padding: "var(--space-section) 0",
             position: "relative",
           }}
         >
@@ -1008,7 +1008,7 @@ export default function Page() {
                     margin: "16px 0 0",
                     fontSize: "1rem",
                     lineHeight: "1.625",
-                    color: "rgba(250,247,240,.68)",
+                    color: "var(--on-dark-2)",
                     maxWidth: "58ch",
                   }}
                 >
@@ -1025,7 +1025,7 @@ export default function Page() {
                 >
                   <div
                     data-reveal="text"
-                    style={{
+                    data-card="" style={{
                       borderRadius: "16px",
                       border: "1px solid rgba(255,255,255,.1)",
                       background: "rgba(250,247,240,.06)",
@@ -1060,7 +1060,7 @@ export default function Page() {
                   <div
                     data-reveal="text"
                     data-delay="80"
-                    style={{
+                    data-card="" style={{
                       borderRadius: "16px",
                       border: "1px solid rgba(255,255,255,.1)",
                       background: "rgba(250,247,240,.06)",
@@ -1095,7 +1095,7 @@ export default function Page() {
                   <div
                     data-reveal="text"
                     data-delay="160"
-                    style={{
+                    data-card="" style={{
                       borderRadius: "16px",
                       border: "1px solid rgba(255,255,255,.1)",
                       background: "rgba(250,247,240,.06)",
@@ -1130,7 +1130,7 @@ export default function Page() {
                 </div>
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   borderRadius: "16px",
                   overflow: "hidden",
                   aspectRatio: "4/3",
@@ -1167,7 +1167,7 @@ export default function Page() {
               }}
             >
               <div
-                style={{
+                data-card="photo" style={{
                   position: "relative",
                   borderRadius: "16px",
                   overflow: "hidden",
@@ -1284,7 +1284,7 @@ export default function Page() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: "8px",
-                      color: "rgba(250,247,240,.75)",
+                      color: "var(--on-dark-2)",
                       fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
@@ -1309,7 +1309,7 @@ export default function Page() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: "8px",
-                      color: "rgba(250,247,240,.75)",
+                      color: "var(--on-dark-2)",
                       fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
@@ -1334,7 +1334,7 @@ export default function Page() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: "8px",
-                      color: "rgba(250,247,240,.75)",
+                      color: "var(--on-dark-2)",
                       fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
@@ -1359,7 +1359,7 @@ export default function Page() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: "8px",
-                      color: "rgba(250,247,240,.75)",
+                      color: "var(--on-dark-2)",
                       fontSize: "var(--fs-90)",
                       lineHeight: "1.5",
                     }}
@@ -1385,21 +1385,12 @@ export default function Page() {
           </div>
         </section>
         {/* Construction progress */}
-        <section data-screen-label="Construction progress" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
-          <div
-            style={{
-              maxWidth: "1440px",
-              margin: "0 auto",
-              padding: "0 clamp(20px,5vw,80px)",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))",
-              gap: "48px clamp(48px,6vw,64px)",
-              alignItems: "center",
-            }}
-          >
-            <div>
+        <section data-screen-label="Construction progress" style={{ padding: "clamp(12px,1.5vw,24px)" }}>
+          <div className="film-panel">
+            <ConstructionFilm />
+            <div className="film-copy">
               <div
-                className="eyebrow"
+                className="eyebrow on-dark"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -1410,7 +1401,7 @@ export default function Page() {
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
-                  color: "#8C6A44",
+                  color: "#D3B995",
                 }}
               >
                 <span
@@ -1419,7 +1410,7 @@ export default function Page() {
                     fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
-                    color: "rgba(32,35,31,.55)",
+                    color: "#D3B995",
                     textTransform: "none",
                     whiteSpace: "nowrap",
                   }}
@@ -1428,7 +1419,7 @@ export default function Page() {
                 </span>
                 <span
                   data-reveal="rule"
-                  style={{ display: "block", width: "40px", height: "1px", background: "#B59168" }}
+                  style={{ display: "block", width: "40px", height: "1px", background: "#D3B995" }}
                 />
                 Construction progress
               </div>
@@ -1441,12 +1432,12 @@ export default function Page() {
                   fontWeight: "600",
                   letterSpacing: "-.018em",
                   lineHeight: "1.2",
-                  color: "#20231F",
+                  color: "#FCFAF6",
                   textWrap: "balance",
                 }}
               >
                 {"Mira Living is on the rise: basement works complete and construction "}
-                <span style={{ color: "#26443F" }}>progressing steadily.</span>
+                <span style={{ color: "#D3B995" }}>progressing steadily.</span>
               </h2>
               <p
                 data-reveal="text"
@@ -1455,7 +1446,7 @@ export default function Page() {
                   margin: "16px 0 0",
                   fontSize: "1rem",
                   lineHeight: "1.625",
-                  color: "rgba(32,35,31,.65)",
+                  color: "var(--on-dark-2)",
                   maxWidth: "58ch",
                 }}
               >
@@ -1475,14 +1466,16 @@ export default function Page() {
                 }}
               >
                 <div
+                  className="glass"
                   data-reveal="text"
                   style={{
                     borderRadius: "16px",
-                    border: "1px solid rgba(32,35,31,.06)",
-                    background: "rgba(255,255,255,.8)",
+                    border: "1px solid rgba(255,255,255,.16)",
+                    background: "rgba(18,32,29,.45)",
                     padding: "20px 24px",
-                    boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   }}
+                  data-card=""
                 >
                   <span
                     style={{
@@ -1491,7 +1484,7 @@ export default function Page() {
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
-                      color: "rgba(32,35,31,.55)",
+                      color: "#D3B995",
                     }}
                   >
                     Site
@@ -1503,22 +1496,24 @@ export default function Page() {
                       fontSize: "1rem",
                       fontWeight: "600",
                       letterSpacing: "-.012em",
-                      color: "#20231F",
+                      color: "#FCFAF6",
                     }}
                   >
                     Cleared and excavated
                   </span>
                 </div>
                 <div
+                  className="glass"
                   data-reveal="text"
                   data-delay="80"
                   style={{
                     borderRadius: "16px",
-                    border: "1px solid rgba(32,35,31,.06)",
-                    background: "rgba(255,255,255,.8)",
+                    border: "1px solid rgba(255,255,255,.16)",
+                    background: "rgba(18,32,29,.45)",
                     padding: "20px 24px",
-                    boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   }}
+                  data-card=""
                 >
                   <span
                     style={{
@@ -1527,7 +1522,7 @@ export default function Page() {
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
-                      color: "rgba(32,35,31,.55)",
+                      color: "#D3B995",
                     }}
                   >
                     Basement
@@ -1539,22 +1534,24 @@ export default function Page() {
                       fontSize: "1rem",
                       fontWeight: "600",
                       letterSpacing: "-.012em",
-                      color: "#20231F",
+                      color: "#FCFAF6",
                     }}
                   >
                     Complete
                   </span>
                 </div>
                 <div
+                  className="glass"
                   data-reveal="text"
                   data-delay="160"
                   style={{
                     borderRadius: "16px",
-                    border: "1px solid rgba(32,35,31,.06)",
-                    background: "rgba(255,255,255,.8)",
+                    border: "1px solid rgba(255,255,255,.16)",
+                    background: "rgba(18,32,29,.45)",
                     padding: "20px 24px",
-                    boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   }}
+                  data-card=""
                 >
                   <span
                     style={{
@@ -1563,7 +1560,7 @@ export default function Page() {
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
-                      color: "rgba(32,35,31,.55)",
+                      color: "#D3B995",
                     }}
                   >
                     Structure
@@ -1575,23 +1572,24 @@ export default function Page() {
                       fontSize: "1rem",
                       fontWeight: "600",
                       letterSpacing: "-.012em",
-                      color: "#20231F",
+                      color: "#FCFAF6",
                     }}
                   >
                     {structureStatus}
                   </span>
                 </div>
                 <div
+                  className="glass"
                   data-reveal="text"
                   data-delay="240"
                   style={{
-                    position: "relative",
                     borderRadius: "16px",
-                    border: "2px solid rgba(38,68,63,.4)",
-                    background: "#fff",
+                    border: "1px solid rgba(211,185,149,.65)",
+                    background: "rgba(18,32,29,.45)",
                     padding: "20px 24px",
-                    boxShadow: "0 16px 48px -16px rgba(38,68,63,.3)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.1)",
                   }}
+                  data-card=""
                 >
                   <span
                     style={{
@@ -1600,7 +1598,7 @@ export default function Page() {
                       fontWeight: "600",
                       letterSpacing: ".18em",
                       textTransform: "uppercase",
-                      color: "rgba(32,35,31,.55)",
+                      color: "#D3B995",
                     }}
                   >
                     Completion
@@ -1612,7 +1610,7 @@ export default function Page() {
                       fontSize: "1rem",
                       fontWeight: "600",
                       letterSpacing: "-.012em",
-                      color: "#26443F",
+                      color: "#D3B995",
                     }}
                   >
                     {completion}
@@ -1620,7 +1618,7 @@ export default function Page() {
                 </div>
               </div>
               <Link
-                className="fx-5c2cf18"
+                className="fx-50cef52"
                 data-reveal="text"
                 data-delay="300"
                 href="/contact"
@@ -1631,45 +1629,18 @@ export default function Page() {
                   marginTop: "32px",
                   padding: "12px 20px",
                   borderRadius: "999px",
-                  background: "#26443F",
-                  color: "#FCFAF6",
+                  background: "#FCFAF6",
+                  color: "#19332F",
                   fontSize: "var(--fs-90)",
                   fontWeight: "600",
                   textDecoration: "none",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,.18),0 8px 28px -10px rgba(38,68,63,.45)",
+                  boxShadow: "0 10px 28px -12px rgba(0,0,0,.6)",
                   transition: "transform .3s ease-out,background .3s ease-out,box-shadow .3s ease-out",
                 }}
                 data-press=""
               >
                 Register your interest<span>→</span>
               </Link>
-            </div>
-            <div
-              style={{
-                borderRadius: "16px",
-                overflow: "hidden",
-                aspectRatio: "4/3",
-                boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                background: "#EEE9DF",
-                position: "relative",
-              }}
-            >
-              <Image
-                width={1600}
-                height={2400}
-                sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
-                data-reveal="mask"
-                src="/uploads/mira-idc-site-excavation.jpg"
-                alt="Excavators digging the Mira Living basement"
-                style={{
-                  display: "block",
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  backgroundColor: "#f3f1ec",
-                }}
-              />
-              <ConstructionFilm />
             </div>
           </div>
         </section>
@@ -1700,7 +1671,7 @@ export default function Page() {
               maxWidth: "1440px",
               width: "100%",
               margin: "0 auto",
-              padding: "clamp(72px,10vw,128px) clamp(20px,5vw,80px)",
+              padding: "var(--space-section) clamp(20px,5vw,80px)",
               display: "flex",
               flexWrap: "wrap",
               alignItems: "flex-end",
@@ -1769,7 +1740,7 @@ export default function Page() {
                 margin: "0",
                 fontSize: "1.05rem",
                 lineHeight: "1.65",
-                color: "rgba(250,247,240,.7)",
+                color: "var(--on-dark-2)",
                 maxWidth: "46ch",
               }}
             >
@@ -1781,7 +1752,7 @@ export default function Page() {
         <section
           data-screen-label="Bargara"
           data-scene=""
-          style={{ background: "#F7F4ED", padding: "0 0 clamp(72px,10vw,128px)" }}
+          style={{ background: "#F7F4ED", padding: "0 0 var(--space-section)" }}
         >
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start" }}>
             <div
@@ -1943,7 +1914,7 @@ export default function Page() {
               >
                 <div
                   data-show="narrow"
-                  style={{
+                  data-card="photo" style={{
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
@@ -2002,7 +1973,7 @@ export default function Page() {
                     margin: "0",
                     fontSize: "1rem",
                     lineHeight: "1.65",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "44ch",
                   }}
                 >
@@ -2036,7 +2007,7 @@ export default function Page() {
               >
                 <div
                   data-show="narrow"
-                  style={{
+                  data-card="photo" style={{
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
@@ -2095,7 +2066,7 @@ export default function Page() {
                     margin: "0",
                     fontSize: "1rem",
                     lineHeight: "1.65",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "44ch",
                   }}
                 >
@@ -2129,7 +2100,7 @@ export default function Page() {
               >
                 <div
                   data-show="narrow"
-                  style={{
+                  data-card="photo" style={{
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
@@ -2188,7 +2159,7 @@ export default function Page() {
                     margin: "0",
                     fontSize: "1rem",
                     lineHeight: "1.65",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "44ch",
                   }}
                 >
@@ -2210,7 +2181,7 @@ export default function Page() {
               >
                 <div
                   data-show="narrow"
-                  style={{
+                  data-card="photo" style={{
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
@@ -2269,7 +2240,7 @@ export default function Page() {
                     margin: "0",
                     fontSize: "1rem",
                     lineHeight: "1.65",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "44ch",
                   }}
                 >
@@ -2291,7 +2262,7 @@ export default function Page() {
               >
                 <div
                   data-show="narrow"
-                  style={{
+                  data-card="photo" style={{
                     borderRadius: "16px",
                     overflow: "hidden",
                     aspectRatio: "4/3",
@@ -2351,7 +2322,7 @@ export default function Page() {
                     margin: "0",
                     fontSize: "1rem",
                     lineHeight: "1.65",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "44ch",
                   }}
                 >
@@ -2376,7 +2347,7 @@ export default function Page() {
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
-                        color: "rgba(32,35,31,.55)",
+                        color: "var(--ink-3)",
                       }}
                     >
                       Bundaberg
@@ -2401,7 +2372,7 @@ export default function Page() {
                         fontWeight: "600",
                         letterSpacing: ".18em",
                         textTransform: "uppercase",
-                        color: "rgba(32,35,31,.55)",
+                        color: "var(--ink-3)",
                       }}
                     >
                       Bundaberg Airport
@@ -2426,7 +2397,7 @@ export default function Page() {
         </section>
         {/* Lifestyle image break */}
         {/* Brochure CTA panel */}
-        <section data-screen-label="Brochure" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
+        <section data-screen-label="Brochure" style={{ padding: "var(--space-section) 0" }}>
           <div data-reveal="text" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
             <div
               style={{
@@ -2499,7 +2470,7 @@ export default function Page() {
                   maxWidth: "58ch",
                   fontSize: "1.1rem",
                   lineHeight: "1.625",
-                  color: "rgba(250,247,240,.68)",
+                  color: "var(--on-dark-2)",
                 }}
               >
                 Request our brochure containing floor plans and finishes schedule.

@@ -56,7 +56,7 @@ export default function SiteFooter() {
                   margin: "0",
                   fontSize: "var(--fs-92)",
                   lineHeight: "1.625",
-                  color: "rgba(250,247,240,.68)",
+                  color: "var(--on-dark-2)",
                   maxWidth: "36ch",
                 }}
               >
@@ -109,7 +109,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="/"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -121,7 +121,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="/about"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -133,7 +133,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="/projects"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -145,7 +145,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="/projects/mira-living"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -157,7 +157,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="/contact"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -182,7 +182,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="tel:0418982517"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -194,7 +194,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="mailto:info@furtadoproperty.com.au"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -203,7 +203,7 @@ export default function SiteFooter() {
                 >
                   info@furtadoproperty.com.au
                 </a>
-                <span style={{ color: "rgba(250,247,240,.75)", fontSize: "var(--fs-92)" }}>South East Queensland</span>
+                <span style={{ color: "var(--on-dark-2)", fontSize: "var(--fs-92)" }}>South East Queensland</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "14px", minWidth: "0" }}>
                 <span
@@ -221,7 +221,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="https://instagram.com/furtadoproperty"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -233,7 +233,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="https://facebook.com/furtadoproperty"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -245,7 +245,7 @@ export default function SiteFooter() {
                   className="fx-8dd50ec"
                   href="https://linkedin.com/company/furtadoproperty"
                   style={{
-                    color: "rgba(250,247,240,.75)",
+                    color: "var(--on-dark-2)",
                     textDecoration: "none",
                     fontSize: "var(--fs-92)",
                     transition: "color .2s",
@@ -253,7 +253,7 @@ export default function SiteFooter() {
                 >
                   LinkedIn
                 </a>
-                <span style={{ color: "rgba(250,247,240,.4)", fontSize: "var(--fs-92)" }}>@furtadoproperty</span>
+                <span style={{ color: "var(--on-dark-4)", fontSize: "var(--fs-92)" }}>@furtadoproperty</span>
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@ export default function SiteFooter() {
               gap: "12px 32px",
               padding: "24px 0 32px",
               fontSize: "var(--fs-78)",
-              color: "rgba(250,247,240,.55)",
+              color: "var(--on-dark-3)",
             }}
           >
             <span>© Furtado Property 2026</span>
@@ -274,7 +274,7 @@ export default function SiteFooter() {
                 fontSize: "var(--fs-72)",
                 letterSpacing: ".18em",
                 textTransform: "uppercase",
-                color: "rgba(250,247,240,.4)",
+                color: "var(--on-dark-4)",
               }}
             >
               {statusLine}
@@ -282,15 +282,15 @@ export default function SiteFooter() {
             <span style={{ display: "flex", gap: "24px" }}>
               <Link
                 className="fx-8dd50ec"
-                href="/contact"
-                style={{ color: "rgba(250,247,240,.55)", textDecoration: "none" }}
+                href="/privacy"
+                style={{ color: "var(--on-dark-3)", textDecoration: "none" }}
               >
                 {"Privacy & Disclaimer"}
               </Link>
               <Link
                 className="fx-8dd50ec"
-                href="/contact"
-                style={{ color: "rgba(250,247,240,.55)", textDecoration: "none" }}
+                href="/terms"
+                style={{ color: "var(--on-dark-3)", textDecoration: "none" }}
               >
                 Terms
               </Link>

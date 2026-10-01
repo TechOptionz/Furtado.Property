@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { submitEnquiry } from "@/lib/site";
 import styles from "./contact.module.css";
 
@@ -188,8 +189,8 @@ export default function ContactForm({ endpoint = "/api/enquiry" }: { endpoint?: 
             {...invalid("consent")}
           />
           <span>
-            I consent to Furtado Property contacting me about my enquiry. Your details are handled in line with our
-            Privacy &amp; Disclaimer and sent to info@furtadoproperty.com.au.
+            I consent to Furtado Property contacting me about my enquiry. Your details are handled in line with our{" "}
+            <Link href="/privacy">Privacy &amp; Disclaimer</Link> and sent to info@furtadoproperty.com.au.
           </span>
         </label>
         {message("consent")}

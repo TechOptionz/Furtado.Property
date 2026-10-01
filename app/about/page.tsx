@@ -69,7 +69,7 @@ export default function Page() {
                       fontSize: "var(--fs-80)",
                       fontWeight: "500",
                       letterSpacing: ".08em",
-                      color: "rgba(32,35,31,.55)",
+                      color: "var(--ink-3)",
                       textTransform: "none",
                       whiteSpace: "nowrap",
                     }}
@@ -107,7 +107,7 @@ export default function Page() {
                     margin: "20px 0 0",
                     fontSize: "1.1rem",
                     lineHeight: "1.625",
-                    color: "rgba(32,35,31,.65)",
+                    color: "var(--ink-2)",
                     maxWidth: "62ch",
                   }}
                 >
@@ -213,7 +213,7 @@ export default function Page() {
                 </div>
               </div>
               <div
-                style={{
+                data-card="photo" style={{
                   borderRadius: "16px",
                   overflow: "hidden",
                   aspectRatio: "4/3",
@@ -285,7 +285,7 @@ export default function Page() {
           >
             <div
               data-reveal="text"
-              style={{
+              data-card="" style={{
                 borderRadius: "16px",
                 border: "1px solid rgba(255,255,255,.1)",
                 background: "rgba(250,247,240,.06)",
@@ -320,12 +320,12 @@ export default function Page() {
               >
                 20+
               </span>
-              <span style={{ fontSize: "var(--fs-92)", color: "rgba(250,247,240,.7)" }}>Years in property</span>
+              <span style={{ fontSize: "var(--fs-92)", color: "var(--on-dark-2)" }}>Years in property</span>
             </div>
             <div
               data-reveal="text"
               data-delay="80"
-              style={{
+              data-card="" style={{
                 borderRadius: "16px",
                 border: "1px solid rgba(255,255,255,.1)",
                 background: "rgba(250,247,240,.06)",
@@ -359,14 +359,14 @@ export default function Page() {
               >
                 South East Queensland
               </span>
-              <span style={{ fontSize: "var(--fs-92)", color: "rgba(250,247,240,.7)" }}>
+              <span style={{ fontSize: "var(--fs-92)", color: "var(--on-dark-2)" }}>
                 Coastal and regional locations
               </span>
             </div>
             <div
               data-reveal="text"
               data-delay="160"
-              style={{
+              data-card="" style={{
                 position: "relative",
                 borderRadius: "16px",
                 border: "2px solid #D3B995",
@@ -404,7 +404,7 @@ export default function Page() {
                   fontWeight: "600",
                   letterSpacing: ".18em",
                   textTransform: "uppercase",
-                  color: "rgba(32,35,31,.55)",
+                  color: "var(--ink-3)",
                 }}
               >
                 Current project
@@ -432,7 +432,7 @@ export default function Page() {
           </div>
         </section>
         {/* Story: split feature */}
-        <section data-screen-label="Story" style={{ background: "#EEE9DF", padding: "clamp(72px,10vw,128px) 0" }}>
+        <section data-screen-label="Story" style={{ background: "#EEE9DF", padding: "var(--space-section) 0" }}>
           <div
             style={{
               maxWidth: "1440px",
@@ -445,7 +445,7 @@ export default function Page() {
             }}
           >
             <div
-              style={{
+              data-card="photo" style={{
                 borderRadius: "16px",
                 overflow: "hidden",
                 aspectRatio: "4/3",
@@ -491,7 +491,7 @@ export default function Page() {
                     fontSize: "var(--fs-80)",
                     fontWeight: "500",
                     letterSpacing: ".08em",
-                    color: "rgba(32,35,31,.55)",
+                    color: "var(--ink-3)",
                     textTransform: "none",
                     whiteSpace: "nowrap",
                   }}
@@ -527,7 +527,7 @@ export default function Page() {
                   margin: "16px 0 0",
                   fontSize: "1rem",
                   lineHeight: "1.625",
-                  color: "rgba(32,35,31,.65)",
+                  color: "var(--ink-2)",
                   maxWidth: "58ch",
                 }}
               >
@@ -551,7 +551,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -576,7 +576,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -601,7 +601,7 @@ export default function Page() {
                     display: "flex",
                     alignItems: "flex-start",
                     gap: "8px",
-                    color: "rgba(32,35,31,.75)",
+                    color: "var(--ink-2)",
                     fontSize: "var(--fs-90)",
                     lineHeight: "1.5",
                   }}
@@ -626,7 +626,7 @@ export default function Page() {
           </div>
         </section>
         {/* What guides us */}
-        <section data-screen-label="What guides us" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
+        <section data-screen-label="What guides us" style={{ padding: "var(--space-section) 0" }}>
           <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div
@@ -682,7 +682,7 @@ export default function Page() {
               <div
                 className="fx-2272416"
                 data-reveal="text"
-                style={{
+                data-card="" style={{
                   borderRadius: "16px",
                   border: "1px solid rgba(32,35,31,.06)",
                   background: "rgba(255,255,255,.8)",
@@ -693,7 +693,7 @@ export default function Page() {
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
+                <div data-card="photo" style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
                   <Image
                     width={1500}
                     height={844}
@@ -740,7 +740,7 @@ export default function Page() {
                     Our Commitment
                   </h3>
                   <p
-                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "var(--ink-2)" }}
                   >
                     We prioritise quality, architectural design and customer satisfaction in every development.
                   </p>
@@ -750,7 +750,7 @@ export default function Page() {
                 className="fx-2272416"
                 data-reveal="text"
                 data-delay="100"
-                style={{
+                data-card="" style={{
                   borderRadius: "16px",
                   border: "1px solid rgba(32,35,31,.06)",
                   background: "rgba(255,255,255,.8)",
@@ -761,7 +761,7 @@ export default function Page() {
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
+                <div data-card="photo" style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
                   <Image
                     width={2142}
                     height={1200}
@@ -809,7 +809,7 @@ export default function Page() {
                     Our Approach
                   </h3>
                   <p
-                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "var(--ink-2)" }}
                   >
                     We partner with experienced regional designers and architects to create buildings designed for
                     longevity.
@@ -820,7 +820,7 @@ export default function Page() {
                 className="fx-2272416"
                 data-reveal="text"
                 data-delay="200"
-                style={{
+                data-card="" style={{
                   borderRadius: "16px",
                   border: "1px solid rgba(32,35,31,.06)",
                   background: "rgba(255,255,255,.8)",
@@ -831,7 +831,7 @@ export default function Page() {
                   transition: "transform .3s ease-out,border-color .3s ease-out,box-shadow .3s ease-out",
                 }}
               >
-                <div style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
+                <div data-card="photo" style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
                   <Image
                     width={1600}
                     height={2400}
@@ -879,7 +879,7 @@ export default function Page() {
                     Our Journey
                   </h3>
                   <p
-                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "rgba(32,35,31,.65)" }}
+                    style={{ margin: "0", fontSize: "var(--fs-92)", lineHeight: "1.625", color: "var(--ink-2)" }}
                   >
                     From site selection through to final delivery, we embark on a journey to deliver a home made of
                     dreams.
@@ -896,7 +896,7 @@ export default function Page() {
           style={{
             background: "linear-gradient(135deg,#2F5A51,#26443F 50%,#19332F)",
             color: "#FCFAF6",
-            padding: "clamp(72px,10vw,128px) 0",
+            padding: "var(--space-section) 0",
             position: "relative",
           }}
         >
@@ -980,7 +980,7 @@ export default function Page() {
                   margin: "16px 0 0",
                   fontSize: "1rem",
                   lineHeight: "1.625",
-                  color: "rgba(250,247,240,.68)",
+                  color: "var(--on-dark-2)",
                   maxWidth: "58ch",
                 }}
               >
@@ -988,7 +988,7 @@ export default function Page() {
                 owners from the first enquiry to the keys.
               </p>
               <div
-                style={{
+                data-card="photo" style={{
                   borderRadius: "16px",
                   overflow: "hidden",
                   aspectRatio: "4/3",
@@ -1022,11 +1022,12 @@ export default function Page() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "16px",
+                alignSelf: "end",
               }}
             >
               <li
                 data-reveal="text"
-                style={{
+                data-card="" style={{
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "20px",
@@ -1071,7 +1072,7 @@ export default function Page() {
                       margin: "6px 0 0",
                       fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
-                      color: "rgba(250,247,240,.68)",
+                      color: "var(--on-dark-2)",
                     }}
                   >
                     Well-located sites in undersupplied South East Queensland markets, chosen for long-term liveability.
@@ -1081,7 +1082,7 @@ export default function Page() {
               <li
                 data-reveal="text"
                 data-delay="80"
-                style={{
+                data-card="" style={{
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "20px",
@@ -1126,7 +1127,7 @@ export default function Page() {
                       margin: "6px 0 0",
                       fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
-                      color: "rgba(250,247,240,.68)",
+                      color: "var(--on-dark-2)",
                     }}
                   >
                     Architecture and interiors shaped with experienced regional designers, built for longevity.
@@ -1136,7 +1137,7 @@ export default function Page() {
               <li
                 data-reveal="text"
                 data-delay="160"
-                style={{
+                data-card="" style={{
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "20px",
@@ -1181,7 +1182,7 @@ export default function Page() {
                       margin: "6px 0 0",
                       fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
-                      color: "rgba(250,247,240,.68)",
+                      color: "var(--on-dark-2)",
                     }}
                   >
                     Delivered with trusted builders, with quality and customer satisfaction as the measure at every
@@ -1192,7 +1193,7 @@ export default function Page() {
               <li
                 data-reveal="text"
                 data-delay="240"
-                style={{
+                data-card="" style={{
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "20px",
@@ -1237,7 +1238,7 @@ export default function Page() {
                       margin: "6px 0 0",
                       fontSize: "var(--fs-92)",
                       lineHeight: "1.625",
-                      color: "rgba(250,247,240,.68)",
+                      color: "var(--on-dark-2)",
                     }}
                   >
                     Handover of a finished home, with the same team alongside owners from the first enquiry to the keys.
@@ -1249,7 +1250,7 @@ export default function Page() {
         </section>
         {/* Image break */}
         {/* CTA panel */}
-        <section data-screen-label="CTA" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
+        <section data-screen-label="CTA" style={{ padding: "var(--space-section) 0" }}>
           <div data-reveal="text" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
             <div
               style={{
@@ -1322,7 +1323,7 @@ export default function Page() {
                   maxWidth: "58ch",
                   fontSize: "1.1rem",
                   lineHeight: "1.625",
-                  color: "rgba(250,247,240,.68)",
+                  color: "var(--on-dark-2)",
                 }}
               >
                 We embark on a journey to deliver a home made of dreams. Interested in one of our developments? We would

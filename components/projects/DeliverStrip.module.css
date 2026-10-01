@@ -1,0 +1,140 @@
+/* "How we deliver" on /projects (DeliverStrip.tsx): heading on the left, the four steps as a ruled list on the
+   right, so the section is as tall as its list and no taller. */
+
+.section {
+  padding: var(--section) 0;
+}
+.layout {
+  row-gap: 40px;
+  align-items: start;
+}
+
+.intro {
+  grid-column: 1 / span 5;
+}
+.heading {
+  margin: clamp(16px, 2vw, 24px) 0 clamp(24px, 3vw, 36px);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: var(--title-tracking);
+  line-height: 1.08;
+  color: var(--ink);
+  max-width: 16ch;
+}
+
+.steps {
+  grid-column: 7 / span 6;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--line);
+}
+/* One step per row: number, name, line. */
+.steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 5fr) minmax(0, 6fr);
+  align-items: baseline;
+  column-gap: var(--gap);
+  padding: clamp(18px, 2vw, 26px) 0;
+}
+/* A faint full-width rule, with the accent rule drawing in over it. */
+.steps li::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: var(--line);
+}
+.line {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: var(--accent);
+}
+.number {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.steps h3 {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.steps p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+@media (max-width: 1023px) {
+  .intro,
+  .steps {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    max-width: 22ch;
+  }
+}
+@media (max-width: 559px) {
+  .steps li {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    row-gap: 4px;
+  }
+  .steps p {
+    grid-column: 2;
+  }
+}
+
+/* The list answers the cursor: the row under it steps forward, its rule thickens and its number takes the accent,
+   while the other rows fall back. */
+.steps li {
+  transition: opacity 0.4s var(--ease);
+}
+.steps h3,
+.steps p,
+.number {
+  transition:
+    transform 0.5s var(--ease),
+    color 0.4s var(--ease);
+}
+.line {
+  transition: height 0.3s var(--ease);
+}
+@media (hover: hover) and (min-width: 1024px) {
+  /* the entrance leaves opacity: 1 inline on each row */
+  .steps:hover li:not(:hover) {
+    opacity: 0.45 !important;
+  }
+  .steps li:hover h3,
+  .steps li:hover p {
+    transform: translateX(12px);
+  }
+  .steps li:hover h3,
+  .steps li:hover .number {
+    color: var(--accent);
+  }
+  .steps li:hover .line {
+    height: 3px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .steps li,
+  .steps h3,
+  .steps p,
+  .number,
+  .line {
+    transition: none;
+  }
+  .steps li:hover h3,
+  .steps li:hover p {
+    transform: none;
+  }
+}

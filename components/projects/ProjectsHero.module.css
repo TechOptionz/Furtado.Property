@@ -1,0 +1,218 @@
+/* Hero of /projects (ProjectsHero.tsx): a full-screen photograph with the headline set over it. */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(600px, 100svh, 1080px);
+  padding: 140px 0 clamp(40px, 6vh, 72px);
+  background: #16211e;
+  overflow: hidden;
+  view-timeline-name: --projects-hero;
+}
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.media img {
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+/* A flat veil: keeps the cream type above 4.5:1 over the brightest sky. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(14, 22, 20, 0.6);
+}
+
+.content {
+  width: 100%;
+}
+.headline {
+  margin: clamp(20px, 2.4vw, 32px) 0 0;
+  max-width: 15ch;
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-weight: 600;
+  letter-spacing: var(--display-tracking);
+  line-height: 0.96;
+  color: var(--ink);
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: clamp(28px, 4vw, 56px);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.foot p {
+  color: var(--ink);
+}
+/* Scroll cue: the word and a hairline that draws downward once. */
+.cue {
+  flex: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+.cue:hover {
+  color: var(--accent);
+}
+.cue span {
+  width: 1px;
+  height: 48px;
+  background: currentColor;
+  transform-origin: top;
+  animation: cueDraw 0.9s var(--ease) 0.9s both;
+}
+@keyframes cueDraw {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+/* Four figures in a row, hairlines between them. Widths are reserved and digits tabular, so counting up moves
+   nothing. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 var(--section);
+  border-bottom: 1px solid var(--line);
+}
+.stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: clamp(28px, 3.4vw, 48px) clamp(16px, 2vw, 32px);
+  border-left: 1px solid var(--line);
+}
+.stats > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.stats dt {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.stats dd {
+  margin: 0;
+  min-width: 3ch;
+  font-size: clamp(1.875rem, 4.2vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.in {
+  animation: heroRise 0.9s var(--ease) var(--d, 0ms) both;
+}
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+/* While the hero scrolls away the photograph drifts down and grows a little, and the words lift and fade. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .media {
+      animation: heroDrift linear both;
+      animation-timeline: --projects-hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .content {
+      animation: heroLift linear both;
+      animation-timeline: --projects-hero;
+      animation-range: exit 0% exit 70%;
+    }
+  }
+}
+@keyframes heroDrift {
+  to {
+    transform: translateY(14%) scale(1.08);
+  }
+}
+@keyframes heroLift {
+  to {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero {
+    min-height: clamp(560px, 92svh, 820px);
+  }
+  .cue {
+    display: none;
+  }
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stats > div {
+    padding: 22px 16px;
+  }
+  .stats > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .stats > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .in,
+  .cue span {
+    animation: none;
+  }
+}
+
+/* The figures answer the cursor: the one under it takes the accent and a rule draws across its top. */
+.stats > div {
+  position: relative;
+}
+.stats > div::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease);
+}
+.stats dd {
+  transition: color 0.4s var(--ease);
+}
+@media (hover: hover) {
+  .stats > div:hover::after {
+    transform: scaleX(1);
+  }
+  .stats > div:hover dd {
+    color: var(--accent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stats > div::after,
+  .stats dd {
+    transition: none;
+  }
+}

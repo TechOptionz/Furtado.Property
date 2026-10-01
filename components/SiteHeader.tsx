@@ -79,7 +79,7 @@ export default function SiteHeader() {
     label,
     href,
     index: "0" + (i + 1),
-    color: href === activeHref ? "#20231F" : "rgba(32,35,31,.65)",
+    color: href === activeHref ? "#20231F" : "var(--ink-2)",
     line: href === activeHref ? "#B59168" : "transparent",
   }));
   const openMenu = () => setOpenAt(pathname);
@@ -279,7 +279,7 @@ export default function SiteHeader() {
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
-                  color: "rgba(32,35,31,.55)",
+                  color: "var(--ink-3)",
                 }}
               >
                 Menu
@@ -330,7 +330,7 @@ export default function SiteHeader() {
                         fontSize: "var(--fs-78)",
                         fontWeight: "500",
                         letterSpacing: ".08em",
-                        color: "rgba(32,35,31,.4)",
+                        color: "var(--ink-4)",
                       }}
                     >
                       {l.index}
@@ -369,12 +369,12 @@ export default function SiteHeader() {
               >
                 Enquire now →
               </Link>
-              <a href="tel:0418982517" style={{ color: "rgba(32,35,31,.75)", textDecoration: "none" }} data-link="">
+              <a href="tel:0418982517" style={{ color: "var(--ink-2)", textDecoration: "none" }} data-link="">
                 0418 982 517
               </a>
               <a
                 href="mailto:info@furtadoproperty.com.au"
-                style={{ color: "rgba(32,35,31,.75)", textDecoration: "none", overflowWrap: "anywhere" }}
+                style={{ color: "var(--ink-2)", textDecoration: "none", overflowWrap: "anywhere" }}
                 data-link=""
               >
                 info@furtadoproperty.com.au

@@ -246,7 +246,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
             alignItems: "flex-start",
             fontSize: "var(--fs-80)",
             lineHeight: "1.55",
-            color: "rgba(32,35,31,.7)",
+            color: "var(--ink-2)",
             cursor: "pointer",
           }}
         >
@@ -287,7 +287,7 @@ export default function EnquiryForm({ endpoint = "/api/enquiry" }: { endpoint?: 
           >
             {buttonLabel}
           </button>
-          <span style={{ fontSize: "var(--fs-88)", color: "rgba(32,35,31,.62)" }}>
+          <span style={{ fontSize: "var(--fs-88)", color: "var(--ink-2)" }}>
             {"Or call "}
             <a
               href="tel:0418982517"

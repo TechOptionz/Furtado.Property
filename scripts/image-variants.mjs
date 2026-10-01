@@ -5,6 +5,7 @@
 // ever serves static files. lib/image-loader.ts maps a request onto these files using lib/image-variants.json.
 // The version is a hash of the source and the encoder settings: replacing a photograph changes its URLs, which is
 // what lets /img be cached for ever. Only missing files are encoded; files that no longer belong are removed.
+// lib/image-placeholders.json records each photograph's size and a 16px blur for next/image's placeholder="blur".
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -20,6 +21,7 @@ const ENCODE = { webp: { quality: 75, effort: 5 }, avif: { quality: 55, effort: 
 
 fs.mkdirSync(OUT, { recursive: true });
 const manifest = {};
+const placeholders = {};
 const keep = new Set();
 const names = new Set();
 let made = 0;
@@ -29,7 +31,9 @@ for (const file of fs.readdirSync(UPLOADS).sort()) {
   names.add(name);
   const input = fs.readFileSync(path.join(UPLOADS, file));
   const v = crypto.createHash('sha1').update(input).update(JSON.stringify(ENCODE)).digest('hex').slice(0, 8);
-  const { width } = await sharp(input).metadata();
+  const { width, height } = await sharp(input).metadata();
+  const blur = await sharp(input).rotate().resize({ width: 16 }).webp({ quality: 40 }).toBuffer();
+  placeholders[`/uploads/${file}`] = { width, height, blur: `data:image/webp;base64,${blur.toString('base64')}` };
   // Never upscale: a photograph narrower than the smallest width is still offered at that one size.
   const widths = WIDTHS.filter((w) => w <= width);
   if (!widths.length) widths.push(WIDTHS[0]);
@@ -47,5 +51,6 @@ for (const file of fs.readdirSync(UPLOADS).sort()) {
 let removed = 0;
 for (const f of fs.readdirSync(OUT)) if (!keep.has(f)) { fs.unlinkSync(path.join(OUT, f)); removed++; }
 fs.writeFileSync(path.join(ROOT, 'lib/image-variants.json'), JSON.stringify(manifest, null, 2) + '\n');
+fs.writeFileSync(path.join(ROOT, 'lib/image-placeholders.json'), JSON.stringify(placeholders, null, 2) + '\n');
 const total = [...keep].reduce((n, f) => n + fs.statSync(path.join(OUT, f)).size, 0);
 console.log(`public/img: ${keep.size} files (${(total / 1048576).toFixed(1)}MB), ${made} encoded, ${removed} removed`);

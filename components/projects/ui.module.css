@@ -1,0 +1,209 @@
+/* Shared pieces of /projects (components/projects/): the page's tokens, its 12-column grid, labels and buttons.
+   Flat surfaces, hairline rules, square corners on photographs; green is the one accent on cream, sand on the
+   dark bands. Entrances come from the shared data-reveal system (lib/site.js), paced by the attributes on <main>. */
+
+.page {
+  --ink: #20231f;
+  --muted: var(--ink-2);
+  --line: rgba(32, 35, 31, 0.16);
+  --accent: #26443f;
+  --accent-deep: #19332f;
+  --paper: #f7f4ed;
+  --gutter: clamp(20px, 5vw, 80px);
+  --gap: clamp(16px, 2vw, 32px);
+  --section: var(--space-section);
+  /* between the parts of one section */
+  --block: clamp(40px, 4.5vw, 72px);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color: var(--ink);
+}
+.page :focus-visible {
+  outline: 2px solid var(--focus, var(--accent));
+  outline-offset: 3px;
+}
+
+/* A hairline across the top of the screen that fills as the page is read (browsers with scroll timelines). */
+.progress {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 60;
+      height: 2px;
+      background: #b59168;
+      transform-origin: left;
+      animation: pageProgress linear both;
+      animation-timeline: scroll(root);
+      pointer-events: none;
+    }
+  }
+}
+@keyframes pageProgress {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.dark {
+  --ink: #fcfaf6;
+  --muted: var(--on-dark-2);
+  --line: rgba(252, 250, 246, 0.18);
+  --accent: #d3b995;
+  --focus: #d3b995;
+  color: var(--ink);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.wide {
+  max-width: 1920px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+
+/* Small uppercase tracked label: what each section is, in place of a running number. */
+.label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Section opening: a hairline, then the label. */
+.rule {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--title-size);
+  font-weight: 600;
+  letter-spacing: var(--title-tracking);
+  line-height: var(--title-leading);
+  color: var(--ink);
+}
+.body {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.button,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 26px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+.button {
+  background: var(--accent);
+  color: #fcfaf6;
+}
+.ghost {
+  border-color: rgba(32, 35, 31, 0.34);
+  color: var(--ink);
+}
+.dark .button {
+  color: #19332f;
+}
+.dark .ghost {
+  border-color: rgba(252, 250, 246, 0.5);
+}
+.button > span,
+.ghost > span,
+.link > span {
+  transition: transform 0.3s var(--ease);
+}
+@media (hover: hover) {
+  .button:hover {
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    color: #fcfaf6;
+  }
+  .dark .button:hover {
+    background: #fcfaf6;
+    border-color: #fcfaf6;
+    color: #19332f;
+  }
+  .ghost:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+  .button:hover > span,
+  .ghost:hover > span,
+  .link:hover > span {
+    transform: translateX(4px);
+  }
+}
+
+/* Text link with an arrow. */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.link:hover {
+  color: var(--accent);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .ghost,
+  .button > span,
+  .ghost > span,
+  .link > span {
+    transition: none;
+  }
+}

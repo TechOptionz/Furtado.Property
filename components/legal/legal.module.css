@@ -1,0 +1,221 @@
+/* Legal pages (/privacy, /terms). Handwritten (not part of the design export). No hero: the page starts on the light
+   surface, clear of the fixed header, and is not revealed on scroll, so the text is there to read straight away. */
+
+.page {
+  background: #f7f4ed;
+  padding: clamp(150px, 14vw, 200px) 0 clamp(72px, 8vw, 120px);
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eyebrow-ink);
+}
+.eyebrowRule {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #b59168;
+}
+
+/* ── Title block ──────────────────────────────────────────────────────── */
+.head {
+  padding-bottom: clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid rgba(32, 35, 31, 0.14);
+}
+.title {
+  margin: 22px 0 0;
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: var(--display-tracking);
+  line-height: 1;
+  color: #20231f;
+}
+.intro {
+  margin: 22px 0 0;
+  max-width: 62ch;
+  font-size: clamp(1.0625rem, 1.25vw, 1.1875rem);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.updated {
+  margin: 20px 0 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Contents + sections ──────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  gap: clamp(40px, 6vw, 104px);
+  align-items: start;
+  padding-top: clamp(40px, 5vw, 64px);
+}
+.contents {
+  position: sticky;
+  top: 124px; /* clear of the fixed header */
+}
+.contentsLabel {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.contents ol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.contents ol a {
+  display: block;
+  padding: 6px 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+.other {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(32, 35, 31, 0.14);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #26443f;
+  text-decoration: none;
+}
+.other span {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) {
+  .contents ol a:hover {
+    color: #19332f;
+  }
+  .other:hover span {
+    transform: translateX(4px);
+  }
+}
+
+.body {
+  max-width: 72ch;
+}
+.section {
+  scroll-margin-top: 124px;
+}
+.section + .section {
+  margin-top: clamp(40px, 4.4vw, 60px);
+  padding-top: clamp(40px, 4.4vw, 60px);
+  border-top: 1px solid rgba(32, 35, 31, 0.1);
+}
+.heading {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 0 0 18px;
+  font-size: clamp(1.375rem, 1.9vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  color: #20231f;
+}
+.num {
+  flex: none;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #8c6a44;
+}
+.section p,
+.section li {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.section p {
+  margin: 0 0 14px;
+}
+.section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding-left: 1.2em;
+}
+.section li::marker {
+  color: #b59168;
+}
+.section :last-child {
+  margin-bottom: 0;
+}
+.section strong {
+  font-weight: 600;
+  color: #20231f;
+}
+.section a {
+  color: #26443f;
+  text-decoration: underline;
+  text-decoration-color: rgba(38, 68, 63, 0.4);
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition: text-decoration-color 0.2s ease-out;
+}
+@media (hover: hover) {
+  .section a:hover {
+    text-decoration-color: #26443f;
+  }
+}
+
+/* ── Tablet and below: contents above the text ────────────────────────── */
+@media (max-width: 899px) {
+  .page {
+    padding-top: 140px;
+  }
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .contents {
+    position: static;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(32, 35, 31, 0.14);
+  }
+  .contents ol a {
+    padding: 10px 0;
+  }
+  .other {
+    margin-top: 12px;
+    padding-top: 0;
+    border-top: 0;
+    min-height: 44px;
+  }
+}
+@media (max-width: 599px) {
+  .heading {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
