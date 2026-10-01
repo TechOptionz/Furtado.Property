@@ -548,6 +548,129 @@ li {
   backdrop-filter: none !important;
 }
 
+/* ------------------------------------------------------------------------------------------------------------
+   Home enquiry: a pool film (components/EnquiryBackdrop.tsx) fills the section behind a green scrim, the copy runs light and the form sits
+   on frosted glass. scripts/convert.mjs adds the classes and the backdrop; the form's own inline colours
+   (components/EnquiryForm.tsx) are for a light card, so they are overridden here.
+   ------------------------------------------------------------------------------------------------------------ */
+.enquiry-glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #1c2f2b !important;
+}
+.enquiry-bg {
+  z-index: -2;
+}
+.enquiry-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(18, 32, 29, 0.84) 0%, rgba(18, 32, 29, 0.62) 48%, rgba(18, 32, 29, 0.46) 100%);
+}
+.enquiry-copy h2,
+.enquiry-copy dd a {
+  color: #fcfaf6 !important;
+}
+.enquiry-copy p {
+  color: rgba(252, 250, 246, 0.82) !important;
+}
+.enquiry-copy dt {
+  color: rgba(252, 250, 246, 0.66) !important;
+}
+.enquiry-copy dl > div {
+  border-color: rgba(252, 250, 246, 0.2) !important;
+}
+.enquiry-card {
+  border-radius: 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07)) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    0 30px 70px -30px rgba(0, 0, 0, 0.6) !important;
+}
+.enquiry-card label {
+  color: rgba(252, 250, 246, 0.92) !important;
+}
+.enquiry-card :is(input:not([type="checkbox"]), select, textarea) {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #fcfaf6 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    background-color 0.25s !important;
+}
+.enquiry-card :is(input, textarea)::placeholder {
+  color: rgba(252, 250, 246, 0.58);
+  opacity: 1;
+}
+@media (hover: hover) {
+  .enquiry-card :is(input:not([type="checkbox"]), select, textarea):hover {
+    background-color: rgba(255, 255, 255, 0.17) !important;
+  }
+}
+.enquiry-card :is(input:not([type="checkbox"]), select, textarea):focus {
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 3px rgba(255, 255, 255, 0.2) !important;
+}
+/* Browser autofill paints its own opaque fill; hold the glass and the light text. */
+.enquiry-card input:is(:-webkit-autofill, :autofill) {
+  -webkit-text-fill-color: #fcfaf6;
+  caret-color: #fcfaf6;
+  transition: background-color 99999s !important;
+}
+.enquiry-card select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #fcfaf6 50%), linear-gradient(135deg, #fcfaf6 50%, transparent 50%) !important;
+}
+/* The open list is drawn by the system on its own surface. */
+.enquiry-card select option {
+  background: #fcfaf6;
+  color: #20231f;
+}
+.enquiry-card input[type="checkbox"] {
+  accent-color: #d3b995 !important;
+}
+.enquiry-card button[type="submit"] {
+  background: #fcfaf6 !important;
+  color: #1c2f2b !important;
+  box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.6) !important;
+}
+@media (hover: hover) {
+  .enquiry-card button[type="submit"]:hover {
+    background: #fff !important;
+    box-shadow: 0 14px 34px -12px rgba(0, 0, 0, 0.7) !important;
+  }
+}
+.enquiry-card form > div > span {
+  color: rgba(252, 250, 246, 0.78) !important;
+}
+.enquiry-card form a,
+.enquiry-card [role="status"] {
+  color: #fcfaf6 !important;
+}
+.enquiry-card [role="status"] {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+/* Phones and touch screens: a lighter blur over a denser tint keeps scrolling smooth and the text just as clear. */
+@media (max-width: 767px), (pointer: coarse) {
+  .enquiry-card {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: linear-gradient(140deg, rgba(40, 62, 57, 0.62), rgba(24, 40, 36, 0.62)) !important;
+  }
+}
+
 /* Stacked, crossfading photographs (home story, Bargara scene): keep them on the compositor while they fade. */
 [data-chapter-img],
 [data-scene-img] {

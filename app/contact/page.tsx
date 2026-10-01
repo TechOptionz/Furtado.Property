@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
+import CountUp from "@/components/CountUp";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
@@ -142,41 +143,62 @@ export default function Page() {
 
       {/* Closing band */}
       <section data-screen-label="Mira Living" className={styles.closing}>
-        <div className={styles.closingMedia}>
-          <Image
-            fill
-            sizes="(min-width: 900px) 50vw, 100vw"
-            data-reveal="image"
-            src="/uploads/mira-living-room-balcony-ocean-view.webp"
-            alt="Mira Living apartment living room opening to a balcony with ocean views"
-            className={styles.closingImg}
-          />
-        </div>
         <div className={styles.container}>
-          <div className={styles.closingText}>
-            <p className={`${styles.eyebrow} ${styles.onDark}`} data-reveal="text">
-              <span className={styles.eyebrowRule} data-reveal="rule" />
-              Building Dreams, Creating Homes
-            </p>
-            <h2 className={`${styles.closingTitle} ${styles.maskLine}`}>
-              <span data-reveal="text" data-delay="80">
-                Explore Mira Living.
-              </span>
-            </h2>
-            <p className={styles.closingLede} data-reveal="text" data-delay="160">
-              Discover twenty-five coastal residences in Bargara.
-            </p>
-            <div data-reveal="text" data-delay="240">
-              <Link href="/projects/mira-living" className={styles.cta}>
-                Discover Mira Living
-                <span className={styles.arrow} aria-hidden="true">
-                  →
+          <div className={styles.closingCard}>
+            <div className={styles.closingMedia}>
+              <Image
+                fill
+                sizes="(min-width: 1440px) 700px, (min-width: 900px) 50vw, 100vw"
+                data-reveal="image"
+                src="/uploads/mira-living-room-balcony-ocean-view.webp"
+                alt="Mira Living apartment living room opening to a balcony with ocean views"
+                className={styles.closingImg}
+              />
+            </div>
+            <div className={styles.closingText}>
+              <p className={`${styles.eyebrow} ${styles.onDark}`} data-reveal="text">
+                <span className={styles.eyebrowRule} data-reveal="rule" />
+                Building Dreams, Creating Homes
+              </p>
+              <h2 className={`${styles.closingTitle} ${styles.maskLine}`}>
+                <span data-reveal="text" data-delay="80">
+                  Explore Mira Living.
                 </span>
-              </Link>
+              </h2>
+              <p className={styles.closingLede} data-reveal="text" data-delay="160">
+                Twenty-five boutique oceanfront residences on the Bargara Esplanade, with three bedrooms in every
+                apartment.
+              </p>
+              <dl className={styles.facts} data-reveal="text" data-delay="220">
+                <div>
+                  <dt>Residences</dt>
+                  <dd data-count="">25</dd>
+                </div>
+                <div>
+                  <dt>Bedrooms</dt>
+                  <dd data-count="">3</dd>
+                </div>
+                <div>
+                  <dt>Location</dt>
+                  <dd>Bargara, QLD</dd>
+                </div>
+              </dl>
+              <div className={styles.closingActions} data-reveal="text" data-delay="280">
+                <Link href="/projects/mira-living" className={styles.cta}>
+                  Discover Mira Living
+                  <span className={styles.arrow} aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+                <a href="tel:0418982517" className={styles.closingCall}>
+                  or call 0418 982 517
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <CountUp />
     </main>
   );
 }

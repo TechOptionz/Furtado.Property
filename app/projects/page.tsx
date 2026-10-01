@@ -126,6 +126,7 @@ export default function Page() {
                     lineHeight: "1.1",
                     color: "#26443F",
                   }}
+                  data-count=""
                 >
                   20+
                 </dd>
@@ -150,6 +151,7 @@ export default function Page() {
                     lineHeight: "1.1",
                     color: "#26443F",
                   }}
+                  data-count=""
                 >
                   25
                 </dd>
@@ -174,6 +176,7 @@ export default function Page() {
                     lineHeight: "1.1",
                     color: "#26443F",
                   }}
+                  data-count=""
                 >
                   3
                 </dd>

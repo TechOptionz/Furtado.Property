@@ -316,6 +316,7 @@ export default function Page() {
                   lineHeight: "1.1",
                   color: "#FCFAF6",
                 }}
+                data-count=""
               >
                 20+
               </span>

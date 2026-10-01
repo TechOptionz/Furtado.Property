@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Blob from "@/components/Blob";
 import Link from "next/link";
 import Image from "next/image";
+import CountUp from "@/components/CountUp";
 import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -174,7 +175,7 @@ export default function Page() {
                       fontSize: "var(--fs-86)",
                     }}
                   >
-                    3
+                    <span data-count="">3</span>
                     <span
                       style={{
                         fontSize: "var(--fs-66)",
@@ -2385,6 +2386,7 @@ export default function Page() {
                         fontWeight: "500",
                         color: "#26443F",
                       }}
+                      data-count=""
                     >
                       20 min
                     </dd>
@@ -2409,6 +2411,7 @@ export default function Page() {
                         fontWeight: "500",
                         color: "#26443F",
                       }}
+                      data-count=""
                     >
                       25 min
                     </dd>
@@ -2566,6 +2569,7 @@ export default function Page() {
           </div>
         </section>
       </main>
+      <CountUp />
     </>
   );
 }

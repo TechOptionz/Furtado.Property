@@ -8,6 +8,7 @@ import HomeStory from "@/components/HomeStory";
 import HomeHero from "@/components/HomeHero";
 import CountUp from "@/components/CountUp";
 import { TrackRecordHome } from "@/components/TrackRecord";
+import EnquiryBackdrop from "@/components/EnquiryBackdrop";
 import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -3492,163 +3493,137 @@ export default function Page() {
         </section>
         {/* 09 CTA */}
         <section data-screen-label="CTA" style={{ padding: "clamp(72px,10vw,128px) 0" }}>
-          <div data-reveal="text" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
+          <div data-reveal="text" style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}>
             <div
               style={{
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: "28px",
-                padding: "clamp(56px,7vw,96px) clamp(24px,4vw,48px)",
-                textAlign: "center",
-                color: "#FCFAF6",
-                background: "linear-gradient(135deg,#2F5A51,#26443F 50%,#19332F)",
-                boxShadow: "0 16px 48px -16px rgba(38,68,63,.3)",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "flex-end",
+                justifyContent: "space-between",
+                gap: "40px clamp(48px,6vw,96px)",
+                paddingTop: "clamp(40px,5vw,64px)",
+                borderTop: "1px solid rgba(32,35,31,.14)",
               }}
             >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  right: "0",
-                  height: "1px",
-                  background: "linear-gradient(90deg,transparent,rgba(255,255,255,.1) 50%,transparent)",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: "0",
-                  background: "radial-gradient(at 100% 0%,rgba(211,185,149,.12),transparent 55%)",
-                  pointerEvents: "none",
-                }}
-              />
               <h2
                 data-reveal="heading"
                 style={{
-                  position: "relative",
-                  margin: "0 auto",
-                  fontSize: "clamp(2.25rem,4.5vw,4.5rem)",
+                  flex: "3 1 420px",
+                  margin: "0",
+                  fontSize: "clamp(2.5rem,5.4vw,5.25rem)",
                   fontWeight: "600",
-                  letterSpacing: "-.034em",
+                  letterSpacing: "-.036em",
                   lineHeight: "1",
-                  maxWidth: "16ch",
+                  color: "#20231F",
+                  maxWidth: "13ch",
                   textWrap: "balance",
                 }}
               >
                 {"Start with a home "}
-                <span style={{ color: "#D3B995" }}>made of dreams.</span>
+                <span style={{ color: "#8C6A44" }}>made of dreams.</span>
               </h2>
-              <p
-                data-reveal="text"
-                data-delay="150"
-                style={{
-                  position: "relative",
-                  margin: "20px auto 0",
-                  maxWidth: "58ch",
-                  fontSize: "1.1rem",
-                  lineHeight: "1.625",
-                  color: "rgba(250,247,240,.7)",
-                }}
-              >
-                Interested in one of our developments or want to learn more? We would love to hear from you.
-              </p>
-              <div
-                data-reveal="text"
-                data-delay="300"
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "center",
-                  gap: "16px",
-                  marginTop: "32px",
-                }}
-              >
-                <Link
-                  className="fx-6b47192"
-                  href="/contact"
+              <div style={{ flex: "2 1 340px", maxWidth: "520px" }}>
+                <p
+                  data-reveal="text"
+                  data-delay="150"
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    padding: "12px 12px 12px 28px",
-                    borderRadius: "999px",
-                    background: "#D3B995",
-                    color: "#19332F",
-                    fontSize: "var(--fs-95)",
-                    fontWeight: "600",
-                    textDecoration: "none",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,.25),0 10px 36px -12px rgba(211,185,149,.45)",
-                    transition: "transform .3s ease-out,background .3s ease-out",
+                    margin: "0",
+                    fontSize: "1.1rem",
+                    lineHeight: "1.625",
+                    color: "rgba(32,35,31,.7)",
+                    maxWidth: "46ch",
                   }}
-                  data-press=""
                 >
-                  Enquire now
-                  <span
+                  Interested in one of our developments or want to learn more? We would love to hear from you.
+                </p>
+                <div
+                  data-reveal="text"
+                  data-delay="300"
+                  style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginTop: "28px" }}
+                >
+                  <Link
+                    className="fx-467022b"
+                    href="/contact"
                     style={{
-                      display: "inline-grid",
-                      placeItems: "center",
-                      width: "36px",
-                      height: "36px",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      padding: "12px 12px 12px 28px",
                       borderRadius: "999px",
-                      background: "rgba(0,0,0,.14)",
+                      background: "#26443F",
+                      color: "#FCFAF6",
+                      fontSize: "var(--fs-95)",
+                      fontWeight: "600",
+                      textDecoration: "none",
+                      boxShadow: "0 10px 28px -12px rgba(38,68,63,.55)",
+                      transition: "transform .3s ease-out,background .3s ease-out",
                     }}
+                    data-press=""
                   >
-                    →
-                  </span>
-                </Link>
-                <Link
-                  className="fx-8249164"
-                  href="/projects/mira-living"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    padding: "12px 24px",
-                    borderRadius: "999px",
-                    border: "1px solid rgba(250,247,240,.2)",
-                    color: "#FCFAF6",
-                    fontSize: "var(--fs-95)",
-                    fontWeight: "600",
-                    textDecoration: "none",
-                    transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",
-                  }}
-                  data-press=""
-                >
-                  Discover Mira Living
-                </Link>
+                    Enquire now
+                    <span
+                      style={{
+                        display: "inline-grid",
+                        placeItems: "center",
+                        width: "36px",
+                        height: "36px",
+                        borderRadius: "999px",
+                        background: "rgba(255,255,255,.14)",
+                      }}
+                    >
+                      →
+                    </span>
+                  </Link>
+                  <Link
+                    className="fx-2f05b4d"
+                    href="/projects/mira-living"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "12px 24px",
+                      borderRadius: "999px",
+                      border: "1px solid rgba(32,35,31,.22)",
+                      color: "#20231F",
+                      fontSize: "var(--fs-95)",
+                      fontWeight: "600",
+                      textDecoration: "none",
+                      transition: "transform .3s ease-out,border-color .3s ease-out,background .3s ease-out",
+                    }}
+                    data-press=""
+                  >
+                    Discover Mira Living
+                  </Link>
+                </div>
+                <p style={{ margin: "24px 0 0", fontSize: "var(--fs-88)", color: "rgba(32,35,31,.62)" }}>
+                  {"Or call "}
+                  <a
+                    href="tel:0418982517"
+                    style={{ color: "#20231F", textDecoration: "none", fontWeight: "500" }}
+                    data-link=""
+                  >
+                    0418 982 517
+                  </a>
+                  {" · "}
+                  <a
+                    href="mailto:info@furtadoproperty.com.au"
+                    style={{ color: "#20231F", textDecoration: "none", fontWeight: "500" }}
+                    data-link=""
+                  >
+                    info@furtadoproperty.com.au
+                  </a>
+                </p>
               </div>
-              <p
-                style={{
-                  position: "relative",
-                  margin: "24px 0 0",
-                  fontSize: "var(--fs-88)",
-                  color: "rgba(250,247,240,.55)",
-                }}
-              >
-                {"Or call "}
-                <a
-                  href="tel:0418982517"
-                  style={{ color: "#FCFAF6", textDecoration: "none", fontWeight: "500" }}
-                  data-link=""
-                >
-                  0418 982 517
-                </a>
-                {" · "}
-                <a
-                  href="mailto:info@furtadoproperty.com.au"
-                  style={{ color: "#FCFAF6", textDecoration: "none", fontWeight: "500" }}
-                  data-link=""
-                >
-                  info@furtadoproperty.com.au
-                </a>
-              </p>
             </div>
           </div>
         </section>
         {/* 10 Enquiry */}
-        <section data-screen-label="Enquiry" style={{ background: "#EEE9DF", padding: "clamp(72px,10vw,128px) 0" }}>
+        <section
+          data-screen-label="Enquiry"
+          style={{ background: "#EEE9DF", padding: "clamp(72px,10vw,128px) 0" }}
+          className="enquiry-glass"
+        >
+          <EnquiryBackdrop />
           <div
             style={{
               maxWidth: "1440px",
@@ -3660,9 +3635,9 @@ export default function Page() {
               alignItems: "flex-start",
             }}
           >
-            <div style={{ flex: "2 1 320px" }}>
+            <div style={{ flex: "2 1 320px" }} className="enquiry-copy">
               <div
-                className="eyebrow"
+                className="eyebrow on-dark"
                 data-reveal="text"
                 style={{
                   display: "flex",
@@ -3673,7 +3648,7 @@ export default function Page() {
                   fontWeight: "600",
                   letterSpacing: ".22em",
                   textTransform: "uppercase",
-                  color: "#8C6A44",
+                  color: "#D3B995",
                 }}
               >
                 <span
@@ -3817,32 +3792,6 @@ export default function Page() {
                   </dd>
                 </div>
               </dl>
-              <div
-                style={{
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  aspectRatio: "16/10",
-                  boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                  background: "#E3DCCE",
-                  marginTop: "32px",
-                }}
-              >
-                <Image
-                  width={1170}
-                  height={649}
-                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 40vw, 520px"
-                  data-reveal="mask"
-                  src="/uploads/mira-pool.webp"
-                  alt="Mira Living pool"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    backgroundColor: "#dbe1e4",
-                  }}
-                />
-              </div>
             </div>
             <div
               data-reveal="text"
@@ -3856,6 +3805,7 @@ export default function Page() {
                 padding: "clamp(24px,3vw,40px)",
                 boxShadow: "0 2px 28px -14px rgba(60,40,15,.1)",
               }}
+              className="enquiry-card"
             >
               <EnquiryForm />
             </div>

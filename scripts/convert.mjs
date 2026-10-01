@@ -44,7 +44,7 @@ const BARGARA = dropSection(['Bargara intro', 'Bargara'], 11, '07 Bargara: dark 
 const PAGES = [
   {
     file: 'Home', out: 'app/page.tsx', noPreload: true, extra: '<HomeStory /><CountUp />',
-    extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";\nimport { TrackRecordHome } from "@/components/TrackRecord";',
+    extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";\nimport { TrackRecordHome } from "@/components/TrackRecord";\nimport EnquiryBackdrop from "@/components/EnquiryBackdrop";',
     // The video hero (components/HomeHero.tsx) opens the page and owns the h1; the story below it starts at #story.
     // The export's first story chapter repeats the hero (same headline, copy and buttons), so it is dropped and the
     // remaining five are renumbered; the new first chapter starts visible. Captions live in components/HomeStory.tsx.
@@ -84,6 +84,44 @@ const PAGES = [
           card.querySelector('span').insertAdjacentHTML('afterbegin', '<span class="live-dot"></span>');
         }
       }
+      // CTA: the export's green gradient card floats on cream between a dark band and the (now photographic) enquiry
+      // section. It becomes an open editorial row on the page colour instead — the headline large and dark on the
+      // left under a hairline rule, the copy and actions on the right, the primary action in the brand green.
+      const cta = root.querySelector('[data-screen-label="CTA"]');
+      const restyle = (el, css) => el.setAttribute('style', css);
+      const ctaCard = cta.querySelector('> div > div');
+      restyle(ctaCard.parentNode, 'max-width:1440px;margin:0 auto;padding:0 clamp(20px,5vw,80px)');
+      ctaCard.querySelectorAll('> div').slice(0, 2).forEach((el) => el.remove()); // the card's sheen and glow
+      restyle(ctaCard, 'display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:40px clamp(48px,6vw,96px);padding-top:clamp(40px,5vw,64px);border-top:1px solid rgba(32,35,31,.14)');
+      const ctaHead = ctaCard.querySelector('h2');
+      restyle(ctaHead, 'flex:3 1 420px;margin:0;font-size:clamp(2.5rem,5.4vw,5.25rem);font-weight:600;letter-spacing:-.036em;line-height:1;color:#20231F;max-width:13ch;text-wrap:balance');
+      restyle(ctaHead.querySelector('span'), 'color:#8C6A44');
+      const [ctaText, ctaCall] = ctaCard.querySelectorAll('> p');
+      const ctaActions = ctaCard.querySelector('> div');
+      const [primary, secondary] = ctaActions.querySelectorAll('a');
+      restyle(ctaText, 'margin:0;font-size:1.1rem;line-height:1.625;color:rgba(32,35,31,.7);max-width:46ch');
+      restyle(ctaActions, 'display:flex;flex-wrap:wrap;gap:16px;margin-top:28px');
+      restyle(primary, primary.getAttribute('style').replace('background:#D3B995;color:#19332F', 'background:#26443F;color:#FCFAF6').replace(/box-shadow:[^;]+/, 'box-shadow:0 10px 28px -12px rgba(38,68,63,.55)'));
+      primary.setAttribute('style-hover', 'transform:translateY(-2px);background:#19332F');
+      restyle(primary.querySelector('span'), primary.querySelector('span').getAttribute('style').replace('rgba(0,0,0,.14)', 'rgba(255,255,255,.14)'));
+      restyle(secondary, secondary.getAttribute('style').replace('rgba(250,247,240,.2)', 'rgba(32,35,31,.22)').replace('color:#FCFAF6', 'color:#20231F'));
+      secondary.setAttribute('style-hover', 'transform:translateY(-2px);border-color:#26443F;background:rgba(38,68,63,.06)');
+      restyle(ctaCall, 'margin:24px 0 0;font-size:.88rem;color:rgba(32,35,31,.62)');
+      ctaCall.querySelectorAll('a').forEach((a) => restyle(a, a.getAttribute('style').replace('color:#FCFAF6', 'color:#20231F')));
+      ctaCard.insertAdjacentHTML('beforeend', '<div style="flex:2 1 340px;max-width:520px"></div>');
+      const ctaSide = ctaCard.querySelectorAll('> div').pop();
+      for (const el of [ctaText, ctaActions, ctaCall]) { el.remove(); ctaSide.appendChild(el); }
+      // Enquiry: the pool photograph leaves its small frame and a film fills the whole section (components/EnquiryBackdrop.tsx goes in
+      // with `patch` below), the copy turns light and the form card becomes frosted glass — .enquiry-glass in
+      // globals.css. Recolouring the eyebrow here makes element() tag it .on-dark.
+      const enquiry = root.querySelector('[data-screen-label="Enquiry"]');
+      enquiry.setAttribute('class', 'enquiry-glass');
+      enquiry.querySelector('img').parentNode.remove();
+      const [copy, card] = enquiry.querySelectorAll('> div > div');
+      copy.setAttribute('class', 'enquiry-copy');
+      card.setAttribute('class', 'enquiry-card');
+      const eyebrow = copy.querySelector('div');
+      eyebrow.setAttribute('style', eyebrow.getAttribute('style').replace('color:#8C6A44', 'color:#D3B995'));
     },
     // Last, the numbers close the gap the Bargara scene left ("11 / 11" → "10 / 10"), the handwritten track-record
     // section (components/TrackRecord.tsx) goes in after "The company" as 07, and the sections from Mira Living on
@@ -91,6 +129,7 @@ const PAGES = [
     patch: (jsx) => addSection('<TrackRecordHome />', '04 Mira Living showcase: image to the left edge, metadata alongside', 7, 10).patch(BARGARA.patch(jsx
       .replace(/(<main\b[^>]*>)/, '$1<HomeHero />')
       .replace('data-world=""', 'data-world="" id="story"')
+      .replace(/(<section\b[^>]*className="enquiry-glass"[^>]*>)/, '$1<EnquiryBackdrop />')
       // The centred labels carry their running number as bare text ("09 / 12 · The residences").
       .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`))),
   },
