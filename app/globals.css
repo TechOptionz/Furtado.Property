@@ -61,6 +61,60 @@ button:focus-visible {
   }
 }
 
+/* Step cards ("How we deliver" on Projects; scripts/convert.mjs adds the class). On hover the card lifts, a bronze
+   line draws across its top edge and the number badge turns green. The card's border and the badge's colours are
+   inline in the generated markup, hence the !important. */
+.step-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease-out,
+    border-color 0.35s ease-out,
+    box-shadow 0.35s ease-out;
+}
+.step-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: #b59168;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease-out;
+}
+.step-card > span:first-child {
+  transition:
+    background 0.35s ease-out,
+    color 0.35s ease-out,
+    transform 0.35s ease-out;
+}
+@media (hover: hover) {
+  .step-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(181, 145, 104, 0.55) !important;
+    box-shadow: 0 24px 48px -24px rgba(25, 51, 47, 0.35);
+  }
+  .step-card:hover::before {
+    transform: scaleX(1);
+  }
+  .step-card:hover > span:first-child {
+    background: #26443f !important;
+    color: #f7f4ed !important;
+    transform: scale(1.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-card,
+  .step-card::before,
+  .step-card > span:first-child {
+    transition: none;
+  }
+  .step-card:hover,
+  .step-card:hover > span:first-child {
+    transform: none;
+  }
+}
+
 /* Pulsing dot in the "Now selling" badge. */
 .live-dot {
   display: inline-block;

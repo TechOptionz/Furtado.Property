@@ -4,6 +4,7 @@ import Blob from "@/components/Blob";
 import Link from "next/link";
 import Image from "next/image";
 import CountUp from "@/components/CountUp";
+import ConstructionFilm from "@/components/ConstructionFilm";
 import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -1650,6 +1651,7 @@ export default function Page() {
                 aspectRatio: "4/3",
                 boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
                 background: "#EEE9DF",
+                position: "relative",
               }}
             >
               <Image
@@ -1667,6 +1669,7 @@ export default function Page() {
                   backgroundColor: "#f3f1ec",
                 }}
               />
+              <ConstructionFilm />
             </div>
           </div>
         </section>

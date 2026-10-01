@@ -1280,6 +1280,7 @@ export default function Page() {
               }}
             >
               <div
+                className="step-card"
                 data-reveal="text"
                 data-delay="0"
                 style={{
@@ -1328,6 +1329,7 @@ export default function Page() {
                 </p>
               </div>
               <div
+                className="step-card"
                 data-reveal="text"
                 data-delay="80"
                 style={{
@@ -1376,6 +1378,7 @@ export default function Page() {
                 </p>
               </div>
               <div
+                className="step-card"
                 data-reveal="text"
                 data-delay="160"
                 style={{
@@ -1424,6 +1427,7 @@ export default function Page() {
                 </p>
               </div>
               <div
+                className="step-card"
                 data-reveal="text"
                 data-delay="240"
                 style={{

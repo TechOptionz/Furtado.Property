@@ -146,13 +146,29 @@ const PAGES = [
   {
     file: 'Projects', out: 'app/projects/page.tsx', extra: '<CountUp />',
     extraImport: 'import TrackRecord from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
-    ...addSection('<TrackRecord />', 'How we deliver', 4, 4),
+    // The four "How we deliver" step cards get a class so globals.css can give them a hover state (.step-card).
+    ...chain(addSection('<TrackRecord />', 'How we deliver', 4, 4), {
+      patchDom: (root) => {
+        const cards = root.querySelectorAll('[data-screen-label="How we deliver"] div[data-delay]');
+        if (cards.length !== 4) throw new Error(`Projects: expected 4 step cards, found ${cards.length}`);
+        cards.forEach((card) => card.setAttribute('class', 'step-card'));
+      },
+    }),
   },
   // Mira Living's own Bargara section (photo cards and distances) makes way for the Bargara scene from Home, which
-  // covers the same places and takes over its running number.
+  // covers the same places and takes over its running number. The site film (components/ConstructionFilm.tsx) plays
+  // in the "Construction progress" frame, over the excavation photograph, which stays as its poster and fallback.
   {
     file: 'Mira-Living', out: 'app/projects/mira-living/page.tsx',
-    ...chain(borrowSections('Bargara', 'Home', ['Bargara intro', 'Bargara']), dropSection('Lifestyle', 9)),
+    extraImport: 'import ConstructionFilm from "@/components/ConstructionFilm";',
+    ...chain(borrowSections('Bargara', 'Home', ['Bargara intro', 'Bargara']), dropSection('Lifestyle', 9), {
+      patchDom: (root) => {
+        const photo = root.querySelector('[data-screen-label="Construction progress"] img');
+        if (!photo) throw new Error('Mira-Living: no construction photograph');
+        photo.parentNode.setAttribute('style', `${photo.parentNode.getAttribute('style')};position:relative`);
+      },
+      patch: (jsx) => jsx.replace(/(<Image\b[^<]*src="\/uploads\/mira-idc-site-excavation\.jpg"[^<]*\/>)/, '$1<ConstructionFilm />'),
+    }),
   },
   // /contact is handwritten (app/contact/) and no longer compiled from Contact.dc.html.
 ];
