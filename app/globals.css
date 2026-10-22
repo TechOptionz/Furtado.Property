@@ -737,6 +737,37 @@ li {
   }
 }
 
+/* The Mira hero must fit one screen with the film beside the copy, so on landscape screens the headline scales
+   with the viewport height as well as its width (a 4-line headline on a 660px-tall display, the full size at 1080px)
+   and the top padding shrinks with the height too. */
+@media (min-width: 1024px) {
+  main[data-screen-label="Mira Living"] > section[data-screen-label="Hero"] {
+    padding-top: clamp(120px, calc(72px + 10vh), 176px) !important;
+  }
+  /* Outranks the shared "main h1:not([class])" scale above, which also uses !important. */
+  main .mira-hero-grid h1:not([class]) {
+    font-size: min(var(--display-size), 5.6vh) !important;
+  }
+  .mira-hero-grid h1 + p {
+    font-size: min(1.1rem, 2.6vh) !important;
+  }
+}
+
+/* From 1200px the hero gives the film the wider column (5:7) and stretches it to the height of the copy, so its top
+   meets the eyebrow and its bottom the buttons. The film is 16:9 and object-fit: cover crops it to that height. */
+@media (min-width: 1200px) {
+  .mira-hero-grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) !important;
+    gap: 48px clamp(40px, 4.5vw, 72px) !important;
+    align-items: stretch !important;
+  }
+  .mira-film-card {
+    aspect-ratio: auto;
+    min-height: 0;
+    height: 100%;
+  }
+}
+
 .film-dialog {
   width: min(100vw - 32px, calc((100dvh - 96px) * 16 / 9), 1600px);
   max-width: none;

@@ -41,6 +41,7 @@ export default function Page() {
             style={{ position: "relative", maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,5vw,80px)" }}
           >
             <div
+              className="mira-hero-grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))",
