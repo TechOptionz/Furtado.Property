@@ -5,7 +5,7 @@ const CAPTIONS = [
   "Bargara Golf Club to the coast",
   "Mira Living · Living room and balcony",
   "Mira Living · Kitchen and living",
-  "Bargara beach at sunset",
+  "Bargara beach from the air",
   "Mira Living · Bargara QLD",
 ];
 

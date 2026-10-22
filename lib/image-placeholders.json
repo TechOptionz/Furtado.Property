@@ -4,10 +4,10 @@
     "height": 1350,
     "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJbACdAEO8B0vrDAA/I+bwilZ0IrP8C9bfmDDGduzxnfT/2S6/K/CC9Z/KAfMNb68W4Zvfm397kKEmUcIAA=="
   },
-  "/uploads/bargara-beach-couple-walking.webp": {
-    "width": 2048,
-    "height": 1434,
-    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAsAA4BaJYgCdAEf+7P2AZwAAP7rbfNKezCtxSiZ7iW/KYgD6/8ozSkpwHuetg2bXUvSuchEzcVTYAA="
+  "/uploads/bargara-beach-aerial.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAkAA4BaJYgCdAYstJ5OFPfoAP7pB+0qxF9ecbsw7ErPlLpLGs8t5dHqF+yTIb9uOdVfJ7j9WvwYWRvA9YVu+gg0pdAlxJTYB69AY9NiGcY08wShRpgA"
   },
   "/uploads/bargara-cafes-dining.webp": {
     "width": 2048,
@@ -83,6 +83,11 @@
     "width": 2400,
     "height": 1600,
     "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJYgCdAEK00FIDFYQAP7F/MbOZKuzi+SZw6wFH56QD3Esfvklj25Hc9oR3xYCrruJSfpcfloS26qGWD90VJdOG+CrJjAgAAA="
+  },
+  "/uploads/mira-entrance-signage.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoQAAkAA4BaJbACdACqGGr+AADLT9yfXMT1YRFu8TeEPeuIez9r1FyYVfIST8P2iClQZ8+BWoVQM+5xhr9vtxHt518gHVr/z2E+ec5zgejhJuSgAAA="
   },
   "/uploads/mira-headland-aerial.jpg": {
     "width": 1448,

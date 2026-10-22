@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CountUp from "@/components/CountUp";
 import ConstructionFilm from "@/components/ConstructionFilm";
+import MiraFilm from "@/components/MiraFilm";
 import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -251,33 +252,18 @@ export default function Page() {
                 </div>
               </div>
               <div
-                data-card="photo" style={{
+                data-card="photo"
+                className="mira-film-card"
+                style={{
+                  position: "relative",
                   borderRadius: "16px",
                   overflow: "hidden",
-                  aspectRatio: "4/3",
-                  minHeight: "min(60vh,720px)",
                   boxShadow: "0 8px 44px -16px rgba(60,40,15,.28)",
-                  background: "#EEE9DF",
+                  background: "#19332F",
                   width: "100%",
                 }}
               >
-                <Image
-                  width={2400}
-                  height={1600}
-                  sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 600px"
-                  preload
-                  data-reveal="mask"
-                  data-delay="200"
-                  src="/uploads/mira-building-dusk-aerial.jpg"
-                  alt="Mira Living at dusk, from the air above the Esplanade"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    backgroundColor: "#ebe9e4",
-                  }}
-                />
+                <MiraFilm />
               </div>
             </div>
             <dl
@@ -1228,18 +1214,18 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={1448}
-                  height={1086}
+                  width={1920}
+                  height={1080}
                   sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                   data-reveal="mask"
-                  src="/uploads/mira-headland-aerial.jpg"
-                  alt="Mira Living on the Bargara headland, seen from over the sea"
+                  src="/uploads/mira-entrance-signage.jpg"
+                  alt="The Mira Living entrance and signage in late-afternoon light"
                   style={{
                     display: "block",
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    backgroundColor: "#cbd9dc",
+                    backgroundColor: "#a3917c",
                   }}
                 />
               </div>
@@ -1862,12 +1848,12 @@ export default function Page() {
               }
             >
               <Image
-                width={2048}
-                height={1434}
+                width={1920}
+                height={1080}
                 sizes="(max-width: 639px) 100vw, (max-width: 1023px) 95vw, (max-width: 1599px) 60vw, 1110px"
                 data-scene-img="0"
-                src="/uploads/bargara-beach-couple-walking.webp"
-                alt="Couple walking on Bargara beach"
+                src="/uploads/bargara-beach-aerial.jpg"
+                alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
                 style={{
                   position: "absolute",
                   inset: "0",
@@ -1875,7 +1861,7 @@ export default function Page() {
                   height: "100%",
                   objectFit: "cover",
                   transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
-                  backgroundColor: "#ebe9e4",
+                  backgroundColor: "#7b7974",
                 }}
               />
               <Image
@@ -2012,18 +1998,18 @@ export default function Page() {
                   }}
                 >
                   <Image
-                    width={2048}
-                    height={1434}
+                    width={1920}
+                    height={1080}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
-                    src="/uploads/bargara-beach-couple-walking.webp"
-                    alt="Couple walking on Bargara beach"
+                    src="/uploads/bargara-beach-aerial.jpg"
+                    alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
                     style={{
                       display: "block",
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      backgroundColor: "#ebe9e4",
+                      backgroundColor: "#7b7974",
                     }}
                   />
                 </div>

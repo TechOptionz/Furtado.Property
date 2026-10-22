@@ -707,12 +707,12 @@ export default function Page() {
                   }}
                 />
                 <Image
-                  width={2048}
-                  height={1434}
+                  width={1920}
+                  height={1080}
                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 50vw, 740px"
                   data-chapter-img="3"
-                  src="/uploads/bargara-beach-couple-walking.webp"
-                  alt="Couple walking along Bargara beach at sunset"
+                  src="/uploads/bargara-beach-aerial.jpg"
+                  alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
                   style={{
                     position: "absolute",
                     inset: "0",
@@ -723,7 +723,7 @@ export default function Page() {
                     opacity: "0",
                     transform: "scale(1.04)",
                     transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
-                    backgroundColor: "#ebe9e4",
+                    backgroundColor: "#7b7974",
                   }}
                 />
                 <Image
