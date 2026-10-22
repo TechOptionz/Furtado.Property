@@ -49,7 +49,8 @@ fs.writeFileSync(path.join(ROOT, 'lib/image-meta.json'), JSON.stringify(meta, nu
 console.log('wrote lib/image-meta.json');
 
 // Hero poster --------------------------------------------------------------------------------------------------
-const poster = original('video/hero-poster.jpg') || path.join(ROOT, 'public/video/hero-poster.jpg');
+// Read into memory first: without ../uploads the poster's source is the very file the 1920px cut is written back to.
+const poster = fs.readFileSync(original('video/hero-poster.jpg') || path.join(ROOT, 'public/video/hero-poster.jpg'));
 // Phones show the film cropped to portrait, so their poster is cut to the middle of the frame at full height.
 await sharp(poster).resize({ width: 900, height: 1600, fit: 'cover', position: 'centre', kernel: 'lanczos3' }).webp({ quality: 72, effort: 6 }).toFile(path.join(ROOT, 'public/video/hero-poster-portrait.webp'));
 await sharp(poster).resize({ width: 1920 }).webp({ quality: 78, effort: 6 }).toFile(path.join(ROOT, 'public/video/hero-poster.webp'));

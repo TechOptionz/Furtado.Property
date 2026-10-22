@@ -34,11 +34,6 @@
     "height": 1365,
     "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwAgCdASoQAAsAA4BaJbACdAYr7N4z8SiyKAD+2+c8qSYPRetOTfRtO0hjPzK6ZeFXIm4jAqoQxb/pOWxhAtQ7al/dU72vmtSSLJ2ZFcaTe59iSRi6GQXN0it978Pu1Ib1cWC3jHMYWARwRhn1cAAA"
   },
-  "/uploads/bathroom.jpg": {
-    "width": 1500,
-    "height": 1934,
-    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JZwDCgCHhTEU+zNS0obLkAP7fTMQttEU3uFYSZRZ6b4K40KTk9vqlJ5TBSEnHHT+QDMTDqZdSiW5vMrQAAA=="
-  },
   "/uploads/bundaberg-hospital.webp": {
     "width": 600,
     "height": 450,
@@ -49,65 +44,80 @@
     "height": 1350,
     "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAkAA4BaJbACdAEecJvwSf2gAPvrsJhvjbN8ACvlLZWel/07tLWCRHm5tEtVPAzU5BiAf2RxNMRsB1xEvlo19gh2AxpAAAA="
   },
-  "/uploads/front.jpg": {
-    "width": 1500,
-    "height": 844,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAAkAA4BaJZQAD4SQ+AoRhMpMAAD8LsRG0diMzMagAmmeaVeW7eBnCY1JhcIutYoNww925uMOQbxgDmL6GXn4dUAAAA=="
-  },
-  "/uploads/living.jpg": {
+  "/uploads/mira-balcony-outlook.jpg": {
     "width": 2400,
-    "height": 1350,
-    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAA4BaJQBOgB8rM+gYAPzYc2VWJ9eEFgnS7Di3vfn8OwDTrspOFB4B3UZBrLxjFIV6KDJ/Ur7dlLgAAA=="
+    "height": 1604,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQAAsAA4BaJQBOgMWqxENo5eAA/oofg/ftlW+6dXjrE0z/UHTKAP8DN5X5BGt/QMK7cmKhncNYmfAlbz9fU3M9ArIky7YMVkxI9SZFGmf4JWCtpEF87TIAAAA="
   },
-  "/uploads/lobby.jpg": {
-    "width": 1500,
-    "height": 844,
-    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAA4BaJQBdgBnTO2iJAAD2Q+//PNS0YG04GFBfoGJllRU/LQZE9m3/qAQehXx5KXErrZbWdQnPLsluG+RBJYsyWIAA"
-  },
-  "/uploads/mira-bathroom.webp": {
-    "width": 1861,
+  "/uploads/mira-bathroom.jpg": {
+    "width": 1920,
     "height": 2400,
-    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoQABUAPu1kqU2ppaQiMAgBMB2JZwDCgCHw8s9rHy56BXqAAP7fTJcRWvOc8X8cvhVNQ80NoE/qAgSjVInVZJCeVVyhLRkRbKI1wkmLiyAAAA=="
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoQABQAPu1iqU2ppaQiMAgBMB2JZQCsACHpWTbYOmAgEOckAP6w2pIXXtf6xHYz4ExMihkIr8q3J+l3LVs/NW1yXbKtD7BvbN4KlQaQUAA="
   },
-  "/uploads/mira-bedroom-ocean-view.webp": {
-    "width": 1410,
-    "height": 1200,
-    "blur": "data:image/webp;base64,UklGRowAAABXRUJQVlA4WAoAAAAQAAAADwAADQAAQUxQSBEAAAABD9D/iAgIBJL2J98gov+RAwBWUDggVAAAABACAJ0BKhAADgADgFoljAJ0AN0b4NNaHAAA/tgIEzfAU+zu464L0XTUoAf5SKYdIzcOjeIGKCLIcnoJRKiS9idlk92xsrFE79yStaYndHN2MAAAAA=="
+  "/uploads/mira-bedroom-detail.jpg": {
+    "width": 1600,
+    "height": 2400,
+    "blur": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYgCdL1yBOd3wt2Mr04+eMTEFgAD+V4yWnVI6z0V3isia9ulx5R527nnkQelateBuiFGPM78KWcUQ6uPejj2MRiuSO8EA9BwvPFxYw4Fza2b5p+5wM61xwMoaJd9+sYUvf0AA"
   },
-  "/uploads/mira-dining-room.webp": {
+  "/uploads/mira-bedroom-outlook.jpg": {
+    "width": 1920,
+    "height": 2400,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoQABQAPu1iqk2ppaQiMAgBMB2JQBOmUABwRX/ruHCWWAD+xRaCvNFtNw/ClE3xImEd7pcnf80uX0BhLxdbBG6aNEzQIKNh7o0EyBbwghlKQbqs1FIv2fIwAAA="
+  },
+  "/uploads/mira-bedroom.jpg": {
     "width": 2400,
-    "height": 2198,
-    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQAgCdASoQAA8AA4BaJYwCdAYvXwV06tK+aYAA+Xs17jeCfu3MRP12oddI96kYPUfbWZ7W2dxpEUNgreGKy+Tp3DZILzLs1fPgckTl2el44vMgbtI6ELfGFwsd3TZq2gAAAA=="
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAsAA4BaJZACdADATu2wAAD+62e1vpvf5HE1/Uv6nxbLXOl+MvhY7T99xGoZcTJ+utiU6C+8amOkUFW66Iqt96zQRhOFcjYmPRnT3RXAAA=="
+  },
+  "/uploads/mira-benchtop-detail.jpg": {
+    "width": 1600,
+    "height": 2400,
+    "blur": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZgCw7YvCQ2fjwd2GlV06SACLHIen8cV5CBNtrn3zB/3MRbBZWvFFrw0pHKlXVYXepaqFi9h0E+OOtuHFfeoabXlUtUFYFHC+/kV0LFgKl2sxCF8mRidrk5kamAAA"
+  },
+  "/uploads/mira-building-dusk-aerial.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAsAA4BaJZAC7AEOuHE0+NwA/vOLE418syVIY77PF235LLDWWQSglehBYl3+SST5TqoOMZfyY3lBf9K2AUgA"
+  },
+  "/uploads/mira-dining.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJYgCdAEK00FIDFYQAP7F/MbOZKuzi+SZw6wFH56QD3Esfvklj25Hc9oR3xYCrruJSfpcfloS26qGWD90VJdOG+CrJjAgAAA="
+  },
+  "/uploads/mira-headland-aerial.jpg": {
+    "width": 1448,
+    "height": 1086,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAwAA4BaJagCdH8AGKf6S4CAAP7e8ZzBswIIMATlGBStEvcok2a/S+1DLhl/1KITNv07Q34OIST3sSYAAA=="
   },
   "/uploads/mira-idc-site-excavation.jpg": {
     "width": 1600,
     "height": 2400,
     "blur": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZAC06YxE3h7oBaP73nXqJMAA/u/C/hv2ozGcROC7rkrhHKrQBJtEj+oKl58zGV5V7xhYNrTbV0/e+wlUbAefi21sW6M0YaPQgbsb3fkudEbEJGbm1+X/xwQRfo2NeUhl1u/YmOIJjkjUx3HdKsJZwIkX75Vz5LE//NPKLS8SjQAA"
   },
-  "/uploads/mira-kitchen-living-open-plan.webp": {
-    "width": 2142,
-    "height": 1200,
-    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoQAAkAA4BaJQBOgB8qJ9YAAPzYc2VWJ9eEFgnS68RNMhI+dTm++r8lPqgoyDlv5/UsI1oWFzfHwYqNiAA="
+  "/uploads/mira-kitchen-dining.jpg": {
+    "width": 2400,
+    "height": 1601,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAsAA4BaJZgCdADXDn5FKDoA/pqjWEQ6E8i9yxAIXl02DfBlbHfDOzzCKGfQIddnP13TAtBEn7bQZyuPNATNAdJdOG+CrJjAgAAA"
   },
-  "/uploads/mira-living-room-balcony-ocean-view.webp": {
-    "width": 2000,
-    "height": 1271,
-    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAoAA4BaJZwCdAELhqeuYDY8AAD+63LS2gkZ4z6WDFFjOKoB1kCPFz8yd3PZpEmhkncs/Xy+GpMx8xwG1OgU5ryx9xQysAA="
+  "/uploads/mira-living-room-balcony.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABQAgCdASoQAAsAA4BaJYgCdAYu5lb5bvmBCTAA/pPFASK7NNiMc/0c2nq7Y5NqKgUF0luW/d0bqG+Qhy7wYqUjSbqSOG2ImVkpeSlekv17M9+pak6cX9DRtdeWUAkgAAA="
   },
-  "/uploads/mira-pool.webp": {
-    "width": 1170,
-    "height": 649,
-    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAkAA4BaJQBOgCIjP7yqVAAA/gjwJFbn2EOz1oJJmW2EnMUHUsT3Ut/5F+ftF0lGY15NpX/xW8pMmCTpkQM2Y2KEeqZuUgGEwVSmvfAAAA=="
+  "/uploads/mira-living-room.jpg": {
+    "width": 2400,
+    "height": 1601,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQAAsAA4BaJYgCdAYuvi2LFTzCAAD+53rbFa41AycZ9veMwNHIdVH2oru20OPJ9tN/CZAVUd3QepHnJzLw8tsU/Vun3qKbFOjh+kOWr5ZQDAgAAAA="
   },
-  "/uploads/mira-walk-in-wardrobe.webp": {
-    "width": 2048,
-    "height": 1380,
-    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAsAA4BaJYgCdAED4nZkwAD+Whg9rRExJnnH0eXR48ctuptDLSi5mTo2n/HHGwlHHEs8AcF7VfoaL48P3JAAAAA="
+  "/uploads/mira-pool-dusk.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoQAAsAA4BaJbACw7YtVzFTIZvw9gAA/tKUkdQEHDppjKAmNyy/oBVgUVHajZ46AYhhPxXAYzvI02WN6xNRM1NuVfI8xBW0Aysdm+JAB5Kjecf2gAA="
   },
-  "/uploads/pool.jpg": {
-    "width": 2000,
-    "height": 1125,
-    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAkAA4BaJQBOgCIC8Q+e7HAA/gj24W2571lcJdUktr8TbkvDSCe84NGf2OEQBcVqXjr2rVWBs5rHtWENxoKrqxPmNdqMOsAfkyb66FwAAA=="
+  "/uploads/mira-study-nook.jpg": {
+    "width": 1920,
+    "height": 2400,
+    "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZQC7ACHgDF6omTm4GZF847AAAP6up6iPl5cWZal1KwcrP/eu/V0a9O2Q7K7SYcFZdyfpeOx6EP7uO2vC8IXpCp+SCU4FXVnosCxnAnXZxeQcHnkcZPK5CgAAAA=="
   },
   "/uploads/upcoming-coastal-apartments.jpg": {
     "width": 1024,

@@ -29,8 +29,8 @@ export default function Page() {
             fill
             preload
             sizes="100vw"
-            src="/uploads/front.jpg"
-            alt="Mira Living seen from the street at dusk"
+            src="/uploads/mira-building-dusk-aerial.jpg"
+            alt="Mira Living at dusk, from the air above the Esplanade"
             className={styles.heroImg}
           />
         </div>
@@ -115,8 +115,8 @@ export default function Page() {
                   sizes="(min-width: 1440px) 500px, (min-width: 900px) 36vw, 92vw"
                   data-reveal="image"
                   data-delay="200"
-                  src="/uploads/lobby.jpg"
-                  alt="Mira Living entrance with signage"
+                  src="/uploads/mira-headland-aerial.jpg"
+                  alt="Mira Living on the Bargara headland, seen from over the sea"
                   className={styles.frameImg}
                 />
                 <figcaption className={styles.caption}>
@@ -150,8 +150,8 @@ export default function Page() {
                 fill
                 sizes="(min-width: 1440px) 700px, (min-width: 900px) 50vw, 100vw"
                 data-reveal="image"
-                src="/uploads/mira-living-room-balcony-ocean-view.webp"
-                alt="Mira Living apartment living room opening to a balcony with ocean views"
+                src="/uploads/mira-living-room-balcony.jpg"
+                alt="Living room opening through sliding doors to the balcony and the Esplanade parkland"
                 className={styles.closingImg}
               />
             </div>

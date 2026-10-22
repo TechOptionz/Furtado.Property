@@ -61,7 +61,7 @@ export type UpcomingProject = {
 // ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 const COMPLETION = "Q2 2026";
 
-const front = photo("/uploads/front.jpg", "Front elevation of Mira Living at dusk, seen from the Esplanade");
+const front = photo("/uploads/mira-building-dusk-aerial.jpg", "Mira Living at dusk, from the air above the Esplanade");
 
 export const miraLiving: Project = {
   name: "Mira Living",
@@ -94,12 +94,9 @@ export const miraLiving: Project = {
   lead: front,
   gallery: [
     front,
-    photo(
-      "/uploads/mira-living-room-balcony-ocean-view.webp",
-      "Living room opening to a balcony with an ocean view",
-    ),
-    photo("/uploads/pool.jpg", "Landscaped pool with sun loungers and a shaded alfresco area"),
-    photo("/uploads/mira-kitchen-living-open-plan.webp", "Open-plan kitchen with a stone island, and the living area"),
+    photo("/uploads/mira-living-room-balcony.jpg", "Living room opening through sliding doors to the balcony and the Esplanade parkland"),
+    photo("/uploads/mira-pool-dusk.jpg", "The residents' pool and alfresco terrace at dusk"),
+    photo("/uploads/mira-kitchen-dining.jpg", "Open-plan kitchen with a stone island, dining and living"),
   ],
 };
 
@@ -163,7 +160,7 @@ export const deliverySteps = [
 ];
 
 export const closing = {
-  image: photo("/uploads/pool.jpg", ""),
+  image: photo("/uploads/mira-pool-dusk.jpg", ""),
   phone: { label: "0418 982 517", href: "tel:0418982517" },
   email: "info@furtadoproperty.com.au",
 };

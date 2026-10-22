@@ -27,10 +27,6 @@
     "w": 1920,
     "v": "38820bec"
   },
-  "/uploads/bathroom.jpg": {
-    "w": 1280,
-    "v": "b4de71aa"
-  },
   "/uploads/bundaberg-hospital.webp": {
     "w": 480,
     "v": "cab60353"
@@ -39,53 +35,65 @@
     "w": 2400,
     "v": "9e4a5e2d"
   },
-  "/uploads/front.jpg": {
-    "w": 1280,
-    "v": "01e051e6"
-  },
-  "/uploads/living.jpg": {
+  "/uploads/mira-balcony-outlook.jpg": {
     "w": 2400,
-    "v": "aab92bca"
+    "v": "47569906"
   },
-  "/uploads/lobby.jpg": {
-    "w": 1280,
-    "v": "8ed04424"
+  "/uploads/mira-bathroom.jpg": {
+    "w": 1920,
+    "v": "b84240ff"
   },
-  "/uploads/mira-bathroom.webp": {
+  "/uploads/mira-bedroom-detail.jpg": {
     "w": 1600,
-    "v": "0ee38ecc"
+    "v": "0fc636b8"
   },
-  "/uploads/mira-bedroom-ocean-view.webp": {
-    "w": 1280,
-    "v": "61349179"
+  "/uploads/mira-bedroom-outlook.jpg": {
+    "w": 1920,
+    "v": "f82ee6de"
   },
-  "/uploads/mira-dining-room.webp": {
+  "/uploads/mira-bedroom.jpg": {
     "w": 2400,
-    "v": "49c0b9f3"
+    "v": "6f6e599e"
+  },
+  "/uploads/mira-benchtop-detail.jpg": {
+    "w": 1600,
+    "v": "8b4ff569"
+  },
+  "/uploads/mira-building-dusk-aerial.jpg": {
+    "w": 2400,
+    "v": "f922e773"
+  },
+  "/uploads/mira-dining.jpg": {
+    "w": 2400,
+    "v": "6c912480"
+  },
+  "/uploads/mira-headland-aerial.jpg": {
+    "w": 1280,
+    "v": "e9d291c8"
   },
   "/uploads/mira-idc-site-excavation.jpg": {
     "w": 1600,
     "v": "c919d7f4"
   },
-  "/uploads/mira-kitchen-living-open-plan.webp": {
-    "w": 1920,
-    "v": "f38f3580"
+  "/uploads/mira-kitchen-dining.jpg": {
+    "w": 2400,
+    "v": "0cffdd12"
   },
-  "/uploads/mira-living-room-balcony-ocean-view.webp": {
-    "w": 1920,
-    "v": "b752bf50"
+  "/uploads/mira-living-room-balcony.jpg": {
+    "w": 2400,
+    "v": "6bc8af5d"
   },
-  "/uploads/mira-pool.webp": {
-    "w": 1080,
-    "v": "520c09d2"
+  "/uploads/mira-living-room.jpg": {
+    "w": 2400,
+    "v": "f269f3e5"
   },
-  "/uploads/mira-walk-in-wardrobe.webp": {
-    "w": 1920,
-    "v": "2300d232"
+  "/uploads/mira-pool-dusk.jpg": {
+    "w": 2400,
+    "v": "2af4e38b"
   },
-  "/uploads/pool.jpg": {
+  "/uploads/mira-study-nook.jpg": {
     "w": 1920,
-    "v": "bf9b80e9"
+    "v": "7e36fe7f"
   },
   "/uploads/upcoming-coastal-apartments.jpg": {
     "w": 828,
