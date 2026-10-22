@@ -652,12 +652,12 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={2181}
-                  height={1226}
+                  width={1920}
+                  height={1080}
                   sizes="(max-width: 639px) 95vw, (max-width: 1023px) 95vw, (max-width: 1599px) 45vw, 710px"
                   data-chapter-img="0"
-                  src="/uploads/bargara-golf-course-coast-aerial.webp"
-                  alt="Bargara golf course running to the coast"
+                  src="/uploads/bargara-headland-coast-aerial.jpg"
+                  alt="The Bargara headland and coastline from the air, with Mira Living on the point"
                   style={{
                     position: "absolute",
                     inset: "0",
@@ -665,7 +665,7 @@ export default function Page() {
                     height: "100%",
                     objectFit: "cover",
                     transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
-                    backgroundColor: "#d3e1ec",
+                    backgroundColor: "#7b7974",
                   }}
                 />
                 <Image
@@ -763,7 +763,7 @@ export default function Page() {
                     fontWeight: "500",
                   }}
                 >
-                  <span data-world-caption="">Bargara Golf Club to the coast</span>
+                  <span data-world-caption="">The Bargara headland and coast</span>
                 </div>
               </div>
             </div>
@@ -1274,20 +1274,21 @@ export default function Page() {
             }}
           >
             <Image
-              width={2181}
-              height={1226}
+              width={1920}
+              height={1080}
               sizes="(max-width: 639px) 95vw, (max-width: 1023px) 55vw, (max-width: 1599px) 60vw, 1160px"
               data-reveal="mask"
-              src="/uploads/bargara-golf-course-coast-aerial.webp"
-              alt="Bargara golf course running to the coastline"
+              src="/uploads/bargara-headland-coast-aerial.jpg"
+              alt="The Bargara headland and coastline from the air, with Mira Living on the point"
               style={{
                 position: "absolute",
                 inset: "0",
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                objectPosition: "12% 50%",
                 display: "block",
-                backgroundColor: "#d3e1ec",
+                backgroundColor: "#7b7974",
               }}
             />
           </div>

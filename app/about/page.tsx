@@ -455,18 +455,18 @@ export default function Page() {
               }}
             >
               <Image
-                width={2181}
-                height={1226}
+                width={1920}
+                height={1080}
                 sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                 data-reveal="mask"
-                src="/uploads/bargara-golf-course-coast-aerial.webp"
-                alt="Bargara golf course running to the coastline"
+                src="/uploads/bargara-headland-coast-aerial.jpg"
+                alt="The Bargara headland and coastline from the air, with Mira Living on the point"
                 style={{
                   display: "block",
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  backgroundColor: "#d3e1ec",
+                  backgroundColor: "#7b7974",
                 }}
               />
             </div>
