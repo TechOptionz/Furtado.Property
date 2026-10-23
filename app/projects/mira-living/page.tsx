@@ -11,7 +11,7 @@ import { site } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Mira Living — Oceanfront Apartments in Bargara, QLD",
-  description: `Discover the epitome of luxury coastal living at Mira Living, a stunning apartment complex nestled seaside in the charming coastal enclave of Bargara. ${site.salesStatus} — completion ${site.completion}.`,
+  description: `Discover the epitome of luxury coastal living at Mira Living, a stunning apartment complex nestled seaside in the charming coastal enclave of Bargara. ${site.salesStatus} — construction ${site.constructionStatus}, display suite open.`,
 };
 
 export default function Page() {
@@ -322,7 +322,7 @@ export default function Page() {
                 >
                   Year
                 </dt>
-                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>2023</dd>
+                <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>2026</dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
                 <dt
@@ -353,7 +353,7 @@ export default function Page() {
                   Builder
                 </dt>
                 <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
-                  Manage Design Build
+                  IDC Construct
                 </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
@@ -369,7 +369,7 @@ export default function Page() {
                   Architect
                 </dt>
                 <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
-                  Mondo Architects
+                  Sparc
                 </dd>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px", padding: "20px 0" }}>
@@ -385,7 +385,7 @@ export default function Page() {
                   Interior Design
                 </dt>
                 <dd style={{ margin: "0", fontSize: "var(--fs-95)", fontWeight: "500", color: "#20231F" }}>
-                  Sarah Wood Design
+                  Sarah Wood Designs
                 </dd>
               </div>
             </dl>
@@ -558,7 +558,7 @@ export default function Page() {
                   >
                     <path d="M3 8.5l3 3 7-7" />
                   </svg>
-                  High-end European appliances
+                  Integrated Smeg appliances
                 </li>
                 <li
                   style={{
@@ -701,7 +701,7 @@ export default function Page() {
                   }}
                 >
                   {"Interiors by "}
-                  <span style={{ color: "#26443F" }}>Sarah Wood Design.</span>
+                  <span style={{ color: "#26443F" }}>Sarah Wood Designs.</span>
                 </h2>
               </div>
               <p
@@ -1088,7 +1088,7 @@ export default function Page() {
                     maxWidth: "58ch",
                   }}
                 >
-                  Mondo Architects and Sarah Wood Design, with Manage Design Build delivering the 25-residence build on
+                  Sparc and Sarah Wood Designs, with IDC Construct delivering the 25-residence build on
                   the Bargara Esplanade.
                 </p>
                 <div
@@ -1130,7 +1130,7 @@ export default function Page() {
                         letterSpacing: "-.012em",
                       }}
                     >
-                      Mondo Architects
+                      Sparc
                     </span>
                   </div>
                   <div
@@ -1165,7 +1165,7 @@ export default function Page() {
                         letterSpacing: "-.012em",
                       }}
                     >
-                      Sarah Wood Design
+                      Sarah Wood Designs
                     </span>
                   </div>
                   <div
@@ -1200,7 +1200,7 @@ export default function Page() {
                         letterSpacing: "-.012em",
                       }}
                     >
-                      Manage Design Build
+                      IDC Construct
                     </span>
                   </div>
                 </div>
@@ -1453,7 +1453,7 @@ export default function Page() {
                     >
                       <path d="M3 8.5l3 3 7-7" />
                     </svg>
-                    A few hundred metres from the sand
+                    Absolute beachfront on the Esplanade
                   </li>
                 </ul>
               </div>
@@ -1512,8 +1512,8 @@ export default function Page() {
                   textWrap: "balance",
                 }}
               >
-                {"Mira Living is on the rise: basement works complete and construction "}
-                <span style={{ color: "#D3B995" }}>progressing steadily.</span>
+                {"Mira Living is complete: construction finished and the display suite "}
+                <span style={{ color: "#D3B995" }}>now open.</span>
               </h2>
               <p
                 data-reveal="text"
@@ -1528,9 +1528,7 @@ export default function Page() {
               >
                 {"Construction is "}
                 {constructionStatus}
-                {", with move-in scheduled for "}
-                {completion}
-                {". "}
+                {" and the display suite is open. "}
                 {availability}
               </p>
               <div
@@ -2053,7 +2051,7 @@ export default function Page() {
                     maxWidth: "44ch",
                   }}
                 >
-                  Mira Living sits at the south end of the Esplanade, Bargara — a few hundred metres from the beach.
+                  Mira Living sits directly on the Esplanade, Bargara — the beach begins at the front door.
                 </p>
                 <span
                   data-reveal="text"
@@ -2065,7 +2063,7 @@ export default function Page() {
                     color: "#26443F",
                   }}
                 >
-                  A short walk
+                  On your doorstep
                 </span>
               </li>
               <li

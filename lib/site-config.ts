@@ -4,13 +4,13 @@ import { miraLiving } from "./projects";
 // kept in lib/projects.ts (with the rest of what /projects says); update them there.
 const { salesStatus, completion } = miraLiving;
 const current = miraLiving.stages.find((s) => s.status === "current");
-const constructionStatus = `${current?.percent ?? 0}% complete`;
+const constructionStatus = current ? `${current.percent ?? 0}% complete` : "100% complete";
 
 export const site = {
   salesStatus,
   completion,
   constructionStatus,
-  structureStatus: `Under way, ${constructionStatus}`,
+  structureStatus: current ? `Under way, ${constructionStatus}` : "Complete",
   availability: `${miraLiving.availabilityNote}.`,
   statusLine: `${salesStatus} · Mira Living · ${miraLiving.location}`,
   // The intro curtain only ever plays on the home page. true: once, when the visitor first enters the site there;

@@ -360,7 +360,7 @@ export default function Page() {
                       maxWidth: "48ch",
                     }}
                   >
-                    High-end European appliances, master bedrooms with walk-in wardrobes and ensuites, and basement
+                    Integrated Smeg appliances, master bedrooms with walk-in wardrobes and ensuites, and basement
                     garaging for two cars per apartment.
                   </p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
@@ -388,7 +388,7 @@ export default function Page() {
                           color: "var(--ink-4)",
                         }}
                       >
-                        Sarah Wood Design
+                        Sarah Wood Designs
                       </span>
                     </span>
                   </div>
@@ -1426,7 +1426,7 @@ export default function Page() {
                   fontWeight: "500",
                 }}
               >
-                From the air at dusk · Mondo Architects
+                From the air at dusk · Sparc
               </div>
             </div>
             <div
@@ -1543,7 +1543,7 @@ export default function Page() {
                       Location
                     </dt>
                     <dd style={{ margin: "4px 0 0", fontSize: "var(--fs-95)", lineHeight: "1.5", color: "#20231F" }}>
-                      South end of the Esplanade, a few hundred metres from the sand
+                      25 Esplanade, Bargara — absolute beachfront
                     </dd>
                   </div>
                   <div>
@@ -1622,7 +1622,7 @@ export default function Page() {
                     >
                       <path d="M3 8.5l3 3 7-7" />
                     </svg>
-                    High-end European appliances, walk-in wardrobes and ensuites
+                    Integrated Smeg appliances, walk-in wardrobes and ensuites
                   </li>
                   <li
                     style={{
@@ -1940,7 +1940,7 @@ export default function Page() {
                   maxWidth: "48ch",
                 }}
               >
-                Interiors by Sarah Wood Design, with high-end European appliances throughout.
+                Interiors by Sarah Wood Designs, with integrated Smeg appliances throughout.
               </p>
               <ul
                 data-reveal="text"
@@ -1977,7 +1977,7 @@ export default function Page() {
                   >
                     <path d="M3 8.5l3 3 7-7" />
                   </svg>
-                  High-end European appliances
+                  Integrated Smeg appliances
                 </li>
                 <li
                   style={{
@@ -2747,7 +2747,7 @@ export default function Page() {
                         >
                           <path d="M3 8.5l3 3 7-7" />
                         </svg>
-                        Mondo Architects · Sarah Wood Design
+                        Sparc · Sarah Wood Designs
                       </li>
                       <li
                         style={{
@@ -2913,7 +2913,7 @@ export default function Page() {
                         >
                           <path d="M3 8.5l3 3 7-7" />
                         </svg>
-                        Manage Design Build
+                        IDC Construct
                       </li>
                       <li
                         style={{
@@ -3427,7 +3427,7 @@ export default function Page() {
                     Builder
                   </span>
                   <span style={{ fontSize: "1.15rem", fontWeight: "600", letterSpacing: "-.014em", color: "#FCFAF6" }}>
-                    Manage Design Build
+                    IDC Construct
                   </span>
                 </div>
                 <div
@@ -3456,7 +3456,7 @@ export default function Page() {
                     Architect
                   </span>
                   <span style={{ fontSize: "1.15rem", fontWeight: "600", letterSpacing: "-.014em", color: "#FCFAF6" }}>
-                    Mondo Architects
+                    Sparc
                   </span>
                 </div>
                 <div
@@ -3485,7 +3485,7 @@ export default function Page() {
                     Interior Design
                   </span>
                   <span style={{ fontSize: "1.15rem", fontWeight: "600", letterSpacing: "-.014em", color: "#FCFAF6" }}>
-                    Sarah Wood Design
+                    Sarah Wood Designs
                   </span>
                 </div>
               </div>

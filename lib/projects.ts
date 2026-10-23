@@ -51,15 +51,9 @@ export type UpcomingProject = {
   image: Photo;
 };
 
-// ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-// ║ TODO (CLIENT TO CONFIRM): Mira Living's construction status below is OUT OF DATE.                          ║
-// ║ The site still says "completion Q2 2026" and "structure 50% complete". Before this goes live, confirm:     ║
-// ║   1. the current stage and its percentage  (stages)                                                        ║
-// ║   2. the completion date                   (COMPLETION)                                                    ║
-// ║   3. the date those figures were confirmed (lastUpdated, as "YYYY-MM-DD"; the page shows                   ║
-// ║      "Last updated: to be confirmed" while it is null)                                                     ║
-// ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-const COMPLETION = "Q2 2026";
+// Mira Living is built: construction is complete and the display suite is open. These figures were checked against the
+// official sales site (mira-living-psi.vercel.app) on 2026-10-23; lastUpdated records that check.
+const COMPLETION = "2026";
 
 const front = photo("/uploads/mira-building-dusk-aerial.jpg", "Mira Living at dusk, from the air above the Esplanade");
 
@@ -69,27 +63,27 @@ export const miraLiving: Project = {
   salesStatus: "Now selling",
   location: "Bargara QLD",
   description:
-    "Twenty-five oceanfront residences at the south end of the Bargara Esplanade, a few hundred metres from the sand. Each has three bedrooms and European appliances throughout. Residents share a tropical landscaped pool and an alfresco area.",
+    "Twenty-five oceanfront residences on the Bargara Esplanade, directly on the beachfront. Each has three bedrooms and integrated Smeg appliances throughout. Residents share a resort-style pool and an alfresco area.",
   residences: 25,
   specs: [
     { label: "Residences", value: "25 three-bedroom" },
-    { label: "Completion", value: COMPLETION },
+    { label: "Construction", value: "Complete · display suite open" },
     { label: "Parking", value: "Two basement spaces each" },
   ],
   team: [
-    { label: "Architect", value: "Mondo Architects" },
-    { label: "Builder", value: "Manage Design Build" },
-    { label: "Interiors", value: "Sarah Wood Design" },
+    { label: "Architect", value: "Sparc" },
+    { label: "Builder", value: "IDC Construct" },
+    { label: "Interiors", value: "Sarah Wood Designs" },
   ],
   completion: COMPLETION,
   stages: [
     { name: "Site", status: "complete", note: "Cleared and excavated" },
     { name: "Basement", status: "complete", note: "Complete" },
-    { name: "Structure", status: "current", percent: 50, note: "Under way" },
-    { name: "Completion", status: "upcoming", note: COMPLETION },
+    { name: "Structure", status: "complete", note: "Complete" },
+    { name: "Completion", status: "complete", note: "Complete · display suite open" },
   ],
-  lastUpdated: null,
-  // TODO (client): confirm this still holds. No availability numbers are published anywhere on the site.
+  lastUpdated: "2026-10-23",
+  // The sales site lists 10 of the 25 residences as available on its September 2026 price guide.
   availabilityNote: "Limited availability remains",
   lead: front,
   gallery: [
