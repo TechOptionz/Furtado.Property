@@ -1,9 +1,4 @@
 {
-  "/uploads/aerial.jpg": {
-    "width": 2400,
-    "height": 1350,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJbACdAEO8B0vrDAA/I+bwilZ0IrP8C9bfmDDGduzxnfT/2S6/K/CC9Z/KAfMNb68W4Zvfm397kKEmUcIAA=="
-  },
   "/uploads/bargara-beach-aerial.jpg": {
     "width": 1920,
     "height": 1080,
@@ -13,6 +8,11 @@
     "width": 2048,
     "height": 1366,
     "blur": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSBIAAAABD9D/iAiIBZP8pfeGENH/pAFWUDggXAAAAPABAJ0BKhAACwADgFolkAJ0Biy1gy99wAD+wk8hl7sDkqEgPvpWnpxaAfG/8vze3Ko2MePJzRiOl8OjMzt5Dlyxq7/PZ2tAGqeaprDM7NfZt4d/OfS0/MShgAAA"
+  },
+  "/uploads/bargara-coast-aerial.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoQAAkAA4BaJaACdADz+YY+QAD+J7g2gbAtvNbpzNrUByQoVN6RydBg6YgpNOQC2+K/CDK9q/xJ0qLI24XyCfCC1Bd+IBG8H2s/Zm/EHiiaRMNcAAA="
   },
   "/uploads/bargara-esplanade-aerial.webp": {
     "width": 2000,
@@ -94,11 +94,6 @@
     "height": 1086,
     "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAwAA4BaJagCdH8AGKf6S4CAAP7e8ZzBswIIMATlGBStEvcok2a/S+1DLhl/1KITNv07Q34OIST3sSYAAA=="
   },
-  "/uploads/mira-idc-site-excavation.jpg": {
-    "width": 1600,
-    "height": 2400,
-    "blur": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZAC06YxE3h7oBaP73nXqJMAA/u/C/hv2ozGcROC7rkrhHKrQBJtEj+oKl58zGV5V7xhYNrTbV0/e+wlUbAefi21sW6M0YaPQgbsb3fkudEbEJGbm1+X/xwQRfo2NeUhl1u/YmOIJjkjUx3HdKsJZwIkX75Vz5LE//NPKLS8SjQAA"
-  },
   "/uploads/mira-kitchen-dining.jpg": {
     "width": 2400,
     "height": 1601,
@@ -118,6 +113,11 @@
     "width": 2400,
     "height": 1600,
     "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoQAAsAA4BaJbACw7YtVzFTIZvw9gAA/tKUkdQEHDppjKAmNyy/oBVgUVHajZ46AYhhPxXAYzvI02WN6xNRM1NuVfI8xBW0Aysdm+JAB5Kjecf2gAA="
+  },
+  "/uploads/mira-street-elevation.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJbACdAC4pwZ8ZcAA/rvveEHyuYzklXv/ej9JLcepFe02sB0+prWdySunX5JaG23wXKTayExEGLaQjFyAAA=="
   },
   "/uploads/mira-study-nook.jpg": {
     "width": 1920,

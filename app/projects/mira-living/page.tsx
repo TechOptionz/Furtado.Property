@@ -1497,7 +1497,7 @@ export default function Page() {
                   data-reveal="rule"
                   style={{ display: "block", width: "40px", height: "1px", background: "#D3B995" }}
                 />
-                Construction progress
+                The making of Mira
               </div>
               <h2
                 data-reveal="heading"
@@ -1512,8 +1512,8 @@ export default function Page() {
                   textWrap: "balance",
                 }}
               >
-                {"Mira Living is complete: construction finished and the display suite "}
-                <span style={{ color: "#D3B995" }}>now open.</span>
+                {"See how the masterpiece was made: from an empty block on the Esplanade to a landmark on the "}
+                <span style={{ color: "#D3B995" }}>Coral Sea.</span>
               </h2>
               <p
                 data-reveal="text"
@@ -1526,7 +1526,7 @@ export default function Page() {
                   maxWidth: "58ch",
                 }}
               >
-                {"Construction is "}
+                {"Twenty months from the first turn of soil in January 2025 to the finished building. Construction is "}
                 {constructionStatus}
                 {" and the display suite is open. "}
                 {availability}
@@ -1921,12 +1921,12 @@ export default function Page() {
                 }}
               />
               <Image
-                width={2400}
-                height={1350}
+                width={1920}
+                height={1080}
                 sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1150px"
                 data-scene-img="4"
-                src="/uploads/aerial.jpg"
-                alt="Aerial view of the growing Bargara coastline"
+                src="/uploads/bargara-coast-aerial.jpg"
+                alt="The Bargara coastline and Esplanade from the air, with Mira Living on the headland"
                 style={{
                   position: "absolute",
                   inset: "0",
@@ -1936,7 +1936,7 @@ export default function Page() {
                   opacity: "0",
                   transform: "scale(1.04)",
                   transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
-                  backgroundColor: "#a3d1ec",
+                  backgroundColor: "#7b999c",
                 }}
               />
               <div
@@ -2345,18 +2345,18 @@ export default function Page() {
                   }}
                 >
                   <Image
-                    width={2400}
-                    height={1350}
+                    width={1920}
+                    height={1080}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
-                    src="/uploads/aerial.jpg"
-                    alt="Aerial view of the growing Bargara coastline"
+                    src="/uploads/bargara-coast-aerial.jpg"
+                    alt="The Bargara coastline and Esplanade from the air, with Mira Living on the headland"
                     style={{
                       display: "block",
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      backgroundColor: "#a3d1ec",
+                      backgroundColor: "#7b999c",
                     }}
                   />
                 </div>

@@ -2799,18 +2799,18 @@ export default function Page() {
                   }}
                 >
                   <Image
-                    width={1600}
-                    height={2400}
+                    width={1920}
+                    height={1080}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px"
                     data-reveal="mask"
-                    src="/uploads/mira-idc-site-excavation.jpg"
-                    alt="Excavators on the Mira Living site"
+                    src="/uploads/mira-street-elevation.jpg"
+                    alt="Mira Living complete, seen from the Esplanade lawn"
                     style={{
                       display: "block",
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      backgroundColor: "#f3f1ec",
+                      backgroundColor: "#7ba9b4",
                     }}
                   />
                   <span

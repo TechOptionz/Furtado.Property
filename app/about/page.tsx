@@ -834,19 +834,19 @@ export default function Page() {
               >
                 <div data-card="photo" style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
                   <Image
-                    width={1600}
-                    height={2400}
+                    width={1920}
+                    height={1080}
                     sizes="(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px"
                     data-reveal="mask"
                     data-delay="200"
-                    src="/uploads/mira-idc-site-excavation.jpg"
-                    alt="Excavators on the Mira Living site"
+                    src="/uploads/mira-street-elevation.jpg"
+                    alt="Mira Living complete, seen from the Esplanade lawn"
                     style={{
                       display: "block",
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      backgroundColor: "#f3f1ec",
+                      backgroundColor: "#7ba9b4",
                     }}
                   />
                 </div>

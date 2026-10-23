@@ -134,7 +134,7 @@ export const upcomingDisclaimer =
   "Images are indicative only. Upcoming projects are subject to site acquisition, design development and planning approval; names, locations and details may change.";
 
 export const hero = {
-  image: photo("/uploads/aerial.jpg", "The Bargara coastline and Esplanade from the air"),
+  image: photo("/uploads/bargara-coast-aerial.jpg", "The Bargara coastline and Esplanade from the air, with Mira Living on the headland"),
   lead: "A residential developer with over 20 years in property, now selling on the Bargara Esplanade with more in planning across South East Queensland.",
   // Figures that are whole numbers count up once (components/CountUp.tsx); the completion date is shown as written.
   stats: [

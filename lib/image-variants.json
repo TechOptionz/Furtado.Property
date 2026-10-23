@@ -1,8 +1,4 @@
 {
-  "/uploads/aerial.jpg": {
-    "w": 2400,
-    "v": "9b7a326c"
-  },
   "/uploads/bargara-beach-aerial.jpg": {
     "w": 1920,
     "v": "19e76b5b"
@@ -10,6 +6,10 @@
   "/uploads/bargara-cafes-dining.webp": {
     "w": 1920,
     "v": "086f98a0"
+  },
+  "/uploads/bargara-coast-aerial.jpg": {
+    "w": 1920,
+    "v": "a07f7d02"
   },
   "/uploads/bargara-esplanade-aerial.webp": {
     "w": 1920,
@@ -75,10 +75,6 @@
     "w": 1280,
     "v": "e9d291c8"
   },
-  "/uploads/mira-idc-site-excavation.jpg": {
-    "w": 1600,
-    "v": "c919d7f4"
-  },
   "/uploads/mira-kitchen-dining.jpg": {
     "w": 2400,
     "v": "0cffdd12"
@@ -94,6 +90,10 @@
   "/uploads/mira-pool-dusk.jpg": {
     "w": 2400,
     "v": "2af4e38b"
+  },
+  "/uploads/mira-street-elevation.jpg": {
+    "w": 1920,
+    "v": "e9e81b1b"
   },
   "/uploads/mira-study-nook.jpg": {
     "w": 1920,
