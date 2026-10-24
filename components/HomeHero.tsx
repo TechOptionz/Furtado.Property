@@ -23,7 +23,7 @@ export default function HomeHero() {
     const load = () => {
       if (loaded) return;
       loaded = true;
-      v.src = matchMedia("(max-width: 900px)").matches ? "/video/hero-720.mp4" : "/video/hero-1080.mp4";
+      v.src = matchMedia("(max-width: 900px)").matches ? "/video/hero-mira-720.mp4?v=2" : "/video/hero-mira-1080.mp4?v=2";
       v.addEventListener("playing", () => (v.style.opacity = "1"), { once: true });
       if (visible) v.play().catch(() => {});
     };

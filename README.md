@@ -62,6 +62,10 @@ API answers 503 and the form asks the visitor to phone or email instead.
 
 ## Performance notes
 
+- Home montage: `node scripts/render-home-hero.mjs` (requires FFmpeg) blends the original coastal hero with Mira
+  Living exterior, kitchen and living scenes into muted 1080p/720p loops. Source films remain unchanged; outputs
+  are `public/video/hero-mira-*.mp4`, with a closing dissolve back into the opening coastal shot.
+
 - Home hero: the poster (portrait crop on phones) is preloaded and paints first; the film is fetched after `load`,
   fades in, pauses off screen, and is skipped for reduced-motion / Save-Data visitors. Parallax is desktop-only; phones
   fade the hero copy with a CSS scroll timeline.
