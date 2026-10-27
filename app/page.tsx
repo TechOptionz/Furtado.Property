@@ -710,15 +710,15 @@ export default function Page() {
                   height={1080}
                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 50vw, 740px"
                   data-chapter-img="3"
-                  src="/uploads/bargara-beach-aerial.jpg"
-                  alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
+                  src="/uploads/bargara-coast-aerial.jpg"
+                  alt="The Bargara coastline from the air: the beach curving towards the village, with the cane fields beyond"
                   style={{
                     position: "absolute",
                     inset: "0",
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "60% 50%",
+                    objectPosition: "54% 45%",
                     opacity: "0",
                     transform: "scale(1.04)",
                     transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",

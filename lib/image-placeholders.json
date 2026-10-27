@@ -124,19 +124,24 @@
     "height": 2400,
     "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZQC7ACHgDF6omTm4GZF847AAAP6up6iPl5cWZal1KwcrP/eu/V0a9O2Q7K7SYcFZdyfpeOx6EP7uO2vC8IXpCp+SCU4FXVnosCxnAnXZxeQcHnkcZPK5CgAAAA=="
   },
-  "/uploads/upcoming-coastal-apartments.jpg": {
-    "width": 1024,
-    "height": 1024,
-    "blur": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABwAgCdASoQABAAA4BaJQBOj+AVIHuWZ9RjGTAAAP7yFdyj3OBYU0ETJQdioPwVh4r0IM2WW+kuaxO25Dyq7+kkRGkA6KRR07ys69ZHBRSa2RdLYrlvW0R7z0pmL/8aB62bHYx2FcZc7fIo9kI3OfSH+IW1KTqGhRVh88lHkOr90qe8/BhgAAAA"
+  "/uploads/west-end-entry.jpg": {
+    "width": 1241,
+    "height": 878,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAsAA4BaJZACdACkjXREYAD+J73NiiQISOYNk0oONiK8stlPr18OssRyTwEm+AGxX61sElrhAkielF8BR9iaGBS2N8RywZ+Af4gAAAA="
   },
-  "/uploads/upcoming-hinterland-residences.jpg": {
-    "width": 1024,
-    "height": 1024,
-    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQABAAA4BaJZgC7AEfbnC5yg47jwAA/u4gXXgFoLaCbwHZvjwrTVejju3Zx+uLF8o5IejdH+mPSo37cbrIcy6054HDX31MB2n69sHnyRPd1s8BzkKv6AAA"
+  "/uploads/west-end-frontage.jpg": {
+    "width": 2244,
+    "height": 1587,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAsAA4BaJYgCdAD7uDaepQAA/tIKIQWqszYhDYaFSrkFnEIu5/9eUtsHashoUSOTyRys4VpH95URi4U0YZ0QTwz0Ak2HKMBWJ3ygAAA="
   },
-  "/uploads/upcoming-townhomes.jpg": {
-    "width": 1024,
-    "height": 1024,
-    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAgCdASoQABAAA4BaJYgCsAYv/wV1T2oPbak228AA/vcOW27raXZkAIep7a+RWeXkbNLWva5/acenO/JEYi2q4Jj2RjqEQiFwR8Ky3SswxHNlX3oJUTrZCMn6+cct2i2Fons7X3osBV22RAPA0UdhOAA="
+  "/uploads/west-end-tower.jpg": {
+    "width": 1160,
+    "height": 829,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJYgCdAYuk8tC5WwAAP7t1rFoKO9t3WG2mpBe+S6vfhGaXSYZz8A4eNaBdZoSzHR5vcnSY2vLOfyvcCv28PYuQydP/PjWAAA="
+  },
+  "/uploads/west-end-undercroft.jpg": {
+    "width": 2480,
+    "height": 1754,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAsAA4BaJbACdAENy2OJpYpgAP7y5P1CWqOTCHTyW/9R/EBsfEeBrwjbjVT83aAA9F0D4F2iSiVO4Get/9Kv/mNmBOmC1NN/HJE5YSRbb1e4AAA="
   }
 }

@@ -37,12 +37,22 @@ export type Project = {
 export const UPCOMING_STAGES = ["Site selection", "Design", "Planning", "Release"] as const;
 
 export type UpcomingProject = {
+  // "01", "02": the order the projects were announced in.
+  number: string;
   name: string;
   type: string;
   location: string;
   description: string;
   stage: (typeof UPCOMING_STAGES)[number];
-  image: Photo;
+  // One line under the stage track on where the project stands, e.g. when an application was lodged.
+  stageNote?: string;
+  // The headline figures (storeys, apartments, mix), shown large.
+  figures: Spec[];
+  // The consultant team, where one has been named publicly.
+  team: Spec[];
+  // The lead render and up to two supporting views; without a lead the section shows a reserved panel instead.
+  lead?: Photo;
+  details: Photo[];
 };
 
 // Mira Living is built: construction is complete and the display suite is open. These figures were checked against the
@@ -88,44 +98,61 @@ export const miraLiving: Project = {
   ],
 };
 
+// West End's figures are from the development application Furtado Property (FP Margate Pty Ltd) lodged with Brisbane
+// City Council, received 9 September 2026, as reported publicly. It is a proposal: never describe it as approved,
+// under construction or complete. The renders are MAS Architecture's, from the application.
+// Mount Gravatt is a placeholder until the client supplies its details (scale, mix, stage and renders).
 export const upcomingProjects: UpcomingProject[] = [
   {
-    name: "Coastal Apartments",
-    type: "Boutique apartments",
-    location: "Queensland coast",
+    number: "01",
+    name: "West End",
+    type: "Residential apartments",
+    location: "West End, Brisbane",
     description:
-      "A second boutique oceanfront address, following the Mira Living approach: generous three-bedroom floor plans, deep balconies and resort-style amenity.",
-    stage: "Design",
-    image: photo(
-      "/uploads/upcoming-coastal-apartments.jpg",
-      "Indicative render of a boutique beachfront apartment building",
-    ),
-  },
-  {
-    name: "Townhome Collection",
-    type: "Townhomes",
-    location: "South East Queensland",
-    description:
-      "Low-maintenance townhomes for downsizers and families, on a walkable, well-located site close to shops, schools and transport.",
+      "Thirteen storeys of two- and three-bedroom residences on a quiet inner-city street, a short walk from Boundary Street, South Bank and the river. Planted balconies, a brick and timber-lined podium and a landscaped street entry give the building a warmth that belongs to West End.",
     stage: "Planning",
-    image: photo("/uploads/upcoming-townhomes.jpg", "Indicative render of a row of contemporary townhomes"),
+    stageNote: "Lodged with Brisbane City Council · September 2026",
+    figures: [
+      { label: "Storeys", value: "13" },
+      { label: "Apartments", value: "113" },
+      { label: "Two & three bedroom", value: "92 · 21" },
+    ],
+    team: [
+      { label: "Architect", value: "MAS Architecture" },
+      { label: "Town planner", value: "Urbicus" },
+      { label: "Landscape", value: "AS Design" },
+    ],
+    lead: photo(
+      "/uploads/west-end-tower.jpg",
+      "Indicative render of the proposed thirteen-storey West End building, with curved white balconies, terracotta blades and a planted rooftop, seen from the street",
+    ),
+    details: [
+      photo(
+        "/uploads/west-end-frontage.jpg",
+        "Indicative render of the street frontage: a landscaped verge and a timber-lined drop-off beneath the building",
+      ),
+      photo(
+        "/uploads/west-end-undercroft.jpg",
+        "Indicative render of the entry undercroft: brick piers, a timber-battened ceiling and a paved forecourt at dusk",
+      ),
+    ],
   },
   {
-    name: "Hinterland Residences",
-    type: "Detached residences",
-    location: "SEQ hinterland",
+    number: "02",
+    name: "Mount Gravatt",
+    type: "Residential",
+    location: "Mount Gravatt, Brisbane",
     description:
-      "A small release of architect-designed homes set into the landscape, with elevated outlooks and materials chosen for longevity.",
-    stage: "Site selection",
-    image: photo(
-      "/uploads/upcoming-hinterland-residences.jpg",
-      "Indicative render of hillside residences overlooking the coast",
-    ),
+      "A second Brisbane address, on the city's south side close to Garden City, Griffith University and the busway. The scale and mix of the residences will be announced here once the design is settled.",
+    stage: "Design",
+    figures: [],
+    team: [],
+    details: [],
   },
 ];
 
 export const upcomingDisclaimer =
-  "Images are indicative only. Upcoming projects are subject to site acquisition, design development and planning approval; names, locations and details may change.";
+  "Images are indicative only. West End is a proposed development, lodged with Brisbane City Council in September 2026 and not yet approved, under construction or complete. Upcoming projects are subject to site acquisition, design development and planning approval; names, locations and details may change.";
 
 export const hero = {
   image: photo("/uploads/bargara-coast-aerial.jpg", "The Bargara coastline and Esplanade from the air, with Mira Living on the headland"),
