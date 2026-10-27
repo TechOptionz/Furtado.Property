@@ -1277,17 +1277,17 @@ export default function Page() {
               height={1080}
               sizes="(max-width: 639px) 95vw, (max-width: 1023px) 55vw, (max-width: 1599px) 60vw, 1160px"
               data-reveal="mask"
-              src="/uploads/bargara-headland-coast-aerial.jpg"
-              alt="The Bargara headland and coastline from the air, with Mira Living on the point"
+              src="/uploads/mira-entrance-signage.jpg"
+              alt="The Mira Living entrance at golden hour, palm shadows falling across the signage"
               style={{
                 position: "absolute",
                 inset: "0",
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "12% 50%",
+                objectPosition: "64% 50%",
                 display: "block",
-                backgroundColor: "#7b7974",
+                backgroundColor: "#c9a06a",
               }}
             />
           </div>
