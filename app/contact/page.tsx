@@ -115,8 +115,8 @@ export default function Page() {
                   sizes="(min-width: 1440px) 500px, (min-width: 900px) 36vw, 92vw"
                   data-reveal="image"
                   data-delay="200"
-                  src="/uploads/mira-headland-aerial.jpg"
-                  alt="Mira Living on the Bargara headland, seen from over the sea"
+                  src="/uploads/mira-dusk-aerial-close.jpg"
+                  alt="Mira Living at dusk from the air, its lights on above the Esplanade"
                   className={styles.frameImg}
                 />
                 <figcaption className={styles.caption}>

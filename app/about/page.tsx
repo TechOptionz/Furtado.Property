@@ -833,13 +833,13 @@ export default function Page() {
               >
                 <div data-card="photo" style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "4/3", background: "#EEE9DF" }}>
                   <Image
-                    width={1920}
-                    height={1080}
+                    width={2400}
+                    height={1600}
                     sizes="(max-width: 639px) 85vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 390px"
                     data-reveal="mask"
                     data-delay="200"
                     src="/uploads/mira-street-elevation.jpg"
-                    alt="Mira Living complete, seen from the Esplanade lawn"
+                    alt="Mira Living at dusk, from the corner of the Esplanade"
                     style={{
                       display: "block",
                       width: "100%",

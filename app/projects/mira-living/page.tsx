@@ -422,8 +422,8 @@ export default function Page() {
                 height={1600}
                 sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                 data-reveal="mask"
-                src="/uploads/mira-living-room-balcony.jpg"
-                alt="Living room opening through sliding doors to the balcony and the Esplanade parkland"
+                src="/uploads/mira-balcony-sea-view.jpg"
+                alt="The balcony, looking over the Esplanade parkland to the sea"
                 style={{
                   display: "block",
                   width: "100%",
@@ -799,7 +799,7 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={1920}
+                  width={1600}
                   height={2400}
                   sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
                   data-reveal="image"
@@ -951,8 +951,8 @@ export default function Page() {
                   sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, (max-width: 1599px) 30vw, 420px"
                   data-reveal="image"
                   data-delay="100"
-                  src="/uploads/mira-bedroom-detail.jpg"
-                  alt="Linen and cushions on the main bed"
+                  src="/uploads/mira-ocean-outlook.jpg"
+                  alt="The sea from the balcony, through the Esplanade's Norfolk pines"
                   style={{
                     position: "absolute",
                     inset: "0",
@@ -1215,8 +1215,8 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={1920}
-                  height={1080}
+                  width={2400}
+                  height={1600}
                   sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 45vw, 610px"
                   data-reveal="mask"
                   src="/uploads/mira-entrance-signage.jpg"
@@ -1847,12 +1847,12 @@ export default function Page() {
               }
             >
               <Image
-                width={1920}
-                height={1080}
+                width={2400}
+                height={1600}
                 sizes="(max-width: 639px) 100vw, (max-width: 1023px) 95vw, (max-width: 1599px) 60vw, 1110px"
                 data-scene-img="0"
-                src="/uploads/bargara-beach-aerial.jpg"
-                alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
+                src="/uploads/mira-sunrise-aerial.jpg"
+                alt="Sunrise over the sea from above Mira Living, on the Bargara Esplanade"
                 style={{
                   position: "absolute",
                   inset: "0",
@@ -1997,12 +1997,12 @@ export default function Page() {
                   }}
                 >
                   <Image
-                    width={1920}
-                    height={1080}
+                    width={2400}
+                    height={1600}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 55vw, 740px"
                     data-reveal="mask"
-                    src="/uploads/bargara-beach-aerial.jpg"
-                    alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
+                    src="/uploads/mira-sunrise-aerial.jpg"
+                    alt="Sunrise over the sea from above Mira Living, on the Bargara Esplanade"
                     style={{
                       display: "block",
                       width: "100%",

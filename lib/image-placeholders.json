@@ -44,20 +44,25 @@
     "height": 1350,
     "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAkAA4BaJbACdAEecJvwSf2gAPvrsJhvjbN8ACvlLZWel/07tLWCRHm5tEtVPAzU5BiAf2RxNMRsB1xEvlo19gh2AxpAAAA="
   },
+  "/uploads/mira-balcony-dining-living.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJYgCdADLxsuYKcAAAP7UZmu3D9W+wbfz2kuaHIPmvYmETaNeHohbT+NDcqYGugXHpGV+Il5jnbF1rKdSMjLDCX/WCaZyAAA="
+  },
   "/uploads/mira-balcony-outlook.jpg": {
     "width": 2400,
     "height": 1604,
     "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQAAsAA4BaJQBOgMWqxENo5eAA/oofg/ftlW+6dXjrE0z/UHTKAP8DN5X5BGt/QMK7cmKhncNYmfAlbz9fU3M9ArIky7YMVkxI9SZFGmf4JWCtpEF87TIAAAA="
   },
-  "/uploads/mira-bathroom.jpg": {
-    "width": 1920,
-    "height": 2400,
-    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoQABQAPu1iqU2ppaQiMAgBMB2JZQCsACHpWTbYOmAgEOckAP6w2pIXXtf6xHYz4ExMihkIr8q3J+l3LVs/NW1yXbKtD7BvbN4KlQaQUAA="
+  "/uploads/mira-balcony-sea-view.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABwAgCdASoQAAsAA4BaJZACdEf/gboiesX+wmQAAP38kzyYlnPzNLMOHQa+4EXqy0/8bMnWpJDAGNNAgP8z2twd7jehip/1SJK+Jf8wAm90t+i84AA="
   },
-  "/uploads/mira-bedroom-detail.jpg": {
+  "/uploads/mira-bathroom.jpg": {
     "width": 1600,
     "height": 2400,
-    "blur": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYgCdL1yBOd3wt2Mr04+eMTEFgAD+V4yWnVI6z0V3isia9ulx5R527nnkQelateBuiFGPM78KWcUQ6uPejj2MRiuSO8EA9BwvPFxYw4Fza2b5p+5wM61xwMoaJd9+sYUvf0AA"
+    "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBYdg8GOt6dJW/NuibHg+ADMgays0ZhO2YmEBwcKrVXzpFO4mcBi2SlFTHQGVv9B3hxUPlrDRI1XIqKDW5QGfkTdh2GqdXfi70lSLoKPJzeefJTpb1vnqhyZZNNUyLj1fLTIwAA="
   },
   "/uploads/mira-bedroom-outlook.jpg": {
     "width": 1920,
@@ -72,7 +77,7 @@
   "/uploads/mira-benchtop-detail.jpg": {
     "width": 1600,
     "height": 2400,
-    "blur": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZgCw7YvCQ2fjwd2GlV06SACLHIen8cV5CBNtrn3zB/3MRbBZWvFFrw0pHKlXVYXepaqFi9h0E+OOtuHFfeoabXlUtUFYFHC+/kV0LFgKl2sxCF8mRidrk5kamAAA"
+    "blur": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JbACdMoACrmGlqWU6NR7p3YOYAAD9eH7h4G4lKD07SBeJYBWhbz75TCL9nKkktVHnR1slYVD0HPYb3Ddf4gW6jqE0+1si2w6dnR8JHWYa5TuDHPIaIUIFwT68ee+pEz3b/eaXiaWQBTQca5qYAPg3GZRetDkjCtB3fnsBULJj/WNwMW3UrpdpVS2/c9TmDu+644AA"
   },
   "/uploads/mira-building-dusk-aerial.jpg": {
     "width": 2400,
@@ -84,15 +89,15 @@
     "height": 1600,
     "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJYgCdAEK00FIDFYQAP7F/MbOZKuzi+SZw6wFH56QD3Esfvklj25Hc9oR3xYCrruJSfpcfloS26qGWD90VJdOG+CrJjAgAAA="
   },
-  "/uploads/mira-entrance-signage.jpg": {
-    "width": 1920,
-    "height": 1080,
-    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoQAAkAA4BaJbACdACqGGr+AADLT9yfXMT1YRFu8TeEPeuIez9r1FyYVfIST8P2iClQZ8+BWoVQM+5xhr9vtxHt518gHVr/z2E+ec5zgejhJuSgAAA="
+  "/uploads/mira-dusk-aerial-close.jpg": {
+    "width": 2400,
+    "height": 1799,
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAwAA4BaJYwCdIExEN0ojyP7IAD+mExm5dGJ4Qq6ToeGwcH51X0apO7FqpyqYTaeOLa3XpEUfVx60qWJHYx5lNqbgjXpWN0eYhiY4JbzoBXqR+ujgAAA"
   },
-  "/uploads/mira-headland-aerial.jpg": {
-    "width": 1448,
-    "height": 1086,
-    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAwAA4BaJagCdH8AGKf6S4CAAP7e8ZzBswIIMATlGBStEvcok2a/S+1DLhl/1KITNv07Q34OIST3sSYAAA=="
+  "/uploads/mira-entrance-signage.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQAAsAA4BaJagCdAYvD2hXO1ycbaYAAP2deZ547GZgaxyS/ocdaAeat6yomLlgGe8GEvsuYAo9Al2f7EWxCFrVFcC21nlxh1XvEov93KZFPF1TuQ6iIJ0yMduQkQ6ua2bXuAAA"
   },
   "/uploads/mira-kitchen-dining.jpg": {
     "width": 2400,
@@ -109,20 +114,35 @@
     "height": 1601,
     "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQAAsAA4BaJYgCdAYuvi2LFTzCAAD+53rbFa41AycZ9veMwNHIdVH2oru20OPJ9tN/CZAVUd3QepHnJzLw8tsU/Vun3qKbFOjh+kOWr5ZQDAgAAAA="
   },
+  "/uploads/mira-lobby.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAsAA4BaJbACdAEKpeLUlRiAAP7vidn16IGWl4oCZhJuZLj7EzASkULr0t5+u2reIAK35aMcs+SrWO0ZASsVlYCFU3cPNNZ4FKePUR2/xNWBcaBX9p6OAAA="
+  },
+  "/uploads/mira-ocean-outlook.jpg": {
+    "width": 1600,
+    "height": 2400,
+    "blur": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADQAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JbACdABZHbzRWWj3mmoAA/ncWL/9toNhTh5NP+Ut80Vjpl+2UzOCPx5I5UOns94UabbgK2tr4f5VxL4eBSqQufHUpycCpohhofxiu8hi57qGgar6vv/GFT8eBMrHAGz5KY+SJfnPWYdAknyRUeuImUnA6+YXCbpVCTPHFwHPVf8WAAAA="
+  },
   "/uploads/mira-pool-dusk.jpg": {
     "width": 2400,
     "height": 1600,
     "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoQAAsAA4BaJbACw7YtVzFTIZvw9gAA/tKUkdQEHDppjKAmNyy/oBVgUVHajZ46AYhhPxXAYzvI02WN6xNRM1NuVfI8xBW0Aysdm+JAB5Kjecf2gAA="
   },
   "/uploads/mira-street-elevation.jpg": {
-    "width": 1920,
-    "height": 1080,
-    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJbACdAC4pwZ8ZcAA/rvveEHyuYzklXv/ej9JLcepFe02sB0+prWdySunX5JaG23wXKTayExEGLaQjFyAAA=="
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoQAAsAA4BaJbACsO/7BXrJ36N9frAA/spzQ23vVs2qUJ6gzI2s5hFRWJxf+9TunJzJi3OrrV5dQ0X3L3Dy70GHmrB+VN38/0fCUrr4VQAAAA=="
   },
   "/uploads/mira-study-nook.jpg": {
     "width": 1920,
     "height": 2400,
     "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZQC7ACHgDF6omTm4GZF847AAAP6up6iPl5cWZal1KwcrP/eu/V0a9O2Q7K7SYcFZdyfpeOx6EP7uO2vC8IXpCp+SCU4FXVnosCxnAnXZxeQcHnkcZPK5CgAAAA=="
+  },
+  "/uploads/mira-sunrise-aerial.jpg": {
+    "width": 2400,
+    "height": 1600,
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQAAsAA4BaJYwCdAYs3voTKq9WsAD+86ym9x+vOcfKugjb1rndBEnO4Tr7pIk1vZYe+br2Bepr1B9z/9CCTv9VHdg4JC8Ul2RzBqX9SEHeK14AAAA="
   },
   "/uploads/west-end-entry.jpg": {
     "width": 1241,
