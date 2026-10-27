@@ -1,11 +1,5 @@
-// Everything /projects says (components/projects/). The communities in the track record stay in lib/track-record.ts
-// and are re-exported here; lib/site-config.ts takes Mira Living's completion and construction status from this file,
-// so the other pages, the footer and the chat follow it.
-import type { Community } from "./track-record";
-
-export { communities, groups, homesIn, totals } from "./track-record";
-export type { CommunityGroup } from "./track-record";
-export type ManagedCommunity = Community;
+// Everything /projects says (components/projects/). lib/site-config.ts takes Mira Living's completion and
+// construction status from this file, so the other pages, the footer and the chat follow it.
 
 // A photograph in public/uploads. Its size and blur placeholder are looked up where it is drawn (lib/photo.ts), which
 // keeps this file small enough for the footer and the chat to read their status lines from it.

@@ -8,7 +8,6 @@ import EnquiryForm from "@/components/EnquiryForm";
 import HomeStory from "@/components/HomeStory";
 import HomeHero from "@/components/HomeHero";
 import CountUp from "@/components/CountUp";
-import { TrackRecordHome } from "@/components/TrackRecord";
 import EnquiryBackdrop from "@/components/EnquiryBackdrop";
 import { site } from "@/lib/site-config";
 
@@ -1043,7 +1042,7 @@ export default function Page() {
                   whiteSpace: "nowrap",
                 }}
               >
-                06 / 11
+                06 / 10
               </span>
               <span
                 data-reveal="rule"
@@ -1293,7 +1292,6 @@ export default function Page() {
             />
           </div>
         </section>
-        <TrackRecordHome />
         {/* 04 Mira Living showcase: image to the left edge, metadata alongside */}
         <section
           data-screen-label="Mira Living"
@@ -1338,7 +1336,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  08 / 11
+                  07 / 10
                 </span>
                 <span
                   data-reveal="rule"
@@ -1802,7 +1800,7 @@ export default function Page() {
                 data-reveal="rule"
                 style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
               />
-              09 / 11 · The residences
+              08 / 10 · The residences
               <span
                 data-reveal="rule"
                 style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
@@ -2328,7 +2326,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  10 / 11
+                  09 / 10
                 </span>
                 <span
                   data-reveal="rule"
@@ -3173,7 +3171,7 @@ export default function Page() {
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
                 />
-                11 / 11 · Who we are
+                10 / 10 · Who we are
                 <span
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
