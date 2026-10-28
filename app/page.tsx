@@ -651,12 +651,12 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={1920}
-                  height={1080}
+                  width={1350}
+                  height={2400}
                   sizes="(max-width: 639px) 95vw, (max-width: 1023px) 95vw, (max-width: 1599px) 45vw, 710px"
                   data-chapter-img="0"
-                  src="/uploads/bargara-headland-coast-aerial.jpg"
-                  alt="The Bargara headland and coastline from the air, with Mira Living on the point"
+                  src="/uploads/mira-aerial-portrait.jpg"
+                  alt="Mira Living from the air at dusk, with the Esplanade lawn in front"
                   style={{
                     position: "absolute",
                     inset: "0",

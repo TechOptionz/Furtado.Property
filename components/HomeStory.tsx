@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 const CAPTIONS = [
-  "The Bargara headland and coast",
+  "Mira Living from the air · Bargara",
   "Mira Living · Living room and balcony",
   "Mira Living · Kitchen and living",
   "The Bargara coastline and village",
