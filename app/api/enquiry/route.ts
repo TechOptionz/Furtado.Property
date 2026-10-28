@@ -1,10 +1,23 @@
 import { NextResponse } from "next/server";
-import { sendEnquiry } from "@/lib/enquiry-mail";
+import { enquiryRecipients, enquirySender, sendEnquiry } from "@/lib/enquiry-mail";
 
 // Enquiry delivery. Emails the enquiry through Resend (https://resend.com) when RESEND_API_KEY is set; until then it
 // answers 503 and the form tells the visitor to phone or email instead. Addresses come from .env.local (see .env.example).
 
 const clean = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
+
+// Delivery status for ops checks (nothing sensitive: whether a key is present, how many inboxes, which sender domain).
+export function GET() {
+  const from = enquirySender();
+  return NextResponse.json(
+    {
+      configured: !!process.env.RESEND_API_KEY,
+      recipients: enquiryRecipients().length,
+      senderDomain: from.slice(from.lastIndexOf("@") + 1).replace(/>.*$/, ""),
+    },
+    { headers: { "Cache-Control": "no-store" } },
+  );
+}
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;

@@ -1,6 +1,6 @@
 // Sends a website enquiry through Resend's REST API (https://resend.com/docs/api-reference/emails/send-email) as a
 // branded lead card: wordmark header, the visitor's details, their message, and reply/call buttons. Configured by
-// RESEND_API_KEY, ENQUIRY_TO and ENQUIRY_FROM in .env.local; see .env.example. The logo travels with the email as an
+// RESEND_API_KEY (required), ENQUIRY_TO and ENQUIRY_FROM (optional, defaults below) in .env.local or the Vercel project env. The logo travels with the email as an
 // inline (cid) attachment from lib/enquiry-logo.json, so it shows in Gmail and Outlook without loading anything remote.
 import EMAIL_LOGO from "./enquiry-logo.json" with { type: "json" };
 
@@ -37,6 +37,8 @@ const LOGO_WIDTH = 240;
 const SITE = "furtadoproperty.com.au";
 // Where leads go when ENQUIRY_TO is not set: Kylie and Graham at Furtado Property.
 const DEFAULT_TO = "kylie@furtadoproperty.com.au,graham@furtadoproperty.com.au";
+// Sender on the domain verified in Resend (furtadoproperty.com.au).
+const DEFAULT_FROM = "Furtado Property website <website@furtadoproperty.com.au>";
 
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -50,7 +52,7 @@ export function enquiryRecipients() {
 }
 
 export function enquirySender() {
-  return process.env.ENQUIRY_FROM ?? "Furtado Property website <onboarding@resend.dev>";
+  return process.env.ENQUIRY_FROM ?? DEFAULT_FROM;
 }
 
 function receivedAt(date: Date) {

@@ -4,6 +4,7 @@
 //   npm run mail:test -- --direct  sends through lib/enquiry-mail.ts straight from .env.local, no dev server needed
 //   npm run mail:test -- --preview writes the rendered email to scripts/.email-preview.html (git-ignored) and sends nothing
 //   npm run mail:test -- --url https://www.furtadoproperty.com.au/api/enquiry   test a deployment
+//   npm run mail:test -- --announce --url <deployed>/api/enquiry   "the new site is live" notice to the real recipients
 //
 // Reads RESEND_API_KEY / ENQUIRY_TO / ENQUIRY_FROM from .env.local (then .env) in the project root.
 import { readFileSync, writeFileSync } from "node:fs";
@@ -31,19 +32,36 @@ const url = urlIndex >= 0 && args[urlIndex + 1] ? args[urlIndex + 1] : "http://l
 
 const to = (process.env.ENQUIRY_TO ?? "kylie@furtadoproperty.com.au,graham@furtadoproperty.com.au").split(",").map((s) => s.trim()).filter(Boolean);
 
-const enquiry = {
-  firstName: "Jane",
-  lastName: "Smith",
-  email: to[0],
-  phone: "0400 000 000",
-  interest: "Mira Living, Bargara",
-  message:
-    "Hi, my husband and I are looking to downsize to Bargara next year and would love to know more about the " +
-    "three-bedroom apartments at Mira Living, particularly the ocean-facing ones on the upper levels.\n\n" +
-    "Could you send through the price list and let me know when we could arrange an inspection? " +
-    `(Test enquiry sent ${new Date().toLocaleString("en-AU", { timeZone: "Australia/Brisbane" })} AEST from scripts/send-test-mail.mjs.)`,
-  consent: "on",
-};
+const stamp = new Date().toLocaleString("en-AU", { timeZone: "Australia/Brisbane", dateStyle: "long", timeStyle: "short" });
+const announce = args.includes("--announce"); // "the new site is live" notice to the real recipients
+const enquiry = announce
+  ? {
+      firstName: "Website",
+      lastName: "Go-live check",
+      email: "arshmanali08@gmail.com",
+      phone: "",
+      interest: "General enquiry",
+      message:
+        "The new Furtado Property website is live.\n\n" +
+        "This is a test enquiry sent through the live contact form to confirm that website enquiries reach this inbox. " +
+        "From now on, every enquiry submitted on furtadoproperty.com.au will arrive as an email like this one, " +
+        "and replying to it goes straight to the person who enquired.\n\n" +
+        `Sent ${stamp} AEST. No action is needed.`,
+      consent: "on",
+    }
+  : {
+      firstName: "Jane",
+      lastName: "Smith",
+      email: to[0],
+      phone: "0400 000 000",
+      interest: "Mira Living, Bargara",
+      message:
+        "Hi, my husband and I are looking to downsize to Bargara next year and would love to know more about the " +
+        "three-bedroom apartments at Mira Living, particularly the ocean-facing ones on the upper levels.\n\n" +
+        "Could you send through the price list and let me know when we could arrange an inspection? " +
+        `(Test enquiry sent ${stamp} AEST from scripts/send-test-mail.mjs.)`,
+      consent: "on",
+    };
 
 if (preview || direct) {
   // Node 22.18+ / 24 runs .ts directly (type stripping), so the test uses the exact code the website uses.
