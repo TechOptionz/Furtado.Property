@@ -5,7 +5,6 @@ import DeliverStrip from "@/components/projects/DeliverStrip";
 import JsonLd from "@/components/projects/JsonLd";
 import MiraLiving from "@/components/projects/MiraLiving";
 import ProjectsHero from "@/components/projects/ProjectsHero";
-import TrackRecordSection from "@/components/projects/TrackRecordSection";
 import UpcomingProjects from "@/components/projects/UpcomingProjects";
 import ui from "@/components/projects/ui.module.css";
 
@@ -30,7 +29,6 @@ export default function Page() {
         <ProjectsHero />
         <MiraLiving />
         <UpcomingProjects />
-        <TrackRecordSection />
         <DeliverStrip />
         <ClosingCta />
       </main>

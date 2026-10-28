@@ -8,7 +8,6 @@ import EnquiryForm from "@/components/EnquiryForm";
 import HomeStory from "@/components/HomeStory";
 import HomeHero from "@/components/HomeHero";
 import CountUp from "@/components/CountUp";
-import { TrackRecordHome } from "@/components/TrackRecord";
 import EnquiryBackdrop from "@/components/EnquiryBackdrop";
 import { site } from "@/lib/site-config";
 
@@ -652,12 +651,12 @@ export default function Page() {
                 }}
               >
                 <Image
-                  width={1920}
-                  height={1080}
+                  width={1350}
+                  height={2400}
                   sizes="(max-width: 639px) 95vw, (max-width: 1023px) 95vw, (max-width: 1599px) 45vw, 710px"
                   data-chapter-img="0"
-                  src="/uploads/bargara-headland-coast-aerial.jpg"
-                  alt="The Bargara headland and coastline from the air, with Mira Living on the point"
+                  src="/uploads/mira-aerial-portrait.jpg"
+                  alt="Mira Living from the air at dusk, with the Esplanade lawn in front"
                   style={{
                     position: "absolute",
                     inset: "0",
@@ -711,15 +710,15 @@ export default function Page() {
                   height={1080}
                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, (max-width: 1599px) 50vw, 740px"
                   data-chapter-img="3"
-                  src="/uploads/bargara-beach-aerial.jpg"
-                  alt="Bargara beach and the rock groyne from the air, a short walk from Mira Living"
+                  src="/uploads/bargara-coast-aerial.jpg"
+                  alt="The Bargara coastline from the air: the beach curving towards the village, with the cane fields beyond"
                   style={{
                     position: "absolute",
                     inset: "0",
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "60% 50%",
+                    objectPosition: "54% 45%",
                     opacity: "0",
                     transform: "scale(1.04)",
                     transition: "opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)",
@@ -1043,7 +1042,7 @@ export default function Page() {
                   whiteSpace: "nowrap",
                 }}
               >
-                06 / 11
+                06 / 10
               </span>
               <span
                 data-reveal="rule"
@@ -1274,26 +1273,25 @@ export default function Page() {
             }}
           >
             <Image
-              width={1920}
-              height={1080}
+              width={2400}
+              height={1600}
               sizes="(max-width: 639px) 95vw, (max-width: 1023px) 55vw, (max-width: 1599px) 60vw, 1160px"
               data-reveal="mask"
-              src="/uploads/bargara-headland-coast-aerial.jpg"
-              alt="The Bargara headland and coastline from the air, with Mira Living on the point"
+              src="/uploads/mira-entrance-signage.jpg"
+              alt="The Mira Living entrance at golden hour, palm shadows falling across the signage"
               style={{
                 position: "absolute",
                 inset: "0",
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "12% 50%",
+                objectPosition: "64% 50%",
                 display: "block",
-                backgroundColor: "#7b7974",
+                backgroundColor: "#c9a06a",
               }}
             />
           </div>
         </section>
-        <TrackRecordHome />
         {/* 04 Mira Living showcase: image to the left edge, metadata alongside */}
         <section
           data-screen-label="Mira Living"
@@ -1338,7 +1336,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  08 / 11
+                  07 / 10
                 </span>
                 <span
                   data-reveal="rule"
@@ -1391,11 +1389,11 @@ export default function Page() {
             >
               <Image
                 width={2400}
-                height={1600}
+                height={1799}
                 sizes="(max-width: 639px) 95vw, (max-width: 1023px) 100vw, (max-width: 1599px) 60vw, 1100px"
                 data-reveal="mask"
-                src="/uploads/mira-building-dusk-aerial.jpg"
-                alt="Mira Living at dusk, from the air above the Esplanade"
+                src="/uploads/mira-dusk-aerial-close.jpg"
+                alt="Mira Living at dusk from the air, its lights on above the Esplanade"
                 style={{
                   position: "absolute",
                   inset: "0",
@@ -1715,8 +1713,8 @@ export default function Page() {
               height={1600}
               sizes="(max-width: 639px) 95vw, (max-width: 1023px) 100vw, (max-width: 1599px) 100vw, 100vw"
               data-reveal="mask"
-              src="/uploads/mira-living-room-balcony.jpg"
-              alt="Living room opening through sliding doors to the balcony and the Esplanade parkland"
+              src="/uploads/mira-balcony-dining-living.jpg"
+              alt="Balcony dining, with the living room opening up behind it"
               style={{
                 position: "absolute",
                 inset: "0",
@@ -1802,7 +1800,7 @@ export default function Page() {
                 data-reveal="rule"
                 style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
               />
-              09 / 11 · The residences
+              08 / 10 · The residences
               <span
                 data-reveal="rule"
                 style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
@@ -2191,7 +2189,7 @@ export default function Page() {
               >
                 <div data-card="photo" style={{ borderRadius: "12px", overflow: "hidden", aspectRatio: "1/1", background: "#EEE9DF" }}>
                   <Image
-                    width={1920}
+                    width={1600}
                     height={2400}
                     sizes="(max-width: 639px) 30vw, (max-width: 1023px) 25vw, (max-width: 1599px) 10vw, 170px"
                     data-reveal="image"
@@ -2202,6 +2200,7 @@ export default function Page() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      objectPosition: "50% 48%",
                       backgroundColor: "#dbd1bc",
                     }}
                   />
@@ -2328,7 +2327,7 @@ export default function Page() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  10 / 11
+                  09 / 10
                 </span>
                 <span
                   data-reveal="rule"
@@ -2638,8 +2637,8 @@ export default function Page() {
                     height={1600}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px"
                     data-reveal="mask"
-                    src="/uploads/mira-dining.jpg"
-                    alt="Dining table in front of the open-plan kitchen"
+                    src="/uploads/mira-lobby.jpg"
+                    alt="The Mira Living lobby, with its timber ceiling and woven pendant light"
                     style={{
                       display: "block",
                       width: "100%",
@@ -2799,12 +2798,12 @@ export default function Page() {
                   }}
                 >
                   <Image
-                    width={1920}
-                    height={1080}
+                    width={2400}
+                    height={1600}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px"
                     data-reveal="mask"
                     src="/uploads/mira-street-elevation.jpg"
-                    alt="Mira Living complete, seen from the Esplanade lawn"
+                    alt="Mira Living at dusk, from the corner of the Esplanade"
                     style={{
                       display: "block",
                       width: "100%",
@@ -2966,12 +2965,12 @@ export default function Page() {
                   }}
                 >
                   <Image
-                    width={1448}
-                    height={1086}
+                    width={2400}
+                    height={1600}
                     sizes="(max-width: 639px) 90vw, (max-width: 1023px) 90vw, (max-width: 1599px) 50vw, 690px"
                     data-reveal="mask"
-                    src="/uploads/mira-headland-aerial.jpg"
-                    alt="Mira Living on the Bargara headland, seen from over the sea"
+                    src="/uploads/mira-sunrise-aerial.jpg"
+                    alt="Sunrise over the sea from above Mira Living"
                     style={{
                       display: "block",
                       width: "100%",
@@ -3173,7 +3172,7 @@ export default function Page() {
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}
                 />
-                11 / 11 · Who we are
+                10 / 10 · Who we are
                 <span
                   data-reveal="rule"
                   style={{ display: "block", width: "32px", height: "1px", background: "#D3B995" }}

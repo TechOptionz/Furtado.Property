@@ -31,7 +31,7 @@ npm run build && npm start
   edit them directly and keep the header. Header/form behaviour (state, effects) lives in the `COMPONENTS` config at
   the top of that script.
 - **Handwritten files** — everything else: `app/layout.tsx`, `app/globals.css`, the `/projects`, `/contact`,
-  `/privacy` and `/terms` routes, the remaining `components/` (intro, hero, story, track record, chat, …), `lib/`,
+  `/privacy` and `/terms` routes, the remaining `components/` (intro, hero, story, chat, …), `lib/`,
   `app/api/enquiry/route.ts` and `scripts/`.
 - **Motion** — `lib/site.js` is the design's reveal / scroll-scene script (`data-reveal`, `data-scene`, …), started
   from `SiteEffects` on load and after each navigation. It is IntersectionObserver-only (no scroll listeners), animates

@@ -547,8 +547,8 @@ main h3:not([class]) {
 }
 /* Eyebrow lines ("09 / 11 —— How we work"). The export sets them at 11px in a pale bronze with a hairline rule,
    which is hard to read; scripts/convert.mjs tags them .eyebrow (.on-dark on the green bands; HomeHero sets it by
-   hand) and they run at 13px, heavier, less widely spaced and darker. The handwritten eyebrows (TrackRecord,
-   contact) use the same tokens. */
+   hand) and they run at 13px, heavier, less widely spaced and darker. The handwritten eyebrows
+   (contact) use the same tokens. */
 .eyebrow {
   font-size: var(--fs-eyebrow) !important;
   font-weight: 700 !important;

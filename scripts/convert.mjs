@@ -50,7 +50,7 @@ const BARGARA = dropSection(['Bargara intro', 'Bargara'], 11, '07 Bargara: dark 
 const PAGES = [
   {
     file: 'Home', out: 'app/page.tsx', noPreload: true, extra: '<HomeStory /><CountUp />',
-    extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";\nimport { TrackRecordHome } from "@/components/TrackRecord";\nimport EnquiryBackdrop from "@/components/EnquiryBackdrop";',
+    extraImport: 'import HomeStory from "@/components/HomeStory";\nimport HomeHero from "@/components/HomeHero";\nimport CountUp from "@/components/CountUp";\nimport EnquiryBackdrop from "@/components/EnquiryBackdrop";',
     // The video hero (components/HomeHero.tsx) opens the page and owns the h1; the story below it starts at #story.
     // The export's first story chapter repeats the hero (same headline, copy and buttons), so it is dropped and the
     // remaining five are renumbered; the new first chapter starts visible. Captions live in components/HomeStory.tsx.
@@ -129,25 +129,20 @@ const PAGES = [
       const eyebrow = copy.querySelector('div');
       eyebrow.setAttribute('style', eyebrow.getAttribute('style').replace('color:#8C6A44', 'color:#D3B995'));
     },
-    // Last, the numbers close the gap the Bargara scene left ("11 / 11" → "10 / 10"), the handwritten track-record
-    // section (components/TrackRecord.tsx) goes in after "The company" as 07, and the sections from Mira Living on
-    // move down one ("07 / 10" → "08 / 11").
-    patch: (jsx) => addSection('<TrackRecordHome />', '04 Mira Living showcase: image to the left edge, metadata alongside', 7, 10).patch(BARGARA.patch(jsx
+    // Last, the numbers close the gap the Bargara scene left ("11 / 11" → "10 / 10").
+    patch: (jsx) => BARGARA.patch(jsx
       .replace(/(<main\b[^>]*>)/, '$1<HomeHero />')
       .replace('data-world=""', 'data-world="" id="story"')
       .replace(/(<section\b[^>]*className="enquiry-glass"[^>]*>)/, '$1<EnquiryBackdrop />')
       // The centred labels carry their running number as bare text ("09 / 12 · The residences").
-      .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`))),
+      .replace(/(\d\d) \/ 12 ·/g, (_, n) => `${String(n - 1).padStart(2, '0')} / 11 ·`)),
   },
   // The aerial image break (photo + overlapping quote card) is dropped, and the running section numbers close the
   // gap ("06 / 06" → "05 / 05").
-  // About gains a handwritten track-record section (components/TrackRecord.tsx, the communities in
-  // lib/track-record.ts): the summary before "How we work". It numbers itself 04, and its figures count up
-  // (components/CountUp.tsx).
   {
     file: 'About', out: 'app/about/page.tsx', extra: '<CountUp />',
-    extraImport: 'import { TrackRecordSummary } from "@/components/TrackRecord";\nimport CountUp from "@/components/CountUp";',
-    ...chain(dropSection('Image', 6), addSection('<TrackRecordSummary />', 'How we work: dark band', 4, 5)),
+    extraImport: 'import CountUp from "@/components/CountUp";',
+    ...dropSection('Image', 6),
   },
   // Mira Living's own Bargara section (photo cards and distances) makes way for the Bargara scene from Home, which
   // covers the same places and takes over its running number. In "Construction progress" the excavation photograph
