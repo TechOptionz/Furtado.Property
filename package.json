@@ -11,7 +11,9 @@
     "convert": "node scripts/convert.mjs",
     "assets": "node scripts/optimize-assets.mjs && node scripts/image-variants.mjs",
     "variants": "node scripts/image-variants.mjs",
-    "sizes": "node scripts/measure-image-sizes.mjs"
+    "sizes": "node scripts/measure-image-sizes.mjs",
+    "mail:test": "node --no-warnings scripts/send-test-mail.mjs",
+    "mail:logo": "node scripts/email-logo.mjs"
   },
   "dependencies": {
     "next": "16.3.5",
