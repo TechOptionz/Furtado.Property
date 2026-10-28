@@ -101,7 +101,12 @@ export const miraLiving: Project = {
 // West End's figures are from the development application Furtado Property (FP Margate Pty Ltd) lodged with Brisbane
 // City Council, received 9 September 2026, as reported publicly. It is a proposal: never describe it as approved,
 // under construction or complete. The renders are MAS Architecture's, from the application.
-// Mount Gravatt is a placeholder until the client supplies its details (scale, mix, stage and renders).
+// Mount Gravatt's figures are from MAS Architecture's development application report for 32–34 Lauder Street,
+// Mount Gravatt East (August 2026), supplied by the client on 27 October 2026: five levels, 30 apartments,
+// construction expected to begin early 2027. The client has not settled the project's name, so the working title in
+// the report is deliberately not used here; the entry is called after its suburb until a name is confirmed. The
+// renders are MAS Architecture's, from the report. Like West End it is a proposal: never describe it as approved,
+// under construction or complete.
 export const upcomingProjects: UpcomingProject[] = [
   {
     number: "01",
@@ -140,19 +145,41 @@ export const upcomingProjects: UpcomingProject[] = [
   {
     number: "02",
     name: "Mount Gravatt",
-    type: "Residential",
-    location: "Mount Gravatt, Brisbane",
+    type: "Residential apartments",
+    location: "Lauder Street, Mount Gravatt East",
     description:
-      "A second Brisbane address, on the city's south side close to Garden City, Griffith University and the busway. The scale and mix of the residences will be announced here once the design is settled.",
-    stage: "Design",
-    figures: [],
-    team: [],
-    details: [],
+      "Thirty apartments over five levels on a quiet street on Brisbane's south side, minutes from Westfield Garden City, Griffith University and the Mount Gravatt Lookout. Deep, planted balconies, timber-battened screens and a tree-lined rooftop draw on the bushland of the mountain itself, with filtered light and cross-breezes through every home.",
+    stage: "Planning",
+    stageNote: "Development application prepared · August 2026 · construction expected to begin early 2027",
+    figures: [
+      { label: "Levels", value: "5" },
+      { label: "Apartments", value: "30" },
+      { label: "Construction start", value: "Early 2027" },
+    ],
+    team: [
+      { label: "Architect", value: "MAS Architecture" },
+      { label: "Town planner", value: "Urbicus" },
+      { label: "Landscape", value: "AS Design" },
+    ],
+    lead: photo(
+      "/uploads/mount-gravatt-street.jpg",
+      "Indicative render of the proposed five-level Mount Gravatt building from Lauder Street, with deep planted balconies, timber-battened screens and trees along the rooftop",
+    ),
+    details: [
+      photo(
+        "/uploads/mount-gravatt-rear.jpg",
+        "Indicative render of the rear facade: stepped balconies and full-height glazing above a landscaped garden",
+      ),
+      photo(
+        "/uploads/mount-gravatt-balconies.jpg",
+        "Indicative render looking up from the entry: stacked balconies with planted edges and timber battens",
+      ),
+    ],
   },
 ];
 
 export const upcomingDisclaimer =
-  "Images are indicative only. West End is a proposed development, lodged with Brisbane City Council in September 2026 and not yet approved, under construction or complete. Upcoming projects are subject to site acquisition, design development and planning approval; names, locations and details may change.";
+  "Images are indicative only. West End is a proposed development, lodged with Brisbane City Council in September 2026 and not yet approved, under construction or complete. Mount Gravatt is a proposed development with a development application prepared in August 2026; it is not yet approved, under construction or complete, and its name is yet to be confirmed. Upcoming projects are subject to site acquisition, design development and planning approval; names, locations and details may change.";
 
 export const hero = {
   image: photo("/uploads/bargara-coast-aerial.jpg", "The Bargara coastline and Esplanade from the air, with Mira Living on the headland"),
